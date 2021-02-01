@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fleck;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,29 @@ namespace WEB_SOCKET
     {
         static void Main(string[] args)
         {
-
+            var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
+            websocketServer.Start(connection =>
+            {
+                connection.OnOpen = () =>
+                  Console.WriteLine("OnOpen");
+                connection.OnClose = () =>
+                  Console.WriteLine("OnClose");
+                connection.OnMessage = message =>
+                  Console.WriteLine($"OnMessage {message}");
+                connection.OnError = exception =>
+                  Console.WriteLine($"OnError {exception.Message}");
+                connection.OnPing = bytes =>
+                  Console.WriteLine("OnPing");
+                connection.OnPong = bytes =>
+                  Console.WriteLine("OnPong");
+                connection.OnMessage = message =>
+                {
+                    Console.WriteLine($"OnMessage {message}");
+                    connection.Send($"Echo: {message}");
+                };
+            });
+            Console.WriteLine("PRESS A KEY TO CLOSE THE SERVER...");
+            Console.ReadKey();
         }
     }
 }
