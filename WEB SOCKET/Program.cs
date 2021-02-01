@@ -15,9 +15,12 @@ namespace WEB_SOCKET
             websocketServer.Start(connection =>
             {
                 connection.OnOpen = () =>
-                  Console.WriteLine("OnOpen");
+                {
+                    Console.WriteLine("ON");
+                    connection.Send($"CONNESSO");
+                };
                 connection.OnClose = () =>
-                  Console.WriteLine("OnClose");
+                  Console.WriteLine("OFF");
                 connection.OnMessage = message =>
                   Console.WriteLine($"OnMessage {message}");
                 connection.OnError = exception =>
