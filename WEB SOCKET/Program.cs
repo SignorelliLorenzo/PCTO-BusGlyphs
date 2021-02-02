@@ -11,32 +11,45 @@ namespace WEB_SOCKET
     {
         static void Main(string[] args)
         {
+
             var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
             websocketServer.Start(connection =>
             {
+
                 connection.OnOpen = () =>
                 {
-                    Console.WriteLine("ON");
+                    Console.WriteLine("CLIENT CONNESSO");
                     connection.Send($"CONNESSO");
                 };
                 connection.OnClose = () =>
-                  Console.WriteLine("OFF");
+                  Console.WriteLine("CLIENT DISCONNESSO");
                 connection.OnMessage = message =>
-                  Console.WriteLine($"OnMessage {message}");
+                {
+                    Console.WriteLine($"OnMessage {message}");
+                    if (message == "Richiesta")
+                    {
+                        connection.Send("c");
+                    }
+                };
+
                 connection.OnError = exception =>
                   Console.WriteLine($"OnError {exception.Message}");
                 connection.OnPing = bytes =>
                   Console.WriteLine("OnPing");
                 connection.OnPong = bytes =>
-                  Console.WriteLine("OnPong");
-                connection.OnMessage = message =>
                 {
-                    Console.WriteLine($"OnMessage {message}");
-                    connection.Send($"Echo: {message}");
+                    Console.WriteLine("OnPong");
+                    connection.Close();
                 };
+
+
             });
-            Console.WriteLine("PRESS A KEY TO CLOSE THE SERVER...");
-            Console.ReadKey();
+            string f = default;
+            while (f != "quit")
+            {
+                f = Console.ReadLine();
+
+            }
         }
     }
 }
