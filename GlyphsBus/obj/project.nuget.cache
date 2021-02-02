@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hnRPOEBIj7iJd+Yf0sAcGeEGmxNAQvAJVdhVQ7qpBLJ/XjBIGpRPca399RJzbV1AF6I8l5P3O0B/qnROh84zqw==",
+  "dgSpecHash": "uAApz+DuxYvzukpvKg6EpkvQp/j5io1F44PyOsgx1+m3rSuMeRWR7CPh+0wfdvdTxn+lw67g1BxF/QDQhAe3dg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+  "projectFilePath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
   "expectedPackageFiles": [
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.common\\1.1.1.3\\xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.runtime\\1.1.1.3\\xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",
@@ -39,7 +39,7 @@
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512"
+    "C:\\Users\\andrea\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512"
   ],
   "logs": []
 }

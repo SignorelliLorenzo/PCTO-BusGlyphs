@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyphsBus", "GlyphsBus.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basic Test", "..\Basic Test\Basic Test.csproj", "{FBB37CAC-47A7-4C0C-BA7A-5A0ADC9D6F3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB SOCKET", "..\WEB SOCKET\WEB SOCKET.csproj", "{EE224651-23FA-40E2-9D50-4074FD552133}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_SOCKET_SERVER", "..\WEB SOCKET\WEB_SOCKET_SERVER.csproj", "{EE224651-23FA-40E2-9D50-4074FD552133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
