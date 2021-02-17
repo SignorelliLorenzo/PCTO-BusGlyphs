@@ -9,19 +9,9 @@ namespace WEBSOCKET_CLIENT
 {
     public class WebSocket_Client : IDisposable
     {
-        public string log = "*log del server*";
-
         private WebSocket Client;
 
         private int _timeout;
-
-        public int timeout
-        {
-            get
-            {
-                return _timeout;
-            }
-        }
 
         private bool stato;
 
@@ -64,7 +54,7 @@ namespace WEBSOCKET_CLIENT
             this.Client.Open();
 
             int timeout = 0;
-            while (this.Client.State == WebSocketState.Connecting && timeout < this.timeout)
+            while (this.Client.State == WebSocketState.Connecting && timeout < this._timeout)
             {
                 Thread.Sleep(1);
                 timeout++;

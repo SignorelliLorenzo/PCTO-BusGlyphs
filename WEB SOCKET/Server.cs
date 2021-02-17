@@ -10,11 +10,9 @@ namespace WEBSOCKET_SERVER
     {
         static void Main(string[] args)
         {
-            int x = 0;
             var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
             websocketServer.Start(connection =>
             {
-                bool stato = true;
 
                 connection.OnOpen = () =>
                 {
@@ -24,7 +22,6 @@ namespace WEBSOCKET_SERVER
                 connection.OnClose = () =>
                 {
                     Console.WriteLine("CLIENT DISCONNESSO");
-                    stato = false;
                 };
                 connection.OnMessage = message =>
                 {
