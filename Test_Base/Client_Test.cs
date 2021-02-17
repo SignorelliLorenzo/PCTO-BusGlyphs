@@ -1,11 +1,10 @@
 using System;
 using Xunit;
 using Moq;
-using WEBSOCKET_SERVER;
 
-namespace Server_Testing
+namespace Test_Base
 {
-    public class UnitTest1
+    public class Client_Test
     {
         [Fact]
         public void Test1()
