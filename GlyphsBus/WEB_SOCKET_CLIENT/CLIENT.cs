@@ -1,17 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Dynamic;
 using System.Text;
-using System.Net.WebSockets;
 using System.Threading;
+using WebSocket4Net;
 
-
-
-namespace GlyphsBus.WEB_SOCKET_CLIENT
+namespace WEBSOCKET_CLIENT
 {
-    class Client:IDisposable
+    public class WebSocket_Client : IDisposable
     {
+        public string log = "*log del server*";
+
+        private WebSocket Client;
+
+        private int _timeout;
+
+        public int timeout
+        {
+            get
+            {
+                return _timeout;
+            }
+        }
+
+        private bool stato;
+
         private string _coordinate;
+        /// <summary>
+        /// Valore coordinate in tempo reale
+        /// </summary>
         public string coordinate
         {
             get
@@ -19,58 +36,84 @@ namespace GlyphsBus.WEB_SOCKET_CLIENT
                 return _coordinate;
             }
         }
-        private void Funzione(string indirizzo)
+
+        //Funzioni
+        private void MessaggioRicevuto(object a, MessageReceivedEventArgs b)
         {
-            //Crea la connessione
-            var websocketClient = new ClientWebSocket();
-            var cancellationToken = new CancellationTokenSource();
-
-
-            var connection = websocketClient.ConnectAsync(
-              new Uri("ws://127.0.0.1:8181"),
-              cancellationToken.Token);
-
-            //Codice eseguito se la connessione ha avuto successo
-            connection.ContinueWith(async tsk =>
+            if (this.stato == true)
             {
-                var buffer = new byte[128];
-
-                //Richieste periodiche
-                while (true)
-                {
-                    Thread.Sleep(3000);
-                    Array.Clear(buffer, 0, 127);
-                    await websocketClient.SendAsync(
-                    new ArraySegment<byte>(Encoding.UTF8.GetBytes("Richiesta")),
-                    WebSocketMessageType.Text,
-                    true,
-                    cancellationToken.Token);
-
-                    await websocketClient.ReceiveAsync(
-                    new ArraySegment<byte>(buffer), cancellationToken.Token);
-
-
-                    _coordinate = Encoding.UTF8.GetString(buffer);
-                }
-
-            });
+                this.Client.Send(stato.ToString());
+                this._coordinate = b.Message;
+            }
+            else if (this.stato == false)
+                this.Client.Send(stato.ToString());
         }
-        public Client(string indirizzo)
+
+        private void Initialize(string indirizzo)
         {
-            Funzione(indirizzo);
+            this.Client = new WebSocket(indirizzo);
+
+            this.Client.MessageReceived += MessaggioRicevuto;
+
+            this.Client.Closed += (a, b) =>
+            {
+                if (this.stato)
+                    throw new Exception("Connessione improvvisamente interrotta");
+            };
+
+            this.Client.Open();
+
+            int timeout = 0;
+            while (this.Client.State == WebSocketState.Connecting && timeout < this.timeout)
+            {
+                Thread.Sleep(1);
+                timeout++;
+            }
+
+            if (this.Client.State != WebSocketState.Open)
+                throw new Exception("Connessione fallita");
+
+            //Bool.Tostring() restituisce con la maiuscola, True, False
+            this.Client.Send(stato.ToString());
+
         }
-
-
-        public virtual void Dispose()
+        /// <summary>
+        /// Inizializza la connessione e inizia la ricezione dati
+        /// </summary>
+        /// <param name="indirizzo">Indirizzo ip del server web</param>
+        /// <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param>
+        public WebSocket_Client(string indirizzo, int timeout = 1000)
         {
-            //// Chiude la connessione
-            //websocketClient.CloseAsync(
-            //   WebSocketCloseStatus.NormalClosure,
-            //   String.Empty,
-            //   cancellationToken.Token);
-
-            //cancellationToken.Cancel();
+            this.stato = true;
+            if (timeout <= 0)
+                throw new Exception("Valore timeout non valido");
+            _timeout = timeout;
+            Initialize(indirizzo);
         }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        private bool isdisposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+
+            if (isdisposed)
+                return;
+            else
+            {
+                this.stato = false;
+                this.Client.Dispose();
+                isdisposed = true;
+            }
+        }
+        ~WebSocket_Client()
+        {
+            Dispose(false);
+        }
+
 
     }
 }
