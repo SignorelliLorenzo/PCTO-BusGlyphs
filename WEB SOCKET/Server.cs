@@ -1,20 +1,20 @@
-﻿using Fleck;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+using Fleck;
 
-namespace WEB_SOCKET
+namespace WEBSOCKET_SERVER
 {
-    class Program
+    class Server
     {
         static void Main(string[] args)
         {
-
+            int x = 0;
             var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
             websocketServer.Start(connection =>
             {
+                bool stato = true;
 
                 connection.OnOpen = () =>
                 {
@@ -22,14 +22,15 @@ namespace WEB_SOCKET
                     connection.Send($"CONNESSO");
                 };
                 connection.OnClose = () =>
-                  Console.WriteLine("CLIENT DISCONNESSO");
+                {
+                    Console.WriteLine("CLIENT DISCONNESSO");
+                    stato = false;
+                };
                 connection.OnMessage = message =>
                 {
-                    Console.WriteLine($"OnMessage {message}");
-                    if (message == "Richiesta")
-                    {
-                        connection.Send("c");
-                    }
+                    if (message == "True")
+                        connection.Send("Pacchetto");
+
                 };
 
                 connection.OnError = exception =>
@@ -41,8 +42,6 @@ namespace WEB_SOCKET
                     Console.WriteLine("OnPong");
                     connection.Close();
                 };
-
-
             });
             string f = default;
             while (f != "quit")
