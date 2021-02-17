@@ -31,14 +31,10 @@ namespace WEBSOCKET_SERVER
                 };
 
                 connection.OnError = exception =>
-                  Console.WriteLine($"OnError {exception.Message}");
-                connection.OnPing = bytes =>
-                  Console.WriteLine("OnPing");
-                connection.OnPong = bytes =>
                 {
-                    Console.WriteLine("OnPong");
-                    connection.Close();
+                    Console.WriteLine($"OnError {exception.Message}");
                 };
+
             });
             string f = default;
             while (f != "quit")
