@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GlyphsBus"
+    "\\GlyphsBus",
+    "\\WEB SOCKET"
   ],
-  "SelectedNode": "\\Documentation",
+  "SelectedNode": "\\GlyphsBus\\GlyphsBus.sln",
   "PreviewInSolutionExplorer": false
 }
