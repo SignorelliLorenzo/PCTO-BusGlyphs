@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj": {}
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
         "projectName": "GlyphsBus",
-        "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
-        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -62,32 +62,31 @@
         }
       }
     },
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
         "projectName": "WEB_SOCKET_SERVER",
-        "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj",
         "projectName": "XUnitTest_socket",
-        "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj",
-        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\obj\\",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\XUnitTest_socket.csproj",
+        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\XUnitTest_socket\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -100,12 +99,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
-                "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj"
+              "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
+                "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj"
               },
-              "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-                "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+              "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+                "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
               }
             }
           }
@@ -118,22 +118,23 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.8.3, )"
+              "version": "[16.2.0, )"
             },
             "coverlet.collector": {
               "target": "Package",
-              "version": "[3.0.2, )"
+              "version": "[1.2.0, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.1, )"
+              "version": "[2.4.0, )"
             },
             "xunit.runner.visualstudio": {
               "target": "Package",
-              "version": "[2.4.3, )"
+              "version": "[2.4.0, )"
             }
           },
           "imports": [
@@ -151,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

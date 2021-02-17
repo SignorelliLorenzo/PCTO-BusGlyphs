@@ -1,0 +1,107 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "projectName": "Server Testing",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+                "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.7.1, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
+        "projectName": "WEB_SOCKET_SERVER",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}
