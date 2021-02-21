@@ -11,7 +11,7 @@ namespace Test_Base
     public class AForge_Test
     {
         [Fact]
-        public void Test1()
+        public void IsImagePathCorrect()
         {
             //Arrange
             int result = 0;
@@ -24,7 +24,7 @@ namespace Test_Base
             result.Should().NotBe(-1);          
         }
         [Fact]
-        public void Test2()
+        public void IsGlyphImage()
         {
             //Arrange
             int result = 0;
