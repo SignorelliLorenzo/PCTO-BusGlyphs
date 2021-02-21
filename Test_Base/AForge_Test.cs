@@ -21,8 +21,20 @@ namespace Test_Base
             result = Funzioni.FindG(test);
 
             //Assert
-            result.Should().NotBe(-1);
-           
+            result.Should().NotBe(-1);          
+        }
+        [Fact]
+        public void Test2()
+        {
+            //Arrange
+            int result = 0;
+            string test = "black";
+
+            //Act
+            result = Funzioni.FindG(test);
+
+            //Assert
+            result.Should().Be(0);
         }
     }
 }
