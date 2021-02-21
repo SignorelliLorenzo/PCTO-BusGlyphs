@@ -6674,11 +6674,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+      "projectUniqueName": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
       "projectName": "Server Testing",
-      "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+      "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
       "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+      "outputPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -6699,8 +6699,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-              "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+            "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+              "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
             }
           }
         }

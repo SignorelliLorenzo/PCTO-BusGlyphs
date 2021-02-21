@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "epFFsrA4+ghHpxHUTK5Vy3YmN63l9nYzXcKQvW8KUXOwlALAAjvkYFOFdkv4pPznW6lWHmTzmuaAa66X/R/NeQ==",
+  "dgSpecHash": "kA0i38TuM7rhtPzIxWsavjD7o+JfmnvXlkbempkw7sB2U91G1+eXTJDmV2f8TaaQIulo3MeF4/dDLRiGu+gICQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+  "projectFilePath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gabry\\.nuget\\packages\\supersocket.clientengine.core\\0.10.0\\supersocket.clientengine.core.0.10.0.nupkg.sha512",
     "C:\\Users\\Gabry\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",

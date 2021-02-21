@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q0OKQkSKPUo5hjqpC5VD6cUvUWAT77t/Cfgr5Ixb2QNwROxLwcvbM7Kc5rhmEUwsFFBCNyaWordAT3MH6TRN3Q==",
+  "dgSpecHash": "xWO7EM8EI/7p0BA/qOXB3bxrq87STw23Cn6aoTuRi3LC8HtrtplCnnfuVFqT2wFJEWD9kJcGJRbpDnwFa4UrdQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+  "projectFilePath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gabry\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Gabry\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",

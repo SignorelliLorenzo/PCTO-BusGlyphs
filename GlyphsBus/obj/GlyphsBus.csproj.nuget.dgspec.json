@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {}
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "projectUniqueName": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
         "projectName": "GlyphsBus",
-        "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
         "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
+        "outputPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

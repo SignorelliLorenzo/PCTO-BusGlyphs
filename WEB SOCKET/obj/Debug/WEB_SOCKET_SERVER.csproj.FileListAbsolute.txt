@@ -16,3 +16,7 @@ C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Deb
 C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csproj.CopyComplete
 C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.exe
 C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.pdb
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csprojAssemblyReference.cache
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csproj.CoreCompileInputs.cache
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.exe
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.pdb

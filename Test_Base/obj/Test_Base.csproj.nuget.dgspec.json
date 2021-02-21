@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {}
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+        "projectUniqueName": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
         "projectName": "Test_Base",
-        "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+        "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
         "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\obj\\",
+        "outputPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
