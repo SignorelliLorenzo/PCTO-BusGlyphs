@@ -31,7 +31,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+                "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -44,6 +48,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.3, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.2.0, )"
@@ -82,6 +90,16 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
+        "projectName": "WEB_SOCKET_SERVER",
+        "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

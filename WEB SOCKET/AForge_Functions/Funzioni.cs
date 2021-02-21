@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AForge.Vision.GlyphRecognition;
+using System.IO;
 
 
 namespace Glyphs
@@ -15,7 +16,7 @@ namespace Glyphs
         public static void AddGlyphData()
         {
             GlyphDatabase glyphDatabase = new GlyphDatabase(5);
-
+            
             //1
             glyphDatabase.Add(new Glyph("Creeper", new byte[5, 5] {
             { 0, 0, 0, 0, 0 },
@@ -45,7 +46,7 @@ namespace Glyphs
             Bitmap image;
             try
             {
-                image = new Bitmap($@"C:\Users\Gabry\Desktop\images\{img}.jpg", true);
+                image = new Bitmap(Directory.GetCurrentDirectory()+$"{img}.jpg", true);
             }
             catch
             {
@@ -58,5 +59,6 @@ namespace Glyphs
             }
             return x;
         }
+        
     }
 }
