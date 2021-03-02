@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "54qXo2i8jxANCk7PzYwrXSZs2c/wDACqycxgJLYJAk8m4oh0Gfa/gvqCBI5LFSlJUAL5iAXNsbsj0/zxtKrurg==",
+  "dgSpecHash": "qN8mX64YlWAO6y9tY4xPLcSfpXrTdPWcbPtFW1FXKGsrn86QmwhvQ4wBoQasC7BkV9QOHc1/VmfZCyjrXbhakA==",
   "success": true,
   "projectFilePath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\LORY\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
