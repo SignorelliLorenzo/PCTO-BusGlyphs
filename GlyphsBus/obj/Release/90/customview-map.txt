@@ -7,6 +7,7 @@ android.support.design.widget.FloatingActionButton;obj\Release\90\res\layout\act
 android.support.v7.widget.Toolbar;obj\Release\90\res\layout\activity_main.xml
 background;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Release\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+Button;obj\Release\90\res\layout\content_main.xml
 cache-path;C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\GlyphsBus\obj\Release\90\lp\35\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Release\90\res\values\colors.xml
 color;obj\Release\90\res\values\ic_launcher_background.xml
