@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1ebbicctfBcKM/mru1Z94KGuFI4rXP+DpwMjnwHyeRSe7+xUzkCniL/qXZvDDzgy0DHy+0Xqh0ih4S9oBhY0Ag==",
+  "dgSpecHash": "GXeOZnm32x97XZ9PmwHJsnjp+isd2ORLw+JDGkoR2qSWf5u4V37uHhsqGpotcgUpzDVhzbUjfqGMfhMz95g/pQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andrea\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
