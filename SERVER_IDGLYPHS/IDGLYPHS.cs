@@ -16,12 +16,13 @@ namespace SERVER_IDGLYPHS
     public class mex
     {
         public int codfermata { get; set; }
-        public List<string> Percorsi = new List<string>();
+        public List<Percorso> Percorsi = new List<Percorso>();
         private string _direzione;
         public string direzione
         {
             get { return direzione; }
-            set{
+            set
+            {
                 if (value != "ANDATA" && value != "RITORNO" && value != "ENTRAMBE")
                 {
                     throw new Exception("Inserire uno stato valido");
@@ -30,9 +31,11 @@ namespace SERVER_IDGLYPHS
             }
 
         }
-        
+
+
+
     }
-    
+
 
     class IDGLYPHS
     {
@@ -157,7 +160,7 @@ namespace SERVER_IDGLYPHS
                 {
                     if(v==codicefermata)
                     {
-                        NRmessage.Percorsi.Add(item.nome);
+                        NRmessage.Percorsi.Add(item);
                         NRmessage.direzione = "ANDATA";
                         break;
                     }
@@ -171,7 +174,7 @@ namespace SERVER_IDGLYPHS
                             NRmessage.direzione = "ENTRAMBE";
                             break;
                         }
-                        NRmessage.Percorsi.Add(item.nome);
+                        NRmessage.Percorsi.Add(item);
                         NRmessage.direzione = "RITORNO";
                         break;
                     }

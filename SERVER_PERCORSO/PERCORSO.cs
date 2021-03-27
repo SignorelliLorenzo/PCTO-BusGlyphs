@@ -2,16 +2,20 @@
 using Fleck;
 using Creatore_archivio_pcto;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace SERVER_PERCORSO
 {
+ 
+   
     class PERCORSO
     {
         
         static void Main(string[] args)
         {
             List<Percorso> Percorsi = new List<Percorso>();
-
+            List<Bus> Bus = new List<Bus>(); 
 
             var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
             websocketServer.Start(connection =>
@@ -28,9 +32,9 @@ namespace SERVER_PERCORSO
                 };
                 connection.OnMessage = msg =>
                 {
-                    int Attuale = int.Parse(msg.Split(";")[0]);
-                    int Destinazione = int.Parse(msg.Split(";")[1]);
-
+                    SENDSERVER message = JsonConvert.DeserializeObject<SENDSERVER>(msg);
+                    
+                    //connection.Send(getmessage(message, Percorsi, Bus));
                 };
 
                 connection.OnError = exception =>
@@ -47,17 +51,50 @@ namespace SERVER_PERCORSO
             }
 
         }
-        public static List<Bus> getmessage(int attuale,int destinazione, List<Percorso> percorsi, List<Bus> bus)
+        
+        public static List<Bus> getmessage(List<Percorso> BuoniPercorsi,int Destinazione)
         {
             int codicefermata = -1;
-            
-            foreach (var item in percorsi)
-            {
+            List<Bus> buses = new List<Bus>();
+            //foreach (var item in percorsi)
+            //{
                 
 
-            }
-            message = JsonConvert.SerializeObject(NRmessage);
-            return message;
+            //}
+           
+            return buses;
         }
+        public static bool CaricaCOD_Glyphs(ref Dictionary<string, int> listainput, string path)
+        {
+            StreamReader file = new StreamReader(path);
+            string jsonString = file.ReadToEnd();
+            file.Close();
+            try
+            {
+                listainput = JsonConvert.DeserializeObject<Dictionary<string, int>>(jsonString);
+            }
+            catch
+            {
+
+                return false;
+            }
+            return true;
+        }
+        public static bool CaricaPercorsi(ref List<Percorso> percorsi, string path)
+        {
+            StreamReader file = new StreamReader(path);
+            string jsonString = file.ReadToEnd();
+            file.Close();
+            try
+            {
+                percorsi = JsonConvert.DeserializeObject<List<Percorso>>(jsonString);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

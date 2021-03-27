@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Creatore_archivio_pcto
 {
-    class Bus:IDisposable
+    public class Bus:IDisposable
     {
         private static List<string> elecodici = new List<string>();
         private string _codice;
@@ -66,7 +66,7 @@ namespace Creatore_archivio_pcto
             return $"{this.codice} - {this.percorso.ToString()}";
         }
     }
-    class Percorso:IDisposable
+    public class Percorso:IDisposable
     {
         private static List<string> elenomi = new List<string>();
         public List<int> elefermateandata = new List<int>();
