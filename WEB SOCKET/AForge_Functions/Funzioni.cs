@@ -13,7 +13,7 @@ namespace Glyphs
 
     public class Funzioni
     {
-        public static void AddGlyphData()
+        public static GlyphDatabase AddGlyphData()
         {
             GlyphDatabase glyphDatabase = new GlyphDatabase(5);
             
@@ -38,6 +38,7 @@ namespace Glyphs
             { 0, 1, 1, 0, 0 },
             { 0, 0, 1, 1, 0 },
             { 0, 0, 0, 0, 0 } }));
+            return glyphDatabase;
         }
         public static int FindG(string img)
         {
@@ -55,9 +56,56 @@ namespace Glyphs
             List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(image);
             foreach (ExtractedGlyphData glyphData in glyphs)
             {
+               var s = Funzioni.IsInDatabase(glyphData);
+
                 x += 1;
             }
             return x;
+        }
+
+
+         public static bool FindG(Bitmap img)
+        {
+            GlyphRecognizer recognizer = new GlyphRecognizer(AddGlyphData());
+            
+           
+            List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(img);
+            foreach (ExtractedGlyphData glyphData in glyphs)
+            {
+                var s = Funzioni.IsInDatabase(glyphData);
+                if(s == true)
+                {
+                    return true;
+                }
+                
+            }
+            return false;
+
+        }
+
+        public static Bitmap ApplyImage(bool check)
+        {
+            //Da modificare
+            var image = new Bitmap($@"C:\Users\Gabry\Desktop\black.jpg", true);
+            if (check == true)
+            { return image; }
+            else 
+            { throw new Exception ("Error"); }
+
+           
+        }
+
+
+        public static bool IsInDatabase(ExtractedGlyphData glyphData)
+        {
+            
+            if(glyphData.RecognizedGlyph != null)
+            {
+                return true;
+            }
+
+            return false;
+
         }
         
     }
