@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj": {}
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj",
         "projectName": "SERVER_IDGLYPHS",
-        "projectPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj",
         "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

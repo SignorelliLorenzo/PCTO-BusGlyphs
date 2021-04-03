@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4FAAqmq/OOAJwS3XjuiTJMe2+zoFCDKXL1GWi2ADsKcH/KAXWhgZHDKgX5+IAkoGmc8VN7YfKXsYjr01l4/PkA==",
+  "dgSpecHash": "c1I2oBJkOiuIR0tv9bfl7R+6rydwOBmB80wYz3ZjQoPEarAp5E5C5AQH+ElZvMzxXiBbOVoujQLYUwRtBQm1LA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj",
+  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORY\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512",

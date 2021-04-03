@@ -4,6 +4,8 @@ using Creatore_archivio_pcto;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Messages;
+using System.Linq;
 
 namespace SERVER_PERCORSO
 {
@@ -32,9 +34,9 @@ namespace SERVER_PERCORSO
                 };
                 connection.OnMessage = msg =>
                 {
-                    SENDSERVER message = JsonConvert.DeserializeObject<SENDSERVER>(msg);
+                    mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
                     
-                    //connection.Send(getmessage(message, Percorsi, Bus));
+                    connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus , message.Destinazione)));
                 };
 
                 connection.OnError = exception =>
@@ -52,17 +54,11 @@ namespace SERVER_PERCORSO
 
         }
         
-        public static List<Bus> getmessage(List<Percorso> BuoniPercorsi,int Destinazione)
+        public static List<Bus> getmessage(List<Percorso> Percorsi,List<Bus> Bus, int Destinazione)
         {
-            int codicefermata = -1;
-            List<Bus> buses = new List<Bus>();
-            //foreach (var item in percorsi)
-            //{
-                
-
-            //}
-           
-            return buses;
+            List<Percorso> Percorsigiusti = new List<Percorso>();
+            Percorsigiusti=Percorsi.Where(x => x.elefermateandata.Contains(Destinazione) || x.elefermateritorno.Contains(Destinazione)).ToList();
+            return Bus.Where(x => Percorsigiusti.Contains(x.percorso)).ToList();
         }
         public static bool CaricaCOD_Glyphs(ref Dictionary<string, int> listainput, string path)
         {

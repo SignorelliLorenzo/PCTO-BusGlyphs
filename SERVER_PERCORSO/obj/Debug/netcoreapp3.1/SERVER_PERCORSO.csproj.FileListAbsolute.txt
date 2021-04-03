@@ -1,0 +1,4 @@
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.csprojAssemblyReference.cache
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.AssemblyInfoInputs.cache
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.AssemblyInfo.cs
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.csproj.CoreCompileInputs.cache

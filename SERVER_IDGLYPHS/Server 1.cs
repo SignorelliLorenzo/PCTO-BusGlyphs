@@ -18,22 +18,6 @@ namespace SERVER_IDGLYPHS
         public int codfermata { get; set; }
         public List<Percorso> Percorsi = new List<Percorso>();
         private string _direzione;
-        public string direzione
-        {
-            get { return direzione; }
-            set
-            {
-                if (value != "ANDATA" && value != "RITORNO" && value != "ENTRAMBE")
-                {
-                    throw new Exception("Inserire uno stato valido");
-                }
-                _direzione = value;
-            }
-
-        }
-
-
-
     }
 
 
@@ -154,33 +138,8 @@ namespace SERVER_IDGLYPHS
             string message;
             mex NRmessage = new mex();
             NRmessage.codfermata = codicefermata;
-            foreach (var item in percorsi)
-            {
-                foreach(var v in item.elefermateandata)
-                {
-                    if(v==codicefermata)
-                    {
-                        NRmessage.Percorsi.Add(item);
-                        NRmessage.direzione = "ANDATA";
-                        break;
-                    }
-                }
-                foreach (var v in item.elefermateritorno)
-                {
-                    if (v == codicefermata)
-                    {
-                        if(NRmessage.direzione== "ANDATA")
-                        {
-                            NRmessage.direzione = "ENTRAMBE";
-                            break;
-                        }
-                        NRmessage.Percorsi.Add(item);
-                        NRmessage.direzione = "RITORNO";
-                        break;
-                    }
-                }
-
-            }
+            NRmessage.Percorsi=percorsi.Where(x=> x.elefermateandata.Contains(codicefermata) || x.elefermateritorno.Contains(codicefermata)).ToList();
+  
             message = JsonConvert.SerializeObject(NRmessage);
             return message;
         }
