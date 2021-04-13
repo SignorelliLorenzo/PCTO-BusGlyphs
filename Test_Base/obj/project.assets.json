@@ -6955,25 +6955,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LORY\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\signorelli.17200\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+      "projectUniqueName": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
       "projectName": "Test_Base",
-      "projectPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
-      "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\obj\\",
+      "projectPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+      "packagesPath": "C:\\Users\\signorelli.17200\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\signorelli.17200\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -7036,7 +7034,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

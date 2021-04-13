@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-    <PackageReference Include="Moq" Version="4.16.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="WebSocket4Net" Version="0.15.2" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -23,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WEB SOCKET\WEB_SOCKET_SERVER.csproj" />
+    <ProjectReference Include="..\SERVER_IDGLYPHS\SERVER_IDGLYPHS.csproj" />
+    <ProjectReference Include="..\SERVER_PERCORSO\SERVER_PERCORSO.csproj" />
   </ItemGroup>
 
 </Project>

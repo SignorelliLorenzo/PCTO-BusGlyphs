@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Creatore_archivio_pcto
+namespace Creatore_archivio_pcto_Percorso
 {
     public class Bus:IDisposable
     {

@@ -17,11 +17,10 @@ namespace SERVER_IDGLYPHS
     {
         public int codfermata { get; set; }
         public List<Percorso> Percorsi = new List<Percorso>();
-        private string _direzione;
     }
 
 
-    class IDGLYPHS
+    public class IDGLYPHS
     {
         static Dictionary<string,int>  CODGlyphs=new Dictionary<string, int>();
         static List<Percorso> Percorsi = new List<Percorso>();
@@ -98,6 +97,10 @@ namespace SERVER_IDGLYPHS
 
         public static bool CaricaCOD_Glyphs(ref Dictionary<string, int> listainput, string path)
         {
+            if(!File.Exists(path))
+            {
+                return false;
+            }
             StreamReader file = new StreamReader(path);
             string jsonString = file.ReadToEnd();
             file.Close();
@@ -114,6 +117,10 @@ namespace SERVER_IDGLYPHS
         }
         public static bool CaricaPercorsi(ref List<Percorso> percorsi, string path)
         {
+            if (!File.Exists(path))
+            {
+                return false;
+            }
             StreamReader file = new StreamReader(path);
             string jsonString = file.ReadToEnd();
             file.Close();
@@ -139,8 +146,11 @@ namespace SERVER_IDGLYPHS
             mex NRmessage = new mex();
             NRmessage.codfermata = codicefermata;
             NRmessage.Percorsi=percorsi.Where(x=> x.elefermateandata.Contains(codicefermata) || x.elefermateritorno.Contains(codicefermata)).ToList();
-  
+            if (NRmessage.Percorsi.Count==0)
+                return "ERRORE: Fermata non trovata";
+
             message = JsonConvert.SerializeObject(NRmessage);
+            
             return message;
         }
     }
