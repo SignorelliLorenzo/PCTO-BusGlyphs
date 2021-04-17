@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SERVER_IDGLYPHS\SERVER_IDGLYPHS.csproj" />
-    <ProjectReference Include="..\SERVER_PERCORSO\SERVER_PERCORSO.csproj" />
   </ItemGroup>
 
 </Project>

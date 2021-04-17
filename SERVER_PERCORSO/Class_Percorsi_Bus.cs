@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Creatore_archivio_pcto_Percorso
+namespace Creatore_archivio_pcto
 {
     public class Bus:IDisposable
     {
-        private static List<string> elecodici = new List<string>();
         private string _codice;
         public string codice
         {
@@ -34,11 +33,9 @@ namespace Creatore_archivio_pcto_Percorso
         bool stato=default;
         public Bus(string codice, Percorso percorso)
         {
-            if (String.IsNullOrEmpty(codice) || elecodici.Contains(codice))
-                throw new Exception("codice nullo o già usato");
+          
             this._codice = codice;
             this.percorso = percorso;
-            elecodici.Add(codice);
         }
 
         private bool disposed = false;
@@ -52,7 +49,7 @@ namespace Creatore_archivio_pcto_Percorso
         {
             if (!disposed)
             {
-                elecodici.RemoveAll(p => p == this.codice);
+            
                 disposed = true;
             }
         }

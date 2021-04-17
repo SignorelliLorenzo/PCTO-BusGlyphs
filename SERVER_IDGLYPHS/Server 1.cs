@@ -74,6 +74,7 @@ namespace SERVER_IDGLYPHS
                 connection.OnBinary = bytes =>
                 {
                     Aforge.Setup(x => x.Getid()).Returns("ABC");
+                    
 
                     connection.Send(getmessage(Aforge.Object.Getid(),Percorsi,CODGlyphs));
                     

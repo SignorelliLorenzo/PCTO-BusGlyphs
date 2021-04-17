@@ -1,6 +1,6 @@
 ﻿using System;
 using Fleck;
-using Creatore_archivio_pcto_Percorso;
+using Creatore_archivio_pcto;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -35,8 +35,14 @@ namespace SERVER_PERCORSO
                 connection.OnMessage = msg =>
                 {
                     mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
-                    
-                    connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus , message.Destinazione)));
+                    try
+                    {
+                        connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione)));
+                    }
+                    catch(Exception ex)
+                    {
+                        connection.Send(ex.Message);
+                    }
                 };
 
                 connection.OnError = exception =>
@@ -56,8 +62,16 @@ namespace SERVER_PERCORSO
         
         public static List<Bus> getmessage(List<Percorso> Percorsi,List<Bus> Bus, int Destinazione)
         {
+            if(Percorsi.Count==0 || Bus.Count==0)
+            {
+                throw new Exception("Dati non disponibili");
+            }
             List<Percorso> Percorsigiusti = new List<Percorso>();
             Percorsigiusti=Percorsi.Where(x => x.elefermateandata.Contains(Destinazione) || x.elefermateritorno.Contains(Destinazione)).ToList();
+            if(Percorsigiusti.Count==0)
+            {
+                throw new Exception("Non sono stati trovati percorsi conformi");
+            }
             return Bus.Where(x => Percorsigiusti.Contains(x.percorso)).ToList();
         }
         public static bool CaricaBus(ref List<Bus> bus, string path)
