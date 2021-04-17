@@ -9,8 +9,6 @@ using System.Linq;
 
 namespace SERVER_PERCORSO
 {
- 
-   
     public class PERCORSO
     {
         

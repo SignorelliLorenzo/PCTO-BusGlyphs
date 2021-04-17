@@ -61,7 +61,8 @@ namespace Creatore_archivio_pcto
         public override string ToString()
         {
             return $"{this.codice} - {this.percorso.ToString()}";
-        }
+        } 
+        
     }
     public class Percorso:IDisposable
     {

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using Creatore_archivio_pcto;
 using SERVER_PERCORSO;
 using Xunit;
-using Messages;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Server2Testing
 {
     public class Server2_Test
     {
         [Fact]
-        public void MessageIDFermataInsistente()
+        public void MessageBusDatiMancanti()
         {
             //Arrange
             var result = new List<Bus>();
@@ -29,7 +30,7 @@ namespace Server2Testing
             
          }
         [Fact]
-        public void MessageIDFermataNonTrovataNeiPercorsi()
+        public void MessageBusPercorsoNonTrovato()
         {
             //Arrange
             var result = new List<Bus>();
@@ -50,7 +51,7 @@ namespace Server2Testing
             
         }
         [Fact]
-        public void MessaggeIDSuccess()
+        public void MessageBusSucces()
         {
             //Arrange
             var result = new List<Bus>();
@@ -61,6 +62,8 @@ namespace Server2Testing
 
             busses.Add(new Bus("5A", percorsi[0]));
             busses.Add(new Bus("5B", percorsi[1]));
+        
+
             var expectedmessage = new List<Bus>();
             expectedmessage.Add(new Bus("5B", percorsi[1]));
 
@@ -68,7 +71,7 @@ namespace Server2Testing
             //Act
             result = PERCORSO.getmessage(percorsi, busses, 5);
             //Assert
-            Assert.Equal(expectedmessage, result);
+            Assert.Equal(expectedmessage.ToString(), result.ToString());
         }
         [Fact]
         public void CaricaBusFileNonTrovato()

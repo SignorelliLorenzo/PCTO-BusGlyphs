@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj": {}
+    "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj": {
+    "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
         "projectName": "SERVER_IMMAGINEMAPPA",
-        "projectPath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\obj\\",
+        "projectPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
+        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -54,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

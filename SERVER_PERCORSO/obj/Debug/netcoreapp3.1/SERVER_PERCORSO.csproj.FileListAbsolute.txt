@@ -34,3 +34,17 @@ C:\Users\pc\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\De
 C:\Users\pc\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.dll
 C:\Users\pc\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.pdb
 C:\Users\pc\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.genruntimeconfig.cache
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO.exe
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO.deps.json
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO.runtimeconfig.json
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO.runtimeconfig.dev.json
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO.dll
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO.pdb
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\Fleck.dll
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\System.Drawing.Common.pdb
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.csproj.CopyComplete
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.dll
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.pdb
+C:\Users\LORY\Source\Repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO.genruntimeconfig.cache
