@@ -16,7 +16,7 @@ namespace Glyphs
         public static GlyphDatabase AddGlyphData()
         {
             GlyphDatabase glyphDatabase = new GlyphDatabase(5);
-            
+
             //1
             glyphDatabase.Add(new Glyph("Creeper", new byte[5, 5] {
             { 0, 0, 0, 0, 0 },
@@ -42,42 +42,44 @@ namespace Glyphs
         }
         public static int FindG(string img)
         {
-            GlyphRecognizer recognizer = new GlyphRecognizer(5);
+            GlyphRecognizer recognizer = new GlyphRecognizer(AddGlyphData());
             int x = 0;
             Bitmap image;
             try
             {
-                image = new Bitmap(Directory.GetCurrentDirectory()+$"{img}.jpg", true);
+                image = new Bitmap(Directory.GetCurrentDirectory() + $@"\{img}.jpg", true);
             }
-            catch
+            catch (Exception ex)
             {
-                return -1;
+                throw ex;
             }
             List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(image);
             foreach (ExtractedGlyphData glyphData in glyphs)
             {
-               var s = Funzioni.IsInDatabase(glyphData);
-
-                x += 1;
+                var s = IsInDatabase(glyphData);
+                if (s == true)
+                {
+                    x += 1;
+                }
             }
             return x;
         }
 
 
-         public static bool FindG(Bitmap img)
+        public static bool FindG(Bitmap img)
         {
             GlyphRecognizer recognizer = new GlyphRecognizer(AddGlyphData());
-            
-           
+
+
             List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(img);
             foreach (ExtractedGlyphData glyphData in glyphs)
             {
-                var s = Funzioni.IsInDatabase(glyphData);
-                if(s == true)
+                var s = IsInDatabase(glyphData);
+                if (s == true)
                 {
                     return true;
                 }
-                
+
             }
             return false;
 
@@ -86,20 +88,20 @@ namespace Glyphs
         public static Bitmap ApplyImage(bool check)
         {
             //Da modificare
-            var image = new Bitmap($@"C:\Users\Gabry\Desktop\black.jpg", true);
+            var image = new Bitmap(Directory.GetCurrentDirectory() + $@"\black.jpg", true);
             if (check == true)
             { return image; }
-            else 
-            { throw new Exception ("Error"); }
+            else
+            { throw new Exception("Error"); }
 
-           
+
         }
 
 
         public static bool IsInDatabase(ExtractedGlyphData glyphData)
         {
-            
-            if(glyphData.RecognizedGlyph != null)
+
+            if (glyphData.RecognizedGlyph != null)
             {
                 return true;
             }
@@ -107,6 +109,6 @@ namespace Glyphs
             return false;
 
         }
-        
+
     }
 }
