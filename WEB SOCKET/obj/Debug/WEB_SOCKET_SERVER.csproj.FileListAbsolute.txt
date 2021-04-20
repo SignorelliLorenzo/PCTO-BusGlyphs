@@ -16,3 +16,12 @@ C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Deb
 C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csproj.CopyComplete
 C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.exe
 C:\Users\andrea\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.pdb
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\bin\Debug\WEB SOCKET.exe.config
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\bin\Debug\WEB SOCKET.exe
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\bin\Debug\WEB SOCKET.pdb
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\bin\Debug\Fleck.dll
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csprojAssemblyReference.cache
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csproj.CoreCompileInputs.cache
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB_SOCKET_SERVER.csproj.CopyComplete
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.exe
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\WEB SOCKET\obj\Debug\WEB SOCKET.pdb

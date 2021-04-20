@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using Fleck;
+using Newtonsoft.Json;
 
 namespace SERVER_IMMAGINEMAPPA
 {
-    public class TabellaImmagineMappa
+    public class CoordinateMappa
     {
-        private string _codice;
-        public string codice
-        {
-            get
-            {
-                return _codice;
-            }
-        }
-
         private decimal _x;
         public decimal x
         {
@@ -26,7 +19,7 @@ namespace SERVER_IMMAGINEMAPPA
             }
             set
             {
-                if(value<-90||value>90)
+                if (value < -90 || value > 90)
                 {
                     throw new Exception("Coordinata x non valida");
                 }
@@ -47,24 +40,50 @@ namespace SERVER_IMMAGINEMAPPA
                 }
             }
         }
+        public CoordinateMappa(Coordinate coordinate)
+        {
+            this.x = (decimal)coordinate.x;
+            this.y = (decimal)coordinate.y;
+        }
+    }
+    public class Coordinate
+    {
+        public double x;
+        public double y;
+        public Coordinate(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
     class ImmagineMappa
-    {
-        static List<TabellaImmagineMappa> lista = new List<TabellaImmagineMappa>();
-        public static string CreaImmagine(string messaggio)
-        {  
-            var bus=lista.FirstOrDefault(l => l.codice == messaggio);
-            string immagine = default;
-            decimal x = bus.x;
-            decimal y = bus.y;
+    {      
+        public static byte[] CreaImmagine(Coordinate coordinate)
+        {
+            CoordinateMappa coordinatemappa = new CoordinateMappa(coordinate);
+
             //Elaborazione
-            return immagine;
+            byte[] mappa;
+            string latitudine = coordinatemappa.x.ToString();
+            string longitudine = coordinatemappa.y.ToString();
+            string zoom = "12";
+            string larghezza = "600";
+            string altezza = "350";
+            string chiave = "AIzaSyDnc6Fone6eXBZ4y8w7IC-hSvjMPQuRfwY";
+            string url = @"http://maps.googleapis.com/maps/api/staticmap?center=" + latitudine + "," + longitudine + "&zoom=" + zoom + "&size=" + larghezza + "x" + altezza + "&maptype=roadmap&markers=color:red%7Clabel:%7C" + latitudine + "," + longitudine + "&sensor=false&key=" + chiave;
+
+            using (WebClient wc = new WebClient())
+            {
+                mappa = wc.DownloadData(url);
+            }
+            //
+            return mappa;
         }
         static void Main(string[] args)
-        {
-            List<TabellaImmagineMappa> lista = new List<TabellaImmagineMappa>();
+        {          
             object a = new object();
             var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
+            Dictionary<string, Coordinate> coordinatepullman = new Dictionary<string, Coordinate>();
             Console.WriteLine("Server Immagine-Mappa");
             websocketServer.Start(connection =>
             {
@@ -81,7 +100,14 @@ namespace SERVER_IMMAGINEMAPPA
                 };
                 connection.OnMessage = message =>
                 {
-                    var immagine=CreaImmagine(message);
+                    if(message.StartsWith("gps%"))
+                    {
+                        var risposta = message.Split("%");
+                        coordinatepullman[risposta[1]] = JsonConvert.DeserializeObject<Coordinate>(risposta[2]);
+                        return;
+                    }
+                    Coordinate coordinate = coordinatepullman[message];
+                    var immagine=CreaImmagine(coordinate);
                     connection.Send(immagine);
                 };
 
