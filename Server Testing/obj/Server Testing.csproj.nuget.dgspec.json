@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
+    "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
+    "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "projectUniqueName": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
         "projectName": "Server Testing",
-        "projectPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "projectPath": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
         "packagesPath": "C:\\Users\\elena\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+        "outputPath": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -33,8 +33,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-                "projectPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+              "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+                "projectPath": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
               }
             }
           }
@@ -51,11 +51,11 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.7.1, )"
+              "version": "[16.9.4, )"
             },
             "Moq": {
               "target": "Package",
-              "version": "[4.16.0, )"
+              "version": "[4.16.1, )"
             },
             "WebSocket4Net": {
               "target": "Package",
@@ -65,7 +65,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[3.0.3, )"
             },
             "xunit": {
               "target": "Package",
@@ -97,11 +97,11 @@
         }
       }
     },
-    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+    "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
+        "projectUniqueName": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
         "projectName": "WEB_SOCKET_SERVER",
-        "projectPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+        "projectPath": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
       },
       "frameworks": {
         "net472": {}

@@ -6,54 +6,139 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Android;
+using Plugin.Media;
+using Android.Graphics;
+using Android.Content;
+using Android.Animation;
 
 namespace GlyphsBus
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Theme = "@style/AppTheme", MainLauncher = true, Label = "GlyphsBus")]
     public class MainActivity : AppCompatActivity
     {
+        //Variabili per Menu
+        private static bool menuopen;
+        FloatingActionButton MBus;
+        FloatingActionButton MHome;
+        FloatingActionButton MMaps;
+        FloatingActionButton MCamera;
+        FloatingActionButton MPlus;
+        View MenuContent;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            //FindByID Menu
+            MBus = FindViewById<FloatingActionButton>(Resource.Id.fab_bus);
+            MHome = FindViewById<FloatingActionButton>(Resource.Id.fab_home);
+            MMaps = FindViewById<FloatingActionButton>(Resource.Id.fab_maps);
+            MCamera = FindViewById<FloatingActionButton>(Resource.Id.fab_camera);
+            MPlus = FindViewById<FloatingActionButton>(Resource.Id.fab_main);
+            MenuContent = FindViewById<View>(Resource.Id.Menu);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
-        }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
+            //Menu
+            MPlus.Click += (o, e) =>
             {
-                return true;
+                if (!menuopen)
+                    ShowFabMenu();
+                else
+                    CloseFabMenu();
+            };
+
+            MCamera.Click += (o, e) =>
+            {
+                Intent nextActivity = new Intent(this, typeof(CamActivity));
+                StartActivity(nextActivity);
+                CloseFabMenu(); //FATTO
+            };
+
+            MMaps.Click += (o, e) =>
+            {
+                Intent nextActivity = new Intent(this, typeof(MapActivity));
+                StartActivity(nextActivity);
+                CloseFabMenu(); //FATTO
+            };
+
+            MHome.Click += (o, e) =>
+            {
+                CloseFabMenu(); //FATTO
+            };
+
+            MBus.Click += (o, e) =>
+            {
+                Intent nextactivity = new Intent(this, typeof(BusActivity));
+                StartActivity(nextactivity);
+                CloseFabMenu(); //FATTO
+            };
+
+            MenuContent.Click += (o, e) => { CloseFabMenu(); };
+        }
+
+        private void CloseFabMenu()
+        {
+            menuopen = false;
+
+            MPlus.Animate().Rotation(0f);
+            MenuContent.Animate().Alpha(0f);
+
+            MHome.Animate().TranslationY(0f).Rotation(90f);
+            MBus.Animate().TranslationY(0f).Rotation(90f).SetListener(new FabListener(MenuContent, MBus, MMaps, MCamera, MHome));
+            MMaps.Animate().TranslationY(0f).Rotation(90f).SetListener(new FabListener(MenuContent, MBus, MMaps, MCamera, MHome));
+            MCamera.Animate().TranslationY(0f).Rotation(90f).SetListener(new FabListener(MenuContent, MBus, MMaps, MCamera, MHome));
+        }
+
+        private void ShowFabMenu()
+        {
+            menuopen = true;
+            MHome.Visibility = ViewStates.Visible;
+            MBus.Visibility = Android.Views.ViewStates.Visible;
+            MMaps.Visibility = Android.Views.ViewStates.Visible;
+            MCamera.Visibility = Android.Views.ViewStates.Visible;
+            MenuContent.Visibility = Android.Views.ViewStates.Visible;
+
+            MPlus.Animate().Rotation(135f);
+            MenuContent.Animate().Alpha(1f);
+
+            MHome.Animate().TranslationY(-Resources.GetDimension(Resource.Dimension.standard_190)).Rotation(0f);
+            MBus.Animate().TranslationY(-Resources.GetDimension(Resource.Dimension.standard_145)).Rotation(0f);
+            MMaps.Animate().TranslationY(-Resources.GetDimension(Resource.Dimension.standard_100)).Rotation(0f);
+            MCamera.Animate().TranslationY(-Resources.GetDimension(Resource.Dimension.standard_55)).Rotation(0f);
+
+
+        }
+        private class FabListener : Java.Lang.Object, Animator.IAnimatorListener
+        {
+
+            View[] viewsToHide;
+
+            public FabListener(params View[] viewsToHide)
+            {
+                this.viewsToHide = viewsToHide;
             }
 
-            return base.OnOptionsItemSelected(item);
+            public void OnAnimationCancel(Animator animation)
+            {
+            }
+
+            public void OnAnimationEnd(Animator animation)
+            {
+                if (!menuopen)
+                    foreach (var view in viewsToHide)
+                        view.Visibility = ViewStates.Gone;
+            }
+
+            public void OnAnimationRepeat(Animator animation)
+            {
+            }
+
+            public void OnAnimationStart(Animator animation)
+            {
+            }
         }
 
-        private void FabOnClick(object sender, EventArgs eventArgs)
-        {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-        }
-
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-	}
+    }
 }
