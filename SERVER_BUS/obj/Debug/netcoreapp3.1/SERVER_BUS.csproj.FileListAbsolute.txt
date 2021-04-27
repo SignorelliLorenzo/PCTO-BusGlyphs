@@ -1,0 +1,3 @@
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\SERVER_BUS\bin\Debug\netcoreapp3.1\SERVER_BUS.exe
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\netcoreapp3.1\SERVER_BUS.AssemblyInfoInputs.cache
+C:\Users\andrea\source\repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\netcoreapp3.1\SERVER_BUS.AssemblyInfo.cs

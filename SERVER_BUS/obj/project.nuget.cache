@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MrR9n6gls3pQW5iPE8VsVkat5q1XmGSqdCU4N4Wx0BE4E+izvRQF+U2pYtYZwEGrm3w1tJ45QMngmZ10+Vl/PQ==",
+  "dgSpecHash": "S6d6AtSnv6+oGiS5C0RGbJLHG8n/51uKWR77XFIq72jk6Btaqrt8tyG235emHZYQZW/pCkASstv8ZLx8O9SIrQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_BUS\\SERVER_BUS.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_BUS\\SERVER_BUS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andrea\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
