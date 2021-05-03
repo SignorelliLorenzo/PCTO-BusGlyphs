@@ -2363,11 +2363,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj",
+      "projectUniqueName": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
       "projectName": "GlyphsBus",
-      "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj",
+      "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
       "packagesPath": "C:\\Users\\Oem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs2\\GlyphsBus\\obj\\",
+      "outputPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

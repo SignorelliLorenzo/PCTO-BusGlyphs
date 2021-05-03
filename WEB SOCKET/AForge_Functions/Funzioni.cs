@@ -65,6 +65,26 @@ namespace Glyphs
             return x;
         }
 
+        public static string FindGlyphName(Bitmap img)
+        {
+            GlyphRecognizer recognizer = new GlyphRecognizer(AddGlyphData());
+
+
+            List<ExtractedGlyphData> glyphs = recognizer.FindGlyphs(img);
+            foreach (ExtractedGlyphData glyphData in glyphs)
+            {
+                var s = Funzioni.IsInDatabase(glyphData);
+                if (s == true)
+                {
+                    var test = glyphs.Where(z => z.RecognizedGlyph != null && z.RecognizedGlyph.Name != null).Select(x => new { NomeGlifoRiconosciuto = x.RecognizedGlyph.Name }).FirstOrDefault();
+                    return test.NomeGlifoRiconosciuto;
+                }
+
+            }
+            return "Error";
+
+        }
+
 
         public static bool FindG(Bitmap img)
         {
