@@ -5373,27 +5373,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LORY\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server2Testing\\Server2Testing.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server2Testing\\Server2Testing.csproj",
       "projectName": "Server2Testing",
-      "projectPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server2Testing\\Server2Testing.csproj",
-      "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server2Testing\\obj\\",
+      "projectPath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server2Testing\\Server2Testing.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server2Testing\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5406,8 +5399,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj": {
-              "projectPath": "C:\\Users\\LORY\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj"
+            "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj": {
+              "projectPath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj"
             }
           }
         }
@@ -5458,7 +5451,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

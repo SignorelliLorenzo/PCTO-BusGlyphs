@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using Creatore_archivio_pcto;
 using Newtonsoft.Json;
 using System.IO;
+using Funzioni;
+using System.Drawing;
 
 namespace SERVER_IDGLYPHS
 {
@@ -73,9 +75,13 @@ namespace SERVER_IDGLYPHS
                 };
                 connection.OnBinary = bytes =>
                 {
-                    Aforge.Setup(x => x.Getid()).Returns("ABC");
+                    Bitmap bmp = default;
+                    using (var ms = new MemoryStream(bytes))
+                    {
+                        bmp = new Bitmap(ms);
+                    }
 
-                    connection.Send(getmessage(Aforge.Object.Getid(),Percorsi,CODGlyphs));
+                    connection.Send(getmessage(Funzioni.Funzioni.FindG(bmp).ToString(),Percorsi,CODGlyphs));
                     
                 };
 

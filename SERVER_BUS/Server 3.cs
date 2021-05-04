@@ -1,14 +1,22 @@
 ﻿using System;
 using Fleck;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+using Creatore_archivio_pcto;
 
 namespace SERVER_BUS
 {
-    class Bus
+    class ServerBus
     {
+       
+        
         static void Main(string[] args)
         {
             var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
             Console.WriteLine("Server Bus");
+            Dictionary<string, Coordinate> coordinatepullman = new Dictionary<string, Coordinate>();
+
             websocketServer.Start(connection =>
             {
 
@@ -23,8 +31,12 @@ namespace SERVER_BUS
                 };
                 connection.OnMessage = message =>
                 {
-                    if (message == "True")
-                        connection.Send("Bus Scelto");
+                    if (message.StartsWith("gps%"))
+                    {
+                        var risposta = message.Split("%");
+                        coordinatepullman[risposta[1]] = JsonConvert.DeserializeObject<Coordinate>(risposta[2]);
+                        return;
+                    }
 
                 };
 
