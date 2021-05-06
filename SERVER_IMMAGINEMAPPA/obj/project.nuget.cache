@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PYGbpznHUO1EGt7yh72hTGOZ2FWyuhCQm5n0LorKyEoAmI5YoO5j/o3/xFfE21LHuSvX0DyDbpa737ilicAz9g==",
+  "dgSpecHash": "o7TYD7RhKb7kfbLLoj4qRuTwLk2pRnQJpej0BFS9cyNqgOwKHvYjha9Sf1xhnt5BvsXjGUNikQ/qzKnYpczavw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
+  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pc\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\LORY\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512",
+    "C:\\Users\\LORY\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pGcvziYATCIpZlAH4Igcg7EfF3zzNVFYq9yN+FGebEqcjn2i8YqtLrKoN6apYHLrn3AK0m/stSrQyazgWXyffw==",
+  "dgSpecHash": "UdOclzuDCtRm9iDx8KrXgOlv69NSnJf+pa6kM/u7z5aQMF1r4xtgSA9+PGgCIDeNGBlp5nKYc+OpEPMTSioJkA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pc\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj",
+  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pc\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\LORY\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512",
+    "C:\\Users\\LORY\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,41 +9,55 @@ namespace SERVER_BUS
 {
     class BusState
     {
+        
         private Timer lastcall = new Timer();
         private bool andata = true;
         static private List<string> BusNames = new List<string>();
         private bool firsttime = true;
+        private int _LastStop;
+        public int LastStop { get { return _LastStop; } }
+        private int _NextStop;
+        public int NextStop { get { return _NextStop; } }
+        private Dictionary<int, Coordinate> ArchivioCoordinate_Fermate = new Dictionary<int, Coordinate>();
+        public Percorso BusPath { get; }
         public string BusName { get; }
         private Coordinate _currentposition;
         public Coordinate currentposition {
-            get {return _currentposition; } 
+            get { return _currentposition; }
             set
             {
                 _currentposition = value;
-                if(!firsttime)
+                if (!firsttime)
                 {
-                    CordinateChanged();
+                    CoordinateChanged();
                 }
                 else
                 {
                     firsttime = false;
                 }
-            } 
-                
+            }
+
         }
         double range = 0.2;
-        private void CordinateChanged()
+        bool samecoordinate = false;
+        /// <summary>
+        /// Operation for when the coordinate changes
+        /// </summary>
+        private void CoordinateChanged()
         {
-            
-
-            if(ArchivioCoordinate_Fermate.Where(x=> x.Value.x<(_currentposition.x+range) && x.Value.x > (_currentposition.x - range) && x.Value.y < (_currentposition.y + range) && x.Value.y > (_currentposition.y - range)).Count() == 0)
+            if(ArchivioCoordinate_Fermate.Where(x=> x.Value.x<(_currentposition.x+range) && x.Value.x > (_currentposition.x - range) && x.Value.y < (_currentposition.y + range) && x.Value.y > (_currentposition.y - range)).Count() == 0 && ArchivioCoordinate_Fermate.Where(x => x.Value.x < (_currentposition.x + range) && x.Value.x > (_currentposition.x - range) && x.Value.y < (_currentposition.y + range) && x.Value.y > (_currentposition.y - range)).FirstOrDefault().Key == _NextStop)
             {
                 
+                if(samecoordinate)
+                {
+                    return;
+                }
                 _LastStop = _NextStop;
-                if(andata)
+                if (andata)
                 {
                     try
                     {
+                        
                         _NextStop = BusPath.elefermateandata[BusPath.elefermateandata.IndexOf(_LastStop) + 1];
                     }
                     catch
@@ -64,14 +78,14 @@ namespace SERVER_BUS
                         andata = !andata;
                     }
                 }
+                samecoordinate = true;
+            }
+            else
+            {
+                samecoordinate = false;
             }
         }
-        private int _LastStop;
-        public int LastStop { get { return _LastStop; } }
-        private int _NextStop;
-        public int NextStop { get { return _NextStop; } }
-        private Dictionary<string, Coordinate> ArchivioCoordinate_Fermate = new Dictionary<string, Coordinate>();
-        public Percorso BusPath { get; }
+       
         public BusState(string busname,Percorso buspath,Coordinate StartPosition)
         {
             if(String.IsNullOrWhiteSpace(busname))
@@ -83,7 +97,9 @@ namespace SERVER_BUS
                 throw new Exception("BUS COLLEGATO WTF");
             }
             currentposition = StartPosition;
-
+            BusPath = buspath;
+            BusName = busname;
+            BusNames.Add(busname);
         }
     }
 }
