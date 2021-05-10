@@ -11,7 +11,11 @@ namespace SERVER_BUS
     {
         
         private Timer lastcall = new Timer();
-        private bool andata = true;
+        private bool _andata;
+        public bool andata
+        {
+            get { return _andata; }
+        }
         static private List<string> BusNames = new List<string>();
         private bool firsttime = true;
         private int _LastStop;
@@ -63,7 +67,7 @@ namespace SERVER_BUS
                     catch
                     {
                         _NextStop = BusPath.elefermateritorno[0];
-                        andata = !andata;
+                        _andata = !andata;
                     }
                 }
                 else
@@ -75,7 +79,7 @@ namespace SERVER_BUS
                     catch
                     {
                         _NextStop = BusPath.elefermateandata[0];
-                        andata = !andata;
+                        _andata = !andata;
                     }
                 }
                 samecoordinate = true;

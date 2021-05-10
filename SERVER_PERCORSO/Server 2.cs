@@ -35,7 +35,10 @@ namespace SERVER_PERCORSO
                     mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
                     try
                     {
-                        connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione)));
+                        //connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione)));
+                        var json = JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione));
+                        json = $"{message.codfermata}%{json}";
+                        connection.Send(json);
                     }
                     catch(Exception ex)
                     {

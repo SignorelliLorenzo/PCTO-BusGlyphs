@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SERVER_IDGLYPHS\SERVER_IDGLYPHS.csproj" />
+    <ProjectReference Include="..\SERVER_IDGLYPHS\SERVER_IDGLYPHS_1.csproj" />
   </ItemGroup>
 
 </Project>

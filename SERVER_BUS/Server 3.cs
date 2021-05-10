@@ -33,7 +33,7 @@ namespace SERVER_BUS
                 {
                     if (!OnGpsMessage(ref coordinatepullman, message, Bus))
                     {
-
+                        var risposta = OnStandardMessage(message, ref coordinatepullman);
                     }
                     
 
@@ -82,9 +82,40 @@ namespace SERVER_BUS
             }
             return false;
         }
-        public static string OnStandardMessage()
+        public static string OnStandardMessage(string message,ref Dictionary<string,BusState> pullmancoordinate)
         {
+            var infos = message.Split("%");
 
+            var fermataattuale = int.Parse(infos[0]);
+            var elebus = JsonConvert.DeserializeObject<List<Bus>>(infos[1]);
+            Dictionary<string, int> distance = new Dictionary<string, int>();
+            bool startconta = false;
+
+            string codicefinale = default;
+            foreach(Bus bus in elebus)
+            {
+                var attuale = pullmancoordinate.Where(b => b.Key == bus.codice).First().Value;
+                
+                if(attuale.andata)
+                {
+                    foreach(var item in attuale.BusPath.elefermateandata)
+                    {
+                        if(item == attuale.LastStop)
+                        {
+                            startconta = true;
+                        }
+                        if(startconta)
+                        {
+
+                        }
+                    }
+                }
+                else if(!attuale.andata)
+                {
+
+                }
+            }
+            return "";
         }
     }
 }
