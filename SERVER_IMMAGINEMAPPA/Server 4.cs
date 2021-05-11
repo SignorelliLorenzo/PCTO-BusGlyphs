@@ -56,28 +56,36 @@ namespace SERVER_IMMAGINEMAPPA
             this.y = y;
         }
     }
-    class ImmagineMappa
+    public class ImmagineMappa
     {      
         public static byte[] CreaImmagine(Coordinate coordinate)
         {
-            CoordinateMappa coordinatemappa = new CoordinateMappa(coordinate);
-
-            //Elaborazione
-            byte[] mappa;
-            string latitudine = coordinatemappa.x.ToString();
-            string longitudine = coordinatemappa.y.ToString();
-            string zoom = "12";
-            string larghezza = "600";
-            string altezza = "350";
-            string chiave = "AIzaSyDnc6Fone6eXBZ4y8w7IC-hSvjMPQuRfwY";
-            string url = @"http://maps.googleapis.com/maps/api/staticmap?center=" + latitudine + "," + longitudine + "&zoom=" + zoom + "&size=" + larghezza + "x" + altezza + "&maptype=roadmap&markers=color:red%7Clabel:%7C" + latitudine + "," + longitudine + "&sensor=false&key=" + chiave;
-
-            using (WebClient wc = new WebClient())
+            byte[] mappa = default;
+            try
             {
-                mappa = wc.DownloadData(url);
+                CoordinateMappa coordinatemappa = new CoordinateMappa(coordinate);
+
+                //Elaborazione
+                
+                string latitudine = coordinatemappa.x.ToString();
+                string longitudine = coordinatemappa.y.ToString();
+                string zoom = "12";
+                string larghezza = "600";
+                string altezza = "350";
+                string chiave = "AIzaSyDnc6Fone6eXBZ4y8w7IC-hSvjMPQuRfwY";
+                string url = @"http://maps.googleapis.com/maps/api/staticmap?center=" + latitudine + "," + longitudine + "&zoom=" + zoom + "&size=" + larghezza + "x" + altezza + "&maptype=roadmap&markers=color:red%7Clabel:%7C" + latitudine + "," + longitudine + "&sensor=false&key=" + chiave;
+
+                using (WebClient wc = new WebClient())
+                {
+                    mappa = wc.DownloadData(url);
+                }
+                return mappa;
             }
-            //
-            return mappa;
+            catch(Exception ex)
+            {
+                return mappa;     
+            }
+
         }
         static void Main(string[] args)
         {          
@@ -108,6 +116,8 @@ namespace SERVER_IMMAGINEMAPPA
                     }
                     Coordinate coordinate = coordinatepullman[message];
                     var immagine=CreaImmagine(coordinate);
+                    if (immagine == default)
+                        connection.Send("Errore nella richiesta della mappa");
                     connection.Send(immagine);
                 };
 

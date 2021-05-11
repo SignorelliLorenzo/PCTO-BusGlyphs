@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jcA8ULoUMFEW8nvAi305ncVekd3MVD1irNloAV3RdLe8uoMwAbi2mL235yeDtL2ZezlGbtpm6NMRAz4XVbDr0w==",
+  "dgSpecHash": "5IvEKQ4Hn1v5MC7+V8oOcc6JScuJyQaCSjn+UIbmtX7UmHZ2Fy7wM1QL8lRjPlYd2M7b9XBobtYVxzTLmWoz4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\canej\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\fleck\\1.1.0\\fleck.1.1.0.nupkg.sha512",
+    "C:\\Users\\canej\\.nuget\\packages\\fleck\\1.2.0\\fleck.1.2.0.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\microsoft.net.test.sdk\\16.9.4\\microsoft.net.test.sdk.16.9.4.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",

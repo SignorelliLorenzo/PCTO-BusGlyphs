@@ -7,7 +7,7 @@ using System.Timers;
 
 namespace SERVER_BUS
 {
-    class BusState
+    public class BusState
     {
         
         private Timer lastcall = new Timer();

@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.IO;
 using Funzioni;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace SERVER_IDGLYPHS
 {
@@ -76,10 +77,12 @@ namespace SERVER_IDGLYPHS
                 connection.OnBinary = bytes =>
                 {
                     Bitmap bmp = default;
-                    using (var ms = new MemoryStream(bytes))
-                    {
-                        bmp = new Bitmap(ms);
-                    }
+                    //using (var ms = new MemoryStream(bytes))
+                    //{
+                    //    bmp = new Bitmap(ms);
+                    //}
+                    bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
+                 
 
                     connection.Send(getmessage(Funzioni.Funzioni.FindG(bmp).ToString(),Percorsi,CODGlyphs));
                     

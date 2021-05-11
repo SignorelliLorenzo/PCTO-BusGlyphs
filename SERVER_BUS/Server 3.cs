@@ -7,7 +7,7 @@ using Creatore_archivio_pcto;
 
 namespace SERVER_BUS
 {
-    class ServerBus
+    public class ServerBus
     {
 
 
