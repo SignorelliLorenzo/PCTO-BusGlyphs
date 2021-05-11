@@ -91,5 +91,26 @@ namespace Test_Base
             Assert.IsTrue(check);
 
         }
+
+
+        [TestMethod]
+        public void IsGlyphNameFound()
+        {
+            //Arrange
+            string Name;
+            Bitmap Imagetest = new Bitmap(Directory.GetCurrentDirectory() + $@"\05.jpg", true);
+
+            //Act
+
+            Name = Funzioni.FindGlyphName(Imagetest);
+
+            //Assert
+            Assert.IsNotNull(Name);
+
+
+
+        }
+
+       
     }
 }
