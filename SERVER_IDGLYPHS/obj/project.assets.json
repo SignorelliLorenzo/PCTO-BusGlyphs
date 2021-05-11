@@ -23,7 +23,7 @@
           "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
-      "Fleck/1.1.0": {
+      "Fleck/1.2.0": {
         "type": "package",
         "compile": {
           "lib/netcoreapp2.0/Fleck.dll": {}
@@ -141,7 +141,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -1465,14 +1465,14 @@
         "readme.txt"
       ]
     },
-    "Fleck/1.1.0": {
-      "sha512": "X33W1PqRciRmh8Q23klEv3CiRS681IUJj/Ldlgi96lSfq1Uaux3l1qNewRDboiUxnHfoNtcIhFMIhc9AJ4cw6g==",
+    "Fleck/1.2.0": {
+      "sha512": "bPLXn6QbLAFoviur6XbrKB0Zn6x04E8VibHXyHZeJsoC7bkUl5DVtzM5cZgDuqHkIrBqAXJyTNJwSNIc6wBJ2Q==",
       "type": "package",
-      "path": "fleck/1.1.0",
+      "path": "fleck/1.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fleck.1.1.0.nupkg.sha512",
+        "fleck.1.2.0.nupkg.sha512",
         "fleck.nuspec",
         "lib/net40/Fleck.dll",
         "lib/net45/Fleck.dll",
@@ -1610,10 +1610,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.3",
+      "path": "newtonsoft.json/13.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1632,11 +1632,7 @@
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
@@ -5274,30 +5270,30 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Fleck >= 1.1.0",
+      "Fleck >= 1.2.0",
       "Moq >= 4.16.1",
-      "Newtonsoft.Json >= 12.0.3",
+      "Newtonsoft.Json >= 13.0.1",
       "System.Drawing.Common >= 5.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\signorelli.17200\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\canej\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+      "projectUniqueName": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
       "projectName": "SERVER_IDGLYPHS_1",
-      "projectPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
-      "packagesPath": "C:\\Users\\signorelli.17200\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
+      "projectPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+      "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\signorelli.17200\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5326,7 +5322,7 @@
         "dependencies": {
           "Fleck": {
             "target": "Package",
-            "version": "[1.1.0, )"
+            "version": "[1.2.0, )"
           },
           "Moq": {
             "target": "Package",
@@ -5334,7 +5330,7 @@
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "[12.0.3, )"
+            "version": "[13.0.1, )"
           },
           "System.Drawing.Common": {
             "target": "Package",
@@ -5356,7 +5352,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

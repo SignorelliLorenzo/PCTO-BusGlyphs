@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {}
+    "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+    "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "projectUniqueName": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
         "projectName": "SERVER_IDGLYPHS_1",
-        "projectPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
-        "packagesPath": "C:\\Users\\signorelli.17200\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
+        "projectPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\signorelli.17200\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -46,7 +46,7 @@
           "dependencies": {
             "Fleck": {
               "target": "Package",
-              "version": "[1.1.0, )"
+              "version": "[1.2.0, )"
             },
             "Moq": {
               "target": "Package",
@@ -54,7 +54,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.1, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

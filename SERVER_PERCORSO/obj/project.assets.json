@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Fleck/1.1.0": {
+      "Fleck/1.2.0": {
         "type": "package",
         "compile": {
           "lib/netcoreapp2.0/Fleck.dll": {}
@@ -23,14 +23,14 @@
     }
   },
   "libraries": {
-    "Fleck/1.1.0": {
-      "sha512": "X33W1PqRciRmh8Q23klEv3CiRS681IUJj/Ldlgi96lSfq1Uaux3l1qNewRDboiUxnHfoNtcIhFMIhc9AJ4cw6g==",
+    "Fleck/1.2.0": {
+      "sha512": "bPLXn6QbLAFoviur6XbrKB0Zn6x04E8VibHXyHZeJsoC7bkUl5DVtzM5cZgDuqHkIrBqAXJyTNJwSNIc6wBJ2Q==",
       "type": "package",
-      "path": "fleck/1.1.0",
+      "path": "fleck/1.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fleck.1.1.0.nupkg.sha512",
+        "fleck.1.2.0.nupkg.sha512",
         "fleck.nuspec",
         "lib/net40/Fleck.dll",
         "lib/net45/Fleck.dll",
@@ -68,28 +68,28 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Fleck >= 1.1.0",
+      "Fleck >= 1.2.0",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\signorelli.17200\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\canej\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj",
+      "projectUniqueName": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj",
       "projectName": "SERVER_PERCORSO_2",
-      "projectPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj",
-      "packagesPath": "C:\\Users\\signorelli.17200\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\obj\\",
+      "projectPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj",
+      "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_PERCORSO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\signorelli.17200\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -118,7 +118,7 @@
         "dependencies": {
           "Fleck": {
             "target": "Package",
-            "version": "[1.1.0, )"
+            "version": "[1.2.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -140,7 +140,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

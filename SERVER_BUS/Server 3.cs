@@ -33,7 +33,10 @@ namespace SERVER_BUS
                 {
                     if (!OnGpsMessage(ref coordinatepullman, message, Bus))
                     {
-                        var risposta = OnStandardMessage(message, ref coordinatepullman);
+                        var codicebus = OnStandardMessage(message, ref coordinatepullman);
+                        //var bus = coordinatepullman.Where(p => p.Value.BusName == risposta).First().Value;
+                        //var json = JsonConvert.SerializeObject(bus);
+                        connection.Send(codicebus);
                     }
                     
 
@@ -88,14 +91,16 @@ namespace SERVER_BUS
 
             var fermataattuale = int.Parse(infos[0]);
             var elebus = JsonConvert.DeserializeObject<List<Bus>>(infos[1]);
-            Dictionary<string, int> distance = new Dictionary<string, int>();
+            int x = 0;
+            
             bool startconta = false;
-
+            int distanza = 0;
             string codicefinale = default;
             foreach(Bus bus in elebus)
             {
                 var attuale = pullmancoordinate.Where(b => b.Key == bus.codice).First().Value;
-                
+                x = 0;
+                startconta = false;
                 if(attuale.andata)
                 {
                     foreach(var item in attuale.BusPath.elefermateandata)
@@ -106,16 +111,50 @@ namespace SERVER_BUS
                         }
                         if(startconta)
                         {
-
+                            x++;
+                            if(item == fermataattuale)
+                            {
+                                if(x<distanza || distanza == 0)
+                                {
+                                    distanza = x;
+                                    codicefinale = attuale.BusName;
+                                }
+                                break;
+                            }
                         }
                     }
                 }
                 else if(!attuale.andata)
                 {
-
+                    foreach (var item in attuale.BusPath.elefermateritorno)
+                    {
+                        if (item == attuale.LastStop)
+                        {
+                            startconta = true;
+                        }
+                        if (startconta)
+                        {
+                            x++;
+                            if (item == fermataattuale)
+                            {
+                                if (x < distanza || distanza == 0)
+                                {
+                                    distanza = x;
+                                    codicefinale = attuale.BusName;
+                                }
+                                break;
+                            }
+                        }
+                    }
                 }
             }
-            return "";
+
+            if(distanza == 0)
+            {
+                return "Nessun pullman disponibile in tempi brevi";
+            }
+
+            return codicefinale;
         }
     }
 }
