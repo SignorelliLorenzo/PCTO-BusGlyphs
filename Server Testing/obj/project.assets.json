@@ -2014,15 +2014,6 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
-      },
-      "WEB_SOCKET_SERVER/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/WEB_SOCKET_SERVER.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WEB_SOCKET_SERVER.dll": {}
-        }
       }
     }
   },
@@ -6649,18 +6640,12 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
-    },
-    "WEB_SOCKET_SERVER/1.0.0": {
-      "type": "project",
-      "path": "../WEB SOCKET/WEB_SOCKET_SERVER.csproj",
-      "msbuildProject": "../WEB SOCKET/WEB_SOCKET_SERVER.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "Moq >= 4.16.0",
-      "WEB_SOCKET_SERVER >= 1.0.0",
       "WebSocket4Net >= 0.15.2",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
@@ -6668,25 +6653,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Oem\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\firriolo.17184\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+      "projectUniqueName": "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
       "projectName": "Server Testing",
-      "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
-      "packagesPath": "C:\\Users\\Oem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+      "projectPath": "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
+      "packagesPath": "C:\\Users\\firriolo.17184\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Oem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\firriolo.17184\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6698,11 +6678,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-              "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -6759,7 +6735,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

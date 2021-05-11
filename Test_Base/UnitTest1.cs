@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-using Glyphs;
+using AForgeFunctions;
 using System.Drawing;
 
 namespace Test_Base
@@ -13,7 +13,7 @@ namespace Test_Base
         {
             //Arrange
             int result = 0;
-            string test = $@"05";
+            string test = $@"05.jpg";
 
             //Act
             result = Funzioni.FindG(test);
@@ -26,7 +26,7 @@ namespace Test_Base
         {
             //Arrange
             int result = 0;
-            string test = $@"03";
+            string test = $@"black.jpg";
 
             //Act
             result = Funzioni.FindG(test);
@@ -39,7 +39,7 @@ namespace Test_Base
         {
             //Arrange
             int result = 0;
-            string test = $@"05";
+            string test = $@"05.jpg";
 
             //Act
             result = Funzioni.FindG(test);

@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
+    "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
+    "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "projectUniqueName": "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
         "projectName": "Server Testing",
-        "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
-        "packagesPath": "C:\\Users\\Oem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+        "projectPath": "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
+        "packagesPath": "C:\\Users\\firriolo.17184\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\firriolo.17184\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Oem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\firriolo.17184\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -31,11 +27,7 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-                "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -92,18 +84,8 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
-        "projectName": "WEB_SOCKET_SERVER",
-        "projectPath": "C:\\Users\\Oem\\Source\\Repos\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
-      },
-      "frameworks": {
-        "net472": {}
       }
     }
   }
