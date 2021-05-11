@@ -63,7 +63,7 @@ namespace SERVER_BUS
             if (message.StartsWith("gps%"))
             {
                 var Infos = message.Split("%");
-                if (CoordianteDyctionary.ContainsKey("CoordianteDyctionary"))
+                if (CoordianteDyctionary.ContainsKey(Infos[1]))
                 {
                     CoordianteDyctionary[Infos[1]].currentposition = JsonConvert.DeserializeObject<Coordinate>(Infos[2]);
                     

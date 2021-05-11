@@ -6,9 +6,8 @@ using System.Collections.Generic;
 using Creatore_archivio_pcto;
 using Newtonsoft.Json;
 using System.IO;
-using Funzioni;
+using AForgeFunctions;
 using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace SERVER_IDGLYPHS
 {
@@ -84,7 +83,7 @@ namespace SERVER_IDGLYPHS
                     bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
                  
 
-                    connection.Send(getmessage(Funzioni.Funzioni.FindG(bmp).ToString(),Percorsi,CODGlyphs));
+                    connection.Send(getmessage(Funzioni.FindG(bmp).ToString(),Percorsi,CODGlyphs));
                     
                 };
 

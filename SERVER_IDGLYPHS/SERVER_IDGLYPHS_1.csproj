@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Funzioni">
-      <HintPath>D:\Funzioni.dll</HintPath>
+    <Reference Include="AForgeFunctions">
+      <HintPath>bin\Debug\netcoreapp3.1\AForgeFunctions.dll</HintPath>
     </Reference>
   </ItemGroup>
 
