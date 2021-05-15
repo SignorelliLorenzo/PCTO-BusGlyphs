@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {}
+    "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
+    "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "projectUniqueName": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
         "projectName": "GlyphsBus",
-        "projectPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
-        "packagesPath": "C:\\Users\\signorelli.17200\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\signorelli.17200\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
+        "projectPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\canej\\Source\\Repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\signorelli.17200\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

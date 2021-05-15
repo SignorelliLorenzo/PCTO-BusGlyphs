@@ -77,7 +77,7 @@ namespace SERVER_BUS
                     }
                     catch
                     {
-
+                        throw new Exception("Invalid message format");
                     }
                 }
                 return true;
@@ -88,9 +88,17 @@ namespace SERVER_BUS
         public static string OnStandardMessage(string message,ref Dictionary<string,BusState> pullmancoordinate)
         {
             var infos = message.Split("%");
-
-            var fermataattuale = int.Parse(infos[0]);
-            var elebus = JsonConvert.DeserializeObject<List<Bus>>(infos[1]);
+            int fermataattuale = default;
+            List<Bus> elebus = default;
+            try
+            {
+                fermataattuale = int.Parse(infos[0]);
+                elebus = JsonConvert.DeserializeObject<List<Bus>>(infos[1]);
+            }
+            catch
+            {
+                return "Invalid message format";
+            }
             int x = 0;
             
             bool startconta = false;

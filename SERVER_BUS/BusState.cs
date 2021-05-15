@@ -7,7 +7,7 @@ using System.Timers;
 
 namespace SERVER_BUS
 {
-    public class BusState
+    public class BusState : IDisposable
     {
         
         private Timer lastcall = new Timer();
@@ -44,6 +44,8 @@ namespace SERVER_BUS
         }
         double range = 0.2;
         bool samecoordinate = false;
+        private bool disposedValue;
+
         /// <summary>
         /// Operation for when the coordinate changes
         /// </summary>
@@ -90,7 +92,7 @@ namespace SERVER_BUS
             }
         }
        
-        public BusState(string busname,Percorso buspath,Coordinate StartPosition)
+        public BusState(string busname,Percorso buspath,Coordinate StartPosition, int laststop = -1, bool andata = true)
         {
             if(String.IsNullOrWhiteSpace(busname))
             {
@@ -104,6 +106,103 @@ namespace SERVER_BUS
             BusPath = buspath;
             BusName = busname;
             BusNames.Add(busname);
+            this._andata = andata;
+
+            if(laststop==-1)
+            {
+                if(this.andata)
+                {
+                    this._LastStop = BusPath.elefermateandata.First();
+                    bool appoggio = false;
+                    foreach(int item in BusPath.elefermateandata)
+                    {
+                        if(item == this.LastStop)
+                        {
+                            appoggio = true;
+                        }
+                        else if(appoggio)
+                        {
+                            this._NextStop = item;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    this._LastStop = BusPath.elefermateritorno.First();
+                    bool appoggio = false;
+                    foreach (int item in BusPath.elefermateritorno)
+                    {
+                        if (item == this.LastStop)
+                        {
+                            appoggio = true;
+                        }
+                        else if (appoggio)
+                        {
+                            this._NextStop = item;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                this._LastStop = laststop;
+                if (this.andata)
+                {
+                    bool appoggio = false;
+                    foreach (int item in BusPath.elefermateandata)
+                    {
+                        if (item == this.LastStop)
+                        {
+                            appoggio = true;
+                        }
+                        else if (appoggio)
+                        {
+                            this._NextStop = item;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    bool appoggio = false;
+                    foreach (int item in BusPath.elefermateritorno)
+                    {
+                        if (item == this.LastStop)
+                        {
+                            appoggio = true;
+                        }
+                        else if (appoggio)
+                        {
+                            this._NextStop = item;
+                            break;
+                        }
+                    }
+                }
+               
+            }
+
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                BusNames.RemoveAll(b => b == this.BusName);              
+                disposedValue = true;
+            }
+        }
+
+        ~BusState()
+        {
+            Dispose(disposing: false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }
