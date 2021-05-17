@@ -11,13 +11,18 @@ namespace SERVER_PERCORSO
 {
     public class PERCORSO
     {
-        
+        static string indirizzo = "ws://127.0.0.1:8181";
         static void Main(string[] args)
         {
             
-            List<Bus> Bus = new List<Bus>(); 
-
-            var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
+            List<Bus> Bus = new List<Bus>();
+            if(!CaricaBus(ref Bus, "BusList.json"))
+            {
+                Console.WriteLine("ERRORE: Non sono riuscito a caricare i bus");
+                return;
+            }
+            var websocketServer = new WebSocketServer(indirizzo);
+            Console.WriteLine("--------------------Server Percorso--------------------");
             websocketServer.Start(connection =>
             {
 
@@ -52,15 +57,16 @@ namespace SERVER_PERCORSO
                 };
 
             });
-            string f = default;
-            while (f != "quit")
+            string fine = default;
+            while (fine != "quit")
             {
-                f = Console.ReadLine();
+                Console.WriteLine("Scrivere quit per uscire");
+                fine = Console.ReadLine();
+                fine = fine.Trim().ToLower();
 
             }
 
         }
-        
         public static List<Bus> getmessage(List<Percorso> Percorsi,List<Bus> Bus, int Destinazione)
         {
             if(Percorsi.Count==0 || Bus.Count==0)
@@ -95,7 +101,5 @@ namespace SERVER_PERCORSO
             }
             return true;
         }
-        
-
     }
 }

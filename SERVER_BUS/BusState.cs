@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using Creatore_archivio_pcto;
 using System.Timers;
@@ -63,9 +62,9 @@ namespace SERVER_BUS
             //    {5,new Coordinate(45.7029905, 9.6720559) },
             //    {0,new Coordinate(45.7032898, 9.6775359) },
             //};
-            
+
             //var newfile = new StreamWriter(path);
-            //newfile.WriteLine(JsonConvert.SerializeObject(newdictionary));
+            //newfile.WriteLine(JsonConvert.SerializeObject(newdictionary,Formatting.Indented));
             //newfile.Close();
             var miofile = new StreamReader(path);
             ArchivioCoordinate_Fermate = JsonConvert.DeserializeObject<Dictionary<int, Coordinate>>(miofile.ReadToEnd());

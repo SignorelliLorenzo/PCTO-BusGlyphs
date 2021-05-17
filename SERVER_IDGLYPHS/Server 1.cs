@@ -11,29 +11,23 @@ using System.Drawing;
 
 namespace SERVER_IDGLYPHS
 {
-    interface IAforge
-    {
-        public string Getid();
-    }
     public class mex
     {
         public int codfermata { get; set; }
         public List<Percorso> Percorsi = new List<Percorso>();
     }
-
-
     public class IDGLYPHS
     {
+        static string indirizzo = "ws://127.0.0.1:8181";
         static Dictionary<string,int>  CODGlyphs=new Dictionary<string, int>();
         static List<Percorso> Percorsi = new List<Percorso>();
-
         static void Main(string[] args)
         {
-            //var file = new StreamWriter("CodGlifi");
-            //Percorsi.Add(new Percorso("Milano-Bergamo",new List<int> { 3,2,6} , new List<int> { 6,2,3}));
+            //var file = new StreamWriter("Percorsi.json");
+            //Percorsi.Add(new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }));
             //Percorsi.Add(new Percorso("Milano-Brescia", new List<int> { 0, 5, 7 }, new List<int> { 7, 5, 0 }));
             //Percorsi.Add(new Percorso("Telgate-Bergamo", new List<int> { 3, 4, 5 }, new List<int> { 5, 4, 3 }));
-            //Percorsi.Add(new Percorso("Bergamo-Brescia", new List<int> { 0, 7, 2}, new List<int> { 2, 7, 0 }));
+            //Percorsi.Add(new Percorso("Bergamo-Brescia", new List<int> { 0, 7, 2 }, new List<int> { 2, 7, 0 }));
             //Percorsi.Add(new Percorso("Como-Bergamo", new List<int> { 4, 0, 6 }, new List<int> { 6, 0, 4 }));
             //Percorsi.Add(new Percorso("Como-Brescia", new List<int> { 3, 0, 6 }, new List<int> { 6, 7, 3 }));
             //CODGlyphs.Add("das", 3);
@@ -43,27 +37,25 @@ namespace SERVER_IDGLYPHS
             //CODGlyphs.Add("ers", 7);
             //CODGlyphs.Add("vfd", 5);
             //CODGlyphs.Add("pkl", 0);
-            //string jason = JsonConvert.SerializeObject(CODGlyphs);
+            //string jason = JsonConvert.SerializeObject(Percorsi, Formatting.Indented);
             //file.WriteLine(jason);
             //file.Close();
             //return;
-            if (!CaricaCOD_Glyphs(ref CODGlyphs, "CodGlifi"))
+            if (!CaricaCOD_Glyphs(ref CODGlyphs, "CodGlifi.json"))
             {
                 Console.WriteLine("ERRORE: Codice glifi non caricato");
                 return;
             }
                 
-            if(!CaricaPercorsi(ref Percorsi, "Percorsi"))
+            if(!CaricaPercorsi(ref Percorsi, "Percorsi.json"))
             {
                 Console.WriteLine("ERRORE: Percorsi non caricati");
                 return;
             }
-            var Aforge = new Mock<IAforge>();
-            
-            var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
+            var websocketServer = new WebSocketServer(indirizzo);
+            Console.WriteLine("--------------------Server ID-Glifo--------------------");
             websocketServer.Start(connection =>
             {
-
                 connection.OnOpen = () =>
                 {
                     Console.WriteLine("CLIENT CONNESSO");
@@ -76,33 +68,23 @@ namespace SERVER_IDGLYPHS
                 connection.OnBinary = bytes =>
                 {
                     Bitmap bmp = default;
-                    //using (var ms = new MemoryStream(bytes))
-                    //{
-                    //    bmp = new Bitmap(ms);
-                    //}
                     bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
-                 
-
                     connection.Send(getmessage(Funzioni.FindG(bmp).ToString(),Percorsi,CODGlyphs));
-                    
                 };
-
                 connection.OnError = exception =>
                 {
                     Console.WriteLine($"OnError {exception.Message}");
                 };
-
             });
-            string f = default;
-            while (f != "quit")
+            string fine = default;
+            while (fine != "quit")
             {
-                f = Console.ReadLine();
-
+                Console.WriteLine("Scrivere quit per uscire");
+                fine = Console.ReadLine();
+                fine = fine.Trim().ToLower();
             }
 
         }
-
-
         public static bool CaricaCOD_Glyphs(ref Dictionary<string, int> listainput, string path)
         {
             if(!File.Exists(path))

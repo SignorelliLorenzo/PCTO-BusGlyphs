@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace SERVER_IMMAGINEMAPPA
 {
+    
     public class CoordinateMappa
     {
         private decimal _x;
@@ -57,7 +58,8 @@ namespace SERVER_IMMAGINEMAPPA
         }
     }
     public class ImmagineMappa
-    {      
+    {
+        static string indirizzo = "ws://127.0.0.1:8181";
         public static byte[] CreaImmagine(Coordinate coordinate)
         {
             byte[] mappa = default;
@@ -90,9 +92,9 @@ namespace SERVER_IMMAGINEMAPPA
         static void Main(string[] args)
         {          
             object a = new object();
-            var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
+            var websocketServer = new WebSocketServer(indirizzo);
             Dictionary<string, Coordinate> coordinatepullman = new Dictionary<string, Coordinate>();
-            Console.WriteLine("Server Immagine-Mappa");
+            Console.WriteLine("--------------------Server Immagine-Mappa--------------------");
             websocketServer.Start(connection =>
             {
 

@@ -4,19 +4,38 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using Creatore_archivio_pcto;
+using System.IO;
 
 namespace SERVER_BUS
 {
     public class ServerBus
     {
-
-
+        static string indirizzo = "ws://127.0.0.1:8181";
         static void Main(string[] args)
         {
-            var websocketServer = new WebSocketServer("ws://127.0.0.1:8181");
-            Console.WriteLine("Server Bus");
             Dictionary<string, BusState> coordinatepullman = new Dictionary<string, BusState>();
             List<Bus> Bus = new List<Bus>();
+            if (!CaricaBus(ref Bus, "BusList.json"))
+            {
+                Console.WriteLine("ERRORE: Non sono riuscito a caricare i bus");
+                return;
+            }
+            var websocketServer = new WebSocketServer(indirizzo);
+            Console.WriteLine("--------------------Server Bus--------------------");
+            
+            
+            //{
+            //    new Bus("A1",new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 })),
+            //    new Bus("A2",new Percorso("Milano-Brescia", new List<int> { 0, 5, 7 }, new List<int> { 7, 5, 0 })),
+            //    new Bus("B1",new Percorso("Milano-Bergamo", new List<int> { 3, 5, 6 }, new List<int> { 6, 5, 3 })),
+            //    new Bus("C1",new Percorso("Telgate-Bergamo", new List<int> { 3, 0, 5 }, new List<int> { 5, 0, 3 })),
+            //    new Bus("D1",new Percorso("Telgate-Bergamo", new List<int> { 3, 0, 5 }, new List<int> { 5, 0, 3 })),
+            //};
+            //StreamWriter miofile = new StreamWriter("BusList.json");
+            //miofile.Write(JsonConvert.SerializeObject(Bus,Formatting.Indented));
+            //miofile.Close();
+           
+
             websocketServer.Start(connection =>
             {
 
@@ -163,6 +182,26 @@ namespace SERVER_BUS
             }
 
             return codicefinale;
+        }
+        public static bool CaricaBus(ref List<Bus> bus, string path)
+        {
+            if (!File.Exists(path))
+            {
+                return false;
+            }
+            StreamReader file = new StreamReader(path);
+            string jsonString = file.ReadToEnd();
+            file.Close();
+            try
+            {
+                bus = JsonConvert.DeserializeObject<List<Bus>>(jsonString);
+            }
+            catch
+            {
+
+                return false;
+            }
+            return true;
         }
     }
 }
