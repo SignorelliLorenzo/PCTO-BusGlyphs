@@ -552,3 +552,5 @@ C:\Users\andrea\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_Conver
 C:\Users\andrea\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\andrea\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\andrea\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\android\src\crc64a0e0a82d0db9a07d\IntermediateActivity.java
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\android\src\crc64a0e0a82d0db9a07d\WebAuthenticatorIntermediateActivity.java

@@ -4,6 +4,8 @@ using System.Text;
 using System.Linq;
 using Creatore_archivio_pcto;
 using System.Timers;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace SERVER_BUS
 {
@@ -22,7 +24,8 @@ namespace SERVER_BUS
         public int LastStop { get { return _LastStop; } }
         private int _NextStop;
         public int NextStop { get { return _NextStop; } }
-        private Dictionary<int, Coordinate> ArchivioCoordinate_Fermate = new Dictionary<int, Coordinate>();
+        private static Dictionary<int, Coordinate> ArchivioCoordinate_Fermate = new Dictionary<int, Coordinate>();
+        
         public Percorso BusPath { get; }
         public string BusName { get; }
         private Coordinate _currentposition;
@@ -37,21 +40,41 @@ namespace SERVER_BUS
                 }
                 else
                 {
+                    Inizialize("ArchivioCoordinate.Json");
                     firsttime = false;
                 }
             }
 
         }
-        double range = 0.2;
+        double range = 0.000002;
         bool samecoordinate = false;
         private bool disposedValue;
 
         /// <summary>
         /// Operation for when the coordinate changes
         /// </summary>
+        private void Inizialize(string path)
+        {
+            //var newdictionary = new Dictionary<int, Coordinate>() {
+            //    {3,new Coordinate(45.6964538, 9.6686629) },
+            //    {2,new Coordinate(45.6969260, 9.6690978) },
+            //    {6,new Coordinate(45.6975549, 9.6667936) },
+            //    {7,new Coordinate(45.7008704, 9.6655066) },
+            //    {5,new Coordinate(45.7029905, 9.6720559) },
+            //    {0,new Coordinate(45.7032898, 9.6775359) },
+            //};
+            
+            //var newfile = new StreamWriter(path);
+            //newfile.WriteLine(JsonConvert.SerializeObject(newdictionary));
+            //newfile.Close();
+            var miofile = new StreamReader(path);
+            ArchivioCoordinate_Fermate = JsonConvert.DeserializeObject<Dictionary<int, Coordinate>>(miofile.ReadToEnd());
+            miofile.Close();
+        }
         private void CoordinateChanged()
         {
-            if(ArchivioCoordinate_Fermate.Where(x=> x.Value.x<(_currentposition.x+range) && x.Value.x > (_currentposition.x - range) && x.Value.y < (_currentposition.y + range) && x.Value.y > (_currentposition.y - range)).Count() == 0 && ArchivioCoordinate_Fermate.Where(x => x.Value.x < (_currentposition.x + range) && x.Value.x > (_currentposition.x - range) && x.Value.y < (_currentposition.y + range) && x.Value.y > (_currentposition.y - range)).FirstOrDefault().Key == _NextStop)
+            var serchcoordinate = ArchivioCoordinate_Fermate[_NextStop];
+            if (serchcoordinate.x<(_currentposition.x+range) && serchcoordinate.x > (_currentposition.x - range) && serchcoordinate.y < (_currentposition.y + range) && serchcoordinate.y > (_currentposition.y - range))
             {
                 
                 if(samecoordinate)

@@ -1,0 +1,16 @@
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO_2.exe
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO_2.deps.json
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO_2.runtimeconfig.json
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO_2.runtimeconfig.dev.json
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO_2.dll
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\SERVER_PERCORSO_2.pdb
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\Fleck.dll
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.csprojAssemblyReference.cache
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.AssemblyInfoInputs.cache
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.AssemblyInfo.cs
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.csproj.CoreCompileInputs.cache
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.csproj.CopyComplete
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.dll
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.pdb
+C:\Users\LORY\source\repos\SignorelliLorenzo\PCTO-BusGlyphs\SERVER_PERCORSO\obj\Debug\netcoreapp3.1\SERVER_PERCORSO_2.genruntimeconfig.cache

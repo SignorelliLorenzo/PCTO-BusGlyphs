@@ -31,9 +31,9 @@ namespace SERVER_BUS
                 };
                 connection.OnMessage = message =>
                 {
-                    if (!OnGpsMessage(ref coordinatepullman, message, Bus))
+                    if (!OnGpsMessage( coordinatepullman, message, Bus))
                     {
-                        var codicebus = OnStandardMessage(message, ref coordinatepullman);
+                        var codicebus = OnStandardMessage(message,  coordinatepullman);
                         //var bus = coordinatepullman.Where(p => p.Value.BusName == risposta).First().Value;
                         //var json = JsonConvert.SerializeObject(bus);
                         connection.Send(codicebus);
@@ -58,7 +58,7 @@ namespace SERVER_BUS
 
             }
         }
-        public static bool OnGpsMessage(ref Dictionary<string, BusState> CoordianteDyctionary, string message, List<Bus> BusList)
+        public static bool OnGpsMessage( IDictionary<string, BusState> CoordianteDyctionary, string message, List<Bus> BusList)
         {
             if (message.StartsWith("gps%"))
             {
@@ -85,7 +85,7 @@ namespace SERVER_BUS
             }
             return false;
         }
-        public static string OnStandardMessage(string message,ref Dictionary<string,BusState> pullmancoordinate)
+        public static string OnStandardMessage(string message, IDictionary<string,BusState> pullmancoordinate)
         {
             var infos = message.Split("%");
             int fermataattuale = default;
