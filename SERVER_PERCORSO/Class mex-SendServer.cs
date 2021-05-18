@@ -22,7 +22,9 @@ namespace Messages
             base.codfermata = messaggio.codfermata;
             this.Destinazione = destinazione;
         }
-          
+        public mexdestinazione()
+        { }
+
 
     }
 }
