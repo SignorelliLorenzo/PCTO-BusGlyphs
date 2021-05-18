@@ -11,7 +11,6 @@ namespace Messages
     {
         public int codfermata { get; set; }
         public List<Percorso> Percorsi = new List<Percorso>();
-        private string _direzione;
     }
     class mexdestinazione : mex
     {
