@@ -50,13 +50,23 @@ namespace SERVER_BUS
                 };
                 connection.OnMessage = message =>
                 {
-                    if (!OnGpsMessage( coordinatepullman, message, Bus))
+
+                    try
                     {
-                        var codicebus = OnStandardMessage(message,  coordinatepullman);
-                        //var bus = coordinatepullman.Where(p => p.Value.BusName == risposta).First().Value;
-                        //var json = JsonConvert.SerializeObject(bus);
-                        connection.Send(codicebus);
+                        if (!OnGpsMessage(coordinatepullman, message, Bus))
+                        {
+                            var codicebus = OnStandardMessage(message, coordinatepullman);
+                            //var bus = coordinatepullman.Where(p => p.Value.BusName == risposta).First().Value;
+                            //var json = JsonConvert.SerializeObject(bus);
+                            connection.Send(codicebus);
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        connection.Send("!%-ERRORE: " + ex.Message);
+                        Console.WriteLine("/n--------Errore--------/n" + ex.Message + "/n--------Errore--------/n");
+                    }
+                    
                     
 
                 };

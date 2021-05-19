@@ -44,12 +44,14 @@ namespace SERVER_IDGLYPHS
             if (!CaricaCOD_Glyphs(ref CODGlyphs, "CodGlifi.json"))
             {
                 Console.WriteLine("ERRORE: Codice glifi non caricato");
+                Console.ReadKey();
                 return;
             }
                 
             if(!CaricaPercorsi(ref Percorsi, "Percorsi.json"))
             {
                 Console.WriteLine("ERRORE: Percorsi non caricati");
+                Console.ReadKey();
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
@@ -67,9 +69,19 @@ namespace SERVER_IDGLYPHS
                 };
                 connection.OnBinary = bytes =>
                 {
-                    Bitmap bmp = default;
+                    try
+                    {
+                       Bitmap bmp = default;
                     bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
-                    connection.Send(getmessage(Funzioni.FindG(bmp).ToString(),Percorsi,CODGlyphs));
+                    connection.Send(getmessage(Funzioni.FindG(bmp).ToString(), Percorsi, CODGlyphs));
+                    }
+                    catch(Exception ex)
+                    {
+                        connection.Send("!%-ERRORE: " + ex.Message);
+                        Console.WriteLine("/n--------Errore--------/n" + ex.Message + "/n--------Errore--------/n");
+                    }
+                    
+
                 };
                 connection.OnError = exception =>
                 {

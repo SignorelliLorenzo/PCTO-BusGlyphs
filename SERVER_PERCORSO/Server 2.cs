@@ -37,18 +37,22 @@ namespace SERVER_PERCORSO
                 };
                 connection.OnMessage = msg =>
                 {
-                    mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
+                    
                     try
                     {
+                        mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
                         //connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione)));
                         var json = JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione));
                         json = $"{message.codfermata}%{json}";
                         connection.Send(json);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
-                        connection.Send(ex.Message);
+                        connection.Send("!%-ERRORE: " + ex.Message);
+                        Console.WriteLine("/n--------Errore--------/n" + ex.Message + "/n--------Errore--------/n");
                     }
+                    
+                    
                 };
 
                 connection.OnError = exception =>

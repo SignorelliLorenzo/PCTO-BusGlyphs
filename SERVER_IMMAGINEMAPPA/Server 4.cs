@@ -110,17 +110,31 @@ namespace SERVER_IMMAGINEMAPPA
                 };
                 connection.OnMessage = message =>
                 {
-                    if(message.StartsWith("gps%"))
+                    try
                     {
-                        var risposta = message.Split("%");
-                        coordinatepullman[risposta[1]] = JsonConvert.DeserializeObject<Coordinate>(risposta[2]);
-                        return;
+                        if (message.StartsWith("gps%"))
+                        {
+                            var risposta = message.Split("%");
+                            coordinatepullman[risposta[1]] = JsonConvert.DeserializeObject<Coordinate>(risposta[2]);
+                            return;
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        connection.Send("!%-ERRORE: " + ex.Message);
+                        Console.WriteLine("/n--------Errore--------/n" + ex.Message + "/n--------Errore--------/n");
+                    }
+
                     Coordinate coordinate = coordinatepullman[message];
-                    var immagine=CreaImmagine(coordinate);
+                    var immagine = CreaImmagine(coordinate);
                     if (immagine == default)
+                    {
                         connection.Send("Errore nella richiesta della mappa");
-                    connection.Send(immagine);
+                    }
+                    else
+                    {
+                        connection.Send(immagine);
+                    }
                 };
 
                 connection.OnError = exception =>
