@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using Fleck;
 using Newtonsoft.Json;
 
@@ -122,19 +123,25 @@ namespace SERVER_IMMAGINEMAPPA
                     catch (Exception ex)
                     {
                         connection.Send("!%-ERRORE: " + ex.Message);
-                        Console.WriteLine("/n--------Errore--------/n" + ex.Message + "/n--------Errore--------/n");
+                        Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
+                    while (connection.IsAvailable)
+                    {
 
-                    Coordinate coordinate = coordinatepullman[message];
-                    var immagine = CreaImmagine(coordinate);
-                    if (immagine == default)
-                    {
-                        connection.Send("Errore nella richiesta della mappa");
+                        Coordinate coordinate = coordinatepullman[message];
+                        var immagine = CreaImmagine(coordinate);
+                        if (immagine == default)
+                        {
+                            connection.Send("Errore nella richiesta della mappa");
+                        }
+                        else
+                        {
+                            connection.Send(immagine);
+                        }
+                    
+                        Thread.Sleep(3000);
                     }
-                    else
-                    {
-                        connection.Send(immagine);
-                    }
+                    
                 };
 
                 connection.OnError = exception =>

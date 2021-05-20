@@ -64,7 +64,7 @@ namespace SERVER_BUS
                     catch (Exception ex)
                     {
                         connection.Send("!%-ERRORE: " + ex.Message);
-                        Console.WriteLine("/n--------Errore--------/n" + ex.Message + "/n--------Errore--------/n");
+                        Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
                     
                     
