@@ -6913,25 +6913,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LORY\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Gabry\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+      "projectUniqueName": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs-master\\Server Testing\\Server Testing.csproj",
       "projectName": "Server Testing",
-      "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
-      "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+      "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs-master\\Server Testing\\Server Testing.csproj",
+      "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs-master\\Server Testing\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gabry\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -6946,8 +6944,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
-              "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
+            "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs-master\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+              "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs-master\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
             }
           }
         }
@@ -7006,7 +7004,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
