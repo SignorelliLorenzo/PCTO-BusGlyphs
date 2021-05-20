@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {}
+    "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {
+    "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
         "projectName": "Test_Base",
-        "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+        "projectPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
         "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Test_Base\\obj\\",
+        "outputPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
@@ -31,6 +31,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +43,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -79,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

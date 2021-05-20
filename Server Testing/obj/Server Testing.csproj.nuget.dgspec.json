@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
         "projectName": "Server Testing",
-        "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
-        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\obj\\",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\Server Testing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -31,9 +31,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
-                "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+              "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+                "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
               }
             }
           }
@@ -46,14 +47,15 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.7.1, )"
+              "version": "[16.9.4, )"
             },
             "Moq": {
               "target": "Package",
-              "version": "[4.16.0, )"
+              "version": "[4.16.1, )"
             },
             "WebSocket4Net": {
               "target": "Package",
@@ -63,7 +65,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.3.0, )"
+              "version": "[3.0.3, )"
             },
             "xunit": {
               "target": "Package",
@@ -91,19 +93,85 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj",
-        "projectName": "WEB_SOCKET_SERVER",
-        "projectPath": "C:\\Users\\andrea\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\WEB SOCKET\\WEB_SOCKET_SERVER.csproj"
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "projectName": "SERVER_IDGLYPHS_1",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\SignorelliLorenzo\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
       },
       "frameworks": {
-        "net472": {}
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Fleck": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
       }
     }
   }
