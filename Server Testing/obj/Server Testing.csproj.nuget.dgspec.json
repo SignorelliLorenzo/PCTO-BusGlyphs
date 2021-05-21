@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {}
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
         "projectName": "Server Testing",
-        "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
         "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server Testing\\obj\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -33,8 +33,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
-                "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
+              "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+                "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
               }
             }
           }
@@ -97,14 +97,14 @@
         }
       }
     },
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
         "projectName": "SERVER_IDGLYPHS_1",
-        "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
         "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\obj\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

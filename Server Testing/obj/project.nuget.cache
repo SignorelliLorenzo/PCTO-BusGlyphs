@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/i6B3+lYGtkxNNQbY4rJmYxQQ+OUPtyADiRPtZQMJmQPikZdXR6SF2v2xcvuq4vqU5LmRbu73YYAB+ol0zLMHg==",
+  "dgSpecHash": "xC0gwTY6HckC5n3D8imZmnZIytyxOqSRoR+NeWP3MtJLFWBAzitatDV0KLArs4cSoku/HVjItP24mcJAj/fbmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
+  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORY\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",

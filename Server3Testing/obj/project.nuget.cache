@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "38dE4BTb33Nh56UOdVQIT7FNlTPHFguEJzc4qSCA8r9ZPCJDIOTMoXDKfjTnpDx2FYcXIvC+y+2ug0wkEIRRRQ==",
+  "dgSpecHash": "hq6n32rOjWyMhxkuhnZcePZHdecs6oYwTwMYZQaaOAdv4N5qJx9DDpq0EnvWViM3qNFE2VCCRfOBI4UwnrVyPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server3Testing\\Server3Testing.csproj",
+  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server3Testing\\Server3Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORY\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\fleck\\1.2.0\\fleck.1.2.0.nupkg.sha512",

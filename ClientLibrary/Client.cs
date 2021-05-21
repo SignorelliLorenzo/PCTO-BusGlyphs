@@ -8,7 +8,11 @@ namespace ClientLibrary
     public class Client_Glifo_1 : IDisposable
     {
         private WebSocket Client;
-
+        private bool _response;
+        /// <summary>
+        /// Notify when the resonse has arrived
+        /// </summary>
+        public bool response { get {return _response; } }
         private int _timeout;
 
         private bool stato;
@@ -34,6 +38,7 @@ namespace ClientLibrary
 
         private void Initialize(string indirizzo, byte[] immagine)
         {
+            _response = false;
             this.Client = new WebSocket(indirizzo);
 
             this.Client.MessageReceived += MessaggioRicevuto;
@@ -104,7 +109,12 @@ namespace ClientLibrary
     public class Client_Percorso_2 : IDisposable
     {
         private WebSocket Client;
+        private bool _response;
+        /// <summary>
+        /// Notify when the resonse has arrived
+        /// </summary>
 
+        public bool response { get { return _response; } }
         private int _timeout;
 
         private bool stato;
@@ -202,7 +212,12 @@ namespace ClientLibrary
     public class Client_Bus_3 : IDisposable
     {
         private WebSocket Client;
+        private bool _response;
+        /// <summary>
+        /// Notify when the resonse has arrived
+        /// </summary>
 
+        public bool response { get { return _response; } }
         private int _timeout;
 
         private bool stato;
@@ -300,7 +315,12 @@ namespace ClientLibrary
     public class Client_Immagine_4 : IDisposable
     {
         private WebSocket Client;
+        private bool _response;
+        /// <summary>
+        /// Notify when the resonse has arrived
+        /// </summary>
 
+        public bool response { get { return _response; } }
         private bool _newImage;
         public bool newImage
         {

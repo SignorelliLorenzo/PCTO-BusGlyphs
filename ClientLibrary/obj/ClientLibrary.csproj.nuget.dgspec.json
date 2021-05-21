@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj": {}
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj",
         "projectName": "ClientLibrary",
-        "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj",
         "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\ClientLibrary\\obj\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\ClientLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

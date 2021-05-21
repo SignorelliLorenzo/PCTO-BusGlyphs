@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1vdv7iHnYGsNpd6Py+M9KgpbjMkCSHxySg0ncpqQ6mYlpzV5mHPYIz4Q0vifd9me/cCsiSiFI1RmcwOl9H11Sg==",
+  "dgSpecHash": "Jfb4ULe+bnV1xu3m5cXoMmHKV0xQyKkK58hDPnGiDn5Osxn2IbOCgaVjRbG39Vwhl+BcA4edVV9mmgPvmoaMxw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj",
+  "projectFilePath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\ClientLibrary\\ClientLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORY\\.nuget\\packages\\fleck\\1.2.0\\fleck.1.2.0.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",

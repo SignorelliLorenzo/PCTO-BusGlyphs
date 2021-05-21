@@ -72,7 +72,14 @@ namespace SERVER_IDGLYPHS
                     {
                         Bitmap bmp = default;
                         bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
-                        connection.Send(getmessage(Funzioni.FindG(bmp).ToString(), Percorsi, CODGlyphs));
+                        if(!Funzioni.FindG(bmp))
+                        {
+                            connection.Send("Glifo non trovato");
+                        }
+                        else
+                        {
+                            connection.Send(getmessage(Funzioni.FindGlyphName(bmp).ToString(), Percorsi, CODGlyphs));
+                        }
                     }
                     catch (Exception ex)
                     {

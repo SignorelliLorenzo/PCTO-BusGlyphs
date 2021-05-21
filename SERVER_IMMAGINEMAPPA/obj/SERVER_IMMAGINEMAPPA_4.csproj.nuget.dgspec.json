@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj": {}
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj": {
+    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
+        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
         "projectName": "SERVER_IMMAGINEMAPPA_4",
-        "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
+        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
         "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\obj\\",
+        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IMMAGINEMAPPA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

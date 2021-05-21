@@ -5675,11 +5675,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server2Testing\\Server2Testing.csproj",
+      "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server2Testing\\Server2Testing.csproj",
       "projectName": "Server2Testing",
-      "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server2Testing\\Server2Testing.csproj",
+      "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server2Testing\\Server2Testing.csproj",
       "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\Server2Testing\\obj\\",
+      "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server2Testing\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -5701,8 +5701,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj": {
-              "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj"
+            "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj": {
+              "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_PERCORSO\\SERVER_PERCORSO_2.csproj"
             }
           }
         }
