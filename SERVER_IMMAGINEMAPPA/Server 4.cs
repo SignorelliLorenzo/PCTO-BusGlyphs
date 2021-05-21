@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Fleck;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Net;
 using System.Threading;
-using Fleck;
-using Newtonsoft.Json;
 
 namespace SERVER_IMMAGINEMAPPA
 {
-    
+
     public class CoordinateMappa
     {
         private decimal _x;
@@ -69,7 +67,7 @@ namespace SERVER_IMMAGINEMAPPA
                 CoordinateMappa coordinatemappa = new CoordinateMappa(coordinate);
 
                 //Elaborazione
-                
+
                 string latitudine = coordinatemappa.x.ToString();
                 string longitudine = coordinatemappa.y.ToString();
                 string zoom = "12";
@@ -84,14 +82,14 @@ namespace SERVER_IMMAGINEMAPPA
                 }
                 return mappa;
             }
-            catch(Exception ex)
+            catch 
             {
-                return mappa;     
+                return mappa;
             }
 
         }
         static void Main(string[] args)
-        {          
+        {
             object a = new object();
             var websocketServer = new WebSocketServer(indirizzo);
             Dictionary<string, Coordinate> coordinatepullman = new Dictionary<string, Coordinate>();
@@ -138,10 +136,10 @@ namespace SERVER_IMMAGINEMAPPA
                         {
                             connection.Send(immagine);
                         }
-                    
+
                         Thread.Sleep(3000);
                     }
-                    
+
                 };
 
                 connection.OnError = exception =>

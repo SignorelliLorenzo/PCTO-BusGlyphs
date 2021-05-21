@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Creatore_archivio_pcto;
-using System.Timers;
-using System.IO;
+﻿using Creatore_archivio_pcto;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Timers;
 
 namespace SERVER_BUS
 {
     public class BusState : IDisposable
     {
-        
+
         private Timer lastcall = new Timer();
         private bool _andata;
         public bool andata
@@ -24,11 +24,12 @@ namespace SERVER_BUS
         private int _NextStop;
         public int NextStop { get { return _NextStop; } }
         private static Dictionary<int, Coordinate> ArchivioCoordinate_Fermate = new Dictionary<int, Coordinate>();
-        
+
         public Percorso BusPath { get; }
         public string BusName { get; }
         private Coordinate _currentposition;
-        public Coordinate currentposition {
+        public Coordinate currentposition
+        {
             get { return _currentposition; }
             set
             {
@@ -73,10 +74,10 @@ namespace SERVER_BUS
         private void CoordinateChanged()
         {
             var serchcoordinate = ArchivioCoordinate_Fermate[_NextStop];
-            if (serchcoordinate.x<(_currentposition.x+range) && serchcoordinate.x > (_currentposition.x - range) && serchcoordinate.y < (_currentposition.y + range) && serchcoordinate.y > (_currentposition.y - range))
+            if (serchcoordinate.x < (_currentposition.x + range) && serchcoordinate.x > (_currentposition.x - range) && serchcoordinate.y < (_currentposition.y + range) && serchcoordinate.y > (_currentposition.y - range))
             {
-                
-                if(samecoordinate)
+
+                if (samecoordinate)
                 {
                     return;
                 }
@@ -85,7 +86,7 @@ namespace SERVER_BUS
                 {
                     try
                     {
-                        
+
                         _NextStop = BusPath.elefermateandata[BusPath.elefermateandata.IndexOf(_LastStop) + 1];
                     }
                     catch
@@ -113,14 +114,14 @@ namespace SERVER_BUS
                 samecoordinate = false;
             }
         }
-       
-        public BusState(string busname,Percorso buspath,Coordinate StartPosition, int laststop = -1, bool andata = true)
+
+        public BusState(string busname, Percorso buspath, Coordinate StartPosition, int laststop = -1, bool andata = true)
         {
-            if(String.IsNullOrWhiteSpace(busname))
+            if (String.IsNullOrWhiteSpace(busname))
             {
                 throw new Exception("ADD THE BUSNAME");
             }
-            if(BusNames.Contains(busname))
+            if (BusNames.Contains(busname))
             {
                 throw new Exception("BUS COLLEGATO WTF");
             }
@@ -130,19 +131,19 @@ namespace SERVER_BUS
             BusNames.Add(busname);
             this._andata = andata;
 
-            if(laststop==-1)
+            if (laststop == -1)
             {
-                if(this.andata)
+                if (this.andata)
                 {
                     this._LastStop = BusPath.elefermateandata.First();
                     bool appoggio = false;
-                    foreach(int item in BusPath.elefermateandata)
+                    foreach (int item in BusPath.elefermateandata)
                     {
-                        if(item == this.LastStop)
+                        if (item == this.LastStop)
                         {
                             appoggio = true;
                         }
-                        else if(appoggio)
+                        else if (appoggio)
                         {
                             this._NextStop = item;
                             break;
@@ -202,7 +203,7 @@ namespace SERVER_BUS
                         }
                     }
                 }
-               
+
             }
 
         }
@@ -211,7 +212,7 @@ namespace SERVER_BUS
         {
             if (!disposedValue)
             {
-                BusNames.RemoveAll(b => b == this.BusName);              
+                BusNames.RemoveAll(b => b == this.BusName);
                 disposedValue = true;
             }
         }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Creatore_archivio_pcto;
 using Fleck;
-using Creatore_archivio_pcto;
+using Messages;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
-using Messages;
 using System.Linq;
 
 namespace SERVER_PERCORSO
@@ -14,15 +14,16 @@ namespace SERVER_PERCORSO
         static string indirizzo = "ws://127.0.0.1:8181";
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("--------------------Server Percorso--------------------");
             List<Bus> Bus = new List<Bus>();
-            if(!CaricaBus(ref Bus, "BusList.json"))
+            if (!CaricaBus(ref Bus, "BusList.json"))
             {
                 Console.WriteLine("ERRORE: Non sono riuscito a caricare i bus");
+                Console.ReadKey();
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
-            Console.WriteLine("--------------------Server Percorso--------------------");
+            
             websocketServer.Start(connection =>
             {
 
@@ -37,7 +38,7 @@ namespace SERVER_PERCORSO
                 };
                 connection.OnMessage = msg =>
                 {
-                    
+
                     try
                     {
                         mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
@@ -51,8 +52,8 @@ namespace SERVER_PERCORSO
                         connection.Send("!%-ERRORE: " + ex.Message);
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
-                    
-                    
+
+
                 };
 
                 connection.OnError = exception =>
@@ -71,15 +72,15 @@ namespace SERVER_PERCORSO
             }
 
         }
-        public static List<Bus> getmessage(List<Percorso> Percorsi,List<Bus> Bus, int Destinazione)
+        public static List<Bus> getmessage(List<Percorso> Percorsi, List<Bus> Bus, int Destinazione)
         {
-            if(Percorsi.Count==0 || Bus.Count==0)
+            if (Percorsi.Count == 0 || Bus.Count == 0)
             {
                 throw new Exception("Dati non disponibili");
             }
             List<Percorso> Percorsigiusti = new List<Percorso>();
-            Percorsigiusti=Percorsi.Where(x => x.elefermateandata.Contains(Destinazione) || x.elefermateritorno.Contains(Destinazione)).ToList();
-            if(Percorsigiusti.Count==0)
+            Percorsigiusti = Percorsi.Where(x => x.elefermateandata.Contains(Destinazione) || x.elefermateritorno.Contains(Destinazione)).ToList();
+            if (Percorsigiusti.Count == 0)
             {
                 throw new Exception("Non sono stati trovati percorsi conformi");
             }

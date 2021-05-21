@@ -1,13 +1,12 @@
-﻿using System;
-using Fleck;
-using Moq;
-using System.Linq;
-using System.Collections.Generic;
+﻿using AForgeFunctions;
 using Creatore_archivio_pcto;
+using Fleck;
 using Newtonsoft.Json;
-using System.IO;
-using AForgeFunctions;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 
 namespace SERVER_IDGLYPHS
 {
@@ -19,7 +18,7 @@ namespace SERVER_IDGLYPHS
     public class IDGLYPHS
     {
         static string indirizzo = "ws://127.0.0.1:8181";
-        static Dictionary<string,int>  CODGlyphs=new Dictionary<string, int>();
+        static Dictionary<string, int> CODGlyphs = new Dictionary<string, int>();
         static List<Percorso> Percorsi = new List<Percorso>();
         static void Main(string[] args)
         {
@@ -47,8 +46,8 @@ namespace SERVER_IDGLYPHS
                 Console.ReadKey();
                 return;
             }
-                
-            if(!CaricaPercorsi(ref Percorsi, "Percorsi.json"))
+
+            if (!CaricaPercorsi(ref Percorsi, "Percorsi.json"))
             {
                 Console.WriteLine("ERRORE: Percorsi non caricati");
                 Console.ReadKey();
@@ -71,16 +70,16 @@ namespace SERVER_IDGLYPHS
                 {
                     try
                     {
-                       Bitmap bmp = default;
-                    bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
-                    connection.Send(getmessage(Funzioni.FindG(bmp).ToString(), Percorsi, CODGlyphs));
+                        Bitmap bmp = default;
+                        bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
+                        connection.Send(getmessage(Funzioni.FindG(bmp).ToString(), Percorsi, CODGlyphs));
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         connection.Send("!%-ERRORE: " + ex.Message);
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
-                    
+
 
                 };
                 connection.OnError = exception =>
@@ -99,7 +98,7 @@ namespace SERVER_IDGLYPHS
         }
         public static bool CaricaCOD_Glyphs(ref Dictionary<string, int> listainput, string path)
         {
-            if(!File.Exists(path))
+            if (!File.Exists(path))
             {
                 return false;
             }
@@ -108,11 +107,11 @@ namespace SERVER_IDGLYPHS
             file.Close();
             try
             {
-                listainput = JsonConvert.DeserializeObject<Dictionary<string,int>>(jsonString);  
+                listainput = JsonConvert.DeserializeObject<Dictionary<string, int>>(jsonString);
             }
-                catch 
+            catch
             {
-                
+
                 return false;
             }
             return true;
@@ -139,20 +138,20 @@ namespace SERVER_IDGLYPHS
         public static string getmessage(string cod, List<Percorso> percorsi, Dictionary<string, int> codiceglifi)
         {
             int codicefermata = -1;
-            if(!(codiceglifi.TryGetValue(cod,out codicefermata)))
+            if (!(codiceglifi.TryGetValue(cod, out codicefermata)))
             {
                 return "ERRORE: Fermata inesistente";
             }
-           
+
             string message;
             mex NRmessage = new mex();
             NRmessage.codfermata = codicefermata;
-            NRmessage.Percorsi=percorsi.Where(x=> x.elefermateandata.Contains(codicefermata) || x.elefermateritorno.Contains(codicefermata)).ToList();
-            if (NRmessage.Percorsi.Count==0)
+            NRmessage.Percorsi = percorsi.Where(x => x.elefermateandata.Contains(codicefermata) || x.elefermateritorno.Contains(codicefermata)).ToList();
+            if (NRmessage.Percorsi.Count == 0)
                 return "ERRORE: Fermata non trovata";
 
             message = JsonConvert.SerializeObject(NRmessage);
-            
+
             return message;
         }
     }

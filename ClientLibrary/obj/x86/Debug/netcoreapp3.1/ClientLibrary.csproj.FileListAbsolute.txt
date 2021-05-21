@@ -1,0 +1,10 @@
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\x86\Debug\netcoreapp3.1\ClientLibrary.deps.json
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\x86\Debug\netcoreapp3.1\ClientLibrary.dll
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\x86\Debug\netcoreapp3.1\ClientLibrary.pdb
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\x86\Debug\netcoreapp3.1\ClientLibrary.xml
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\obj\x86\Debug\netcoreapp3.1\ClientLibrary.csprojAssemblyReference.cache
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\obj\x86\Debug\netcoreapp3.1\ClientLibrary.AssemblyInfoInputs.cache
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\obj\x86\Debug\netcoreapp3.1\ClientLibrary.AssemblyInfo.cs
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\obj\x86\Debug\netcoreapp3.1\ClientLibrary.csproj.CoreCompileInputs.cache
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\obj\x86\Debug\netcoreapp3.1\ClientLibrary.dll
+C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\obj\x86\Debug\netcoreapp3.1\ClientLibrary.pdb

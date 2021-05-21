@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
-using AForgeFunctions;
+﻿using AForgeFunctions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
+using System.IO;
 
 namespace Test_Base
 {
@@ -68,7 +68,7 @@ namespace Test_Base
         {
             //Arrange
             bool check = false;
-            Bitmap Imagetest = new Bitmap(Directory.GetCurrentDirectory() + $@"\03.jpg", true);
+            Bitmap Imagetest = new Bitmap(Directory.GetCurrentDirectory() + $@"\black.jpg", true);
 
             //Act
             check = Funzioni.FindG(Imagetest);
@@ -111,6 +111,6 @@ namespace Test_Base
 
         }
 
-       
+
     }
 }

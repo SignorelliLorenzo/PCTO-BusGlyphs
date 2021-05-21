@@ -163,7 +163,7 @@ namespace ClientLibrary
         /// <param name="indirizzo">Indirizzo ip del server web</param>
         /// <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param>
         /// <param name="messaggio">Messaggio contenente la destinazione</param>
-        public Client_Percorso_2(string indirizzo,mexdestinazione messaggio, int timeout = 1000)
+        public Client_Percorso_2(string indirizzo, mexdestinazione messaggio, int timeout = 1000)
         {
             this.stato = true;
             if (timeout <= 0)

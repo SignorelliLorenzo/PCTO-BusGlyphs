@@ -1,16 +1,16 @@
-using System;
-using Xunit;
-using System.Collections.Generic;
-using SERVER_BUS;
 using Creatore_archivio_pcto;
 using Newtonsoft.Json;
+using SERVER_BUS;
+using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using Xunit;
 
 namespace Server3Testing
 {
     public class Server3_Test
     {
-      
+
         //OnGPSMessage
         //**************************************
         //**************************************
@@ -18,23 +18,23 @@ namespace Server3Testing
         //**************************************
         [Fact]
         public void OnGPSMessage_NotGPSMessage()
-        {           
+        {
             List<Bus> BusList = new List<Bus>();
             ConcurrentDictionary<string, BusState> CoordinateDyctionary = new ConcurrentDictionary<string, BusState>();
             string message = "";
-            var risposta = ServerBus.OnGpsMessage( CoordinateDyctionary, message, BusList);
+            var risposta = ServerBus.OnGpsMessage(CoordinateDyctionary, message, BusList);
             Assert.False(risposta);
         }
         [Fact]
         public void OnGPSMessage_NewBus()
         {
             List<Bus> BusList = new List<Bus>();
-            BusList.Add(new Bus("beta",new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 })));
+            BusList.Add(new Bus("beta", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 })));
             ConcurrentDictionary<string, BusState> CoordinateDyctionary = new ConcurrentDictionary<string, BusState>();
 
-            var json = JsonConvert.SerializeObject(new Coordinate(1,2)); 
-            string message = "gps%beta%"+json;
-            var risposta = ServerBus.OnGpsMessage( CoordinateDyctionary, message, BusList);
+            var json = JsonConvert.SerializeObject(new Coordinate(1, 2));
+            string message = "gps%beta%" + json;
+            var risposta = ServerBus.OnGpsMessage(CoordinateDyctionary, message, BusList);
             Assert.True(risposta);
             Assert.Single(CoordinateDyctionary);
         }
@@ -48,10 +48,10 @@ namespace Server3Testing
 
             var json = JsonConvert.SerializeObject(new Coordinate(1, 2));
             string message = "gps%gamma%" + json;
-            var risposta = ServerBus.OnGpsMessage( CoordinateDyctionary, message, BusList);
+            var risposta = ServerBus.OnGpsMessage(CoordinateDyctionary, message, BusList);
             Assert.True(risposta);
             Assert.Single(CoordinateDyctionary);
-            Assert.Equal(new Coordinate(1,2).x,CoordinateDyctionary["gamma"].currentposition.x);
+            Assert.Equal(new Coordinate(1, 2).x, CoordinateDyctionary["gamma"].currentposition.x);
             Assert.Equal(new Coordinate(1, 2).y, CoordinateDyctionary["gamma"].currentposition.y);
         }
 
@@ -68,7 +68,7 @@ namespace Server3Testing
             {
                 var risposta = ServerBus.OnGpsMessage(CoordinateDyctionary, message, BusList);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Assert.Equal("Invalid message format", ex.Message);
             }
@@ -99,9 +99,9 @@ namespace Server3Testing
             string message = "1";
             try
             {
-                ServerBus.OnStandardMessage(message,  pullmancoordinate);
+                ServerBus.OnStandardMessage(message, pullmancoordinate);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Assert.Equal("Invalid message format", ex.Message);
             }
@@ -110,10 +110,10 @@ namespace Server3Testing
         public void OnStandardMessage_AndataBusFound()
         {
             ConcurrentDictionary<string, BusState> CoordinateDyctionary = new ConcurrentDictionary<string, BusState>();
-            CoordinateDyctionary["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3),3,true);
-            CoordinateDyctionary["B2"] = new BusState("B2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3),2,false);
-            CoordinateDyctionary["C2"] = new BusState("C2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3),6,false);
-            CoordinateDyctionary["D3"] = new BusState("D3", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3),2,true);
+            CoordinateDyctionary["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 3, true);
+            CoordinateDyctionary["B2"] = new BusState("B2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, false);
+            CoordinateDyctionary["C2"] = new BusState("C2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 6, false);
+            CoordinateDyctionary["D3"] = new BusState("D3", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, true);
 
 
 
@@ -123,7 +123,7 @@ namespace Server3Testing
             var json = JsonConvert.SerializeObject(elebus);
             string messaggio = "6%" + json;
 
-            string codice = ServerBus.OnStandardMessage(messaggio,  CoordinateDyctionary);
+            string codice = ServerBus.OnStandardMessage(messaggio, CoordinateDyctionary);
             Assert.Equal("D3", codice);
         }
         [Fact]
@@ -160,7 +160,7 @@ namespace Server3Testing
 
             List<Bus> elebus = new List<Bus>();
             elebus.Add(new Bus("B3", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 })));
-            
+
             var json = JsonConvert.SerializeObject(elebus);
             string messaggio = "9%" + json;
 
@@ -175,10 +175,10 @@ namespace Server3Testing
         [Fact]
         public void CoordinateChanged_NextStopChanged()
         {
-            BusState TestBus= new BusState("F5", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 3, true);
-            TestBus.currentposition= new Coordinate(45.6969260, 9.6690978);
+            BusState TestBus = new BusState("F5", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 3, true);
+            TestBus.currentposition = new Coordinate(45.6969260, 9.6690978);
             Assert.Equal(2, TestBus.LastStop);
-            Assert.Equal(6,TestBus.NextStop);
+            Assert.Equal(6, TestBus.NextStop);
         }
         [Fact]
         public void CoordinateChanged_NextStopChanged_ButStillInRange()

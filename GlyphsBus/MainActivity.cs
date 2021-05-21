@@ -1,17 +1,10 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
-using ClientLibrary;
-using Android.Widget;
-using Newtonsoft.Json;
-using System.Drawing;
-using Android.Graphics;
-using Java.IO;
-using static Android.Graphics.Bitmap;
+using System;
 
 namespace GlyphsBus
 {
@@ -30,7 +23,7 @@ namespace GlyphsBus
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
         }
-       
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
@@ -50,14 +43,14 @@ namespace GlyphsBus
 
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            View view = (View) sender;
+            View view = (View)sender;
             Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
                 .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-            
+
 
         }
 
-        
+
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -65,5 +58,5 @@ namespace GlyphsBus
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-	}
+    }
 }

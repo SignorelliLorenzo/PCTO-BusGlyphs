@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Creatore_archivio_pcto;
 using Fleck;
-using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
-using Creatore_archivio_pcto;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace SERVER_BUS
 {
@@ -15,15 +15,17 @@ namespace SERVER_BUS
         {
             Dictionary<string, BusState> coordinatepullman = new Dictionary<string, BusState>();
             List<Bus> Bus = new List<Bus>();
+            Console.WriteLine("--------------------Server Bus--------------------");
             if (!CaricaBus(ref Bus, "BusList.json"))
             {
                 Console.WriteLine("ERRORE: Non sono riuscito a caricare i bus");
+                Console.ReadKey();
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
-            Console.WriteLine("--------------------Server Bus--------------------");
             
-            
+
+
             //{
             //    new Bus("A1",new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 })),
             //    new Bus("A2",new Percorso("Milano-Brescia", new List<int> { 0, 5, 7 }, new List<int> { 7, 5, 0 })),
@@ -34,7 +36,7 @@ namespace SERVER_BUS
             //StreamWriter miofile = new StreamWriter("BusList.json");
             //miofile.Write(JsonConvert.SerializeObject(Bus,Formatting.Indented));
             //miofile.Close();
-           
+
 
             websocketServer.Start(connection =>
             {
@@ -66,8 +68,8 @@ namespace SERVER_BUS
                         connection.Send("!%-ERRORE: " + ex.Message);
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
-                    
-                    
+
+
 
                 };
 
@@ -87,7 +89,7 @@ namespace SERVER_BUS
 
             }
         }
-        public static bool OnGpsMessage( IDictionary<string, BusState> CoordianteDyctionary, string message, List<Bus> BusList)
+        public static bool OnGpsMessage(IDictionary<string, BusState> CoordianteDyctionary, string message, List<Bus> BusList)
         {
             if (message.StartsWith("gps%"))
             {
@@ -95,7 +97,7 @@ namespace SERVER_BUS
                 if (CoordianteDyctionary.ContainsKey(Infos[1]))
                 {
                     CoordianteDyctionary[Infos[1]].currentposition = JsonConvert.DeserializeObject<Coordinate>(Infos[2]);
-                    
+
                 }
                 else
                 {
@@ -114,7 +116,7 @@ namespace SERVER_BUS
             }
             return false;
         }
-        public static string OnStandardMessage(string message, IDictionary<string,BusState> pullmancoordinate)
+        public static string OnStandardMessage(string message, IDictionary<string, BusState> pullmancoordinate)
         {
             var infos = message.Split("%");
             int fermataattuale = default;
@@ -129,29 +131,29 @@ namespace SERVER_BUS
                 return "Invalid message format";
             }
             int x = 0;
-            
+
             bool startconta = false;
             int distanza = 0;
             string codicefinale = default;
-            foreach(Bus bus in elebus)
+            foreach (Bus bus in elebus)
             {
                 var attuale = pullmancoordinate.Where(b => b.Key == bus.codice).First().Value;
                 x = 0;
                 startconta = false;
-                if(attuale.andata)
+                if (attuale.andata)
                 {
-                    foreach(var item in attuale.BusPath.elefermateandata)
+                    foreach (var item in attuale.BusPath.elefermateandata)
                     {
-                        if(item == attuale.LastStop)
+                        if (item == attuale.LastStop)
                         {
                             startconta = true;
                         }
-                        if(startconta)
+                        if (startconta)
                         {
                             x++;
-                            if(item == fermataattuale)
+                            if (item == fermataattuale)
                             {
-                                if(x<distanza || distanza == 0)
+                                if (x < distanza || distanza == 0)
                                 {
                                     distanza = x;
                                     codicefinale = attuale.BusName;
@@ -161,7 +163,7 @@ namespace SERVER_BUS
                         }
                     }
                 }
-                else if(!attuale.andata)
+                else if (!attuale.andata)
                 {
                     foreach (var item in attuale.BusPath.elefermateritorno)
                     {
@@ -186,7 +188,7 @@ namespace SERVER_BUS
                 }
             }
 
-            if(distanza == 0)
+            if (distanza == 0)
             {
                 return "Nessun pullman disponibile in tempi brevi";
             }

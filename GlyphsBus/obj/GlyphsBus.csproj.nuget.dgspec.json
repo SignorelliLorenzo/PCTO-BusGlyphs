@@ -38,6 +38,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "WebSocket4Net": {
               "target": "Package",
               "version": "[0.15.2, )"

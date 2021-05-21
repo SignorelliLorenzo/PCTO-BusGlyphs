@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using Creatore_archivio_pcto;
 using SERVER_PERCORSO;
+using System;
+using System.Collections.Generic;
 using Xunit;
-using System.IO;
-using Newtonsoft.Json;
 
 namespace Server2Testing
 {
@@ -18,17 +16,17 @@ namespace Server2Testing
             var percorsi = new List<Percorso>();
             var busses = new List<Bus>();
             //Act
-            try 
+            try
             {
-               result= PERCORSO.getmessage(percorsi, busses, 4);
+                result = PERCORSO.getmessage(percorsi, busses, 4);
             }
             catch (Exception ex)
             {
-                Assert.Equal("Dati non disponibili",ex.Message);
+                Assert.Equal("Dati non disponibili", ex.Message);
             }
-           
-            
-         }
+
+
+        }
         [Fact]
         public void MessageBusPercorsoNonTrovato()
         {
@@ -48,7 +46,7 @@ namespace Server2Testing
                 Assert.Equal("Non sono stati trovati percorsi conformi", ex.Message);
             }
             //Assert
-            
+
         }
         [Fact]
         public void MessageBusSucces()
@@ -62,12 +60,12 @@ namespace Server2Testing
 
             busses.Add(new Bus("5A", percorsi[0]));
             busses.Add(new Bus("5B", percorsi[1]));
-        
+
 
             var expectedmessage = new List<Bus>();
             expectedmessage.Add(new Bus("5B", percorsi[1]));
 
-            
+
             //Act
             result = PERCORSO.getmessage(percorsi, busses, 5);
             //Assert

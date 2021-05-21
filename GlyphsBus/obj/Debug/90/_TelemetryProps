@@ -1,12 +1,12 @@
 IsIncrementalBuild=true
 AndroidUseAapt2=True
-UseSharedRuntime=True
+UseSharedRuntime=true
 UseFastDeployment=false
 EnableMultidex=False
 EnableProGuard=
 GenerateOnePackagePerABI=
 BundleAssemblies=False
-EnableDeveloperInstrumentation=True
+EnableDeveloperInstrumentation=true
 Debugger=Xamarin
 EnableAOT=False
 UseConcurrentGC=true

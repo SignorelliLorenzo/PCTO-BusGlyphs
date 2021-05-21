@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KxoCxtAkzQIS4HPl8G9wCE1OsccGeS2q44wFQz5q+HYSzoLyCZCQwLie20XVYLcWxGQ8+JIoyCMeEK/mAonYxg==",
+  "dgSpecHash": "bwOFEFvBAuFB+Pv1hgF1o/2KAVB7YAOZ8PeBsNwQvrlpDNaFQDDAouhIvBfbyNmYp3ERMFOgLprzqeJjCEvFIA==",
   "success": true,
   "projectFilePath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\LORY\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\supersocket.clientengine.core\\0.10.0\\supersocket.clientengine.core.0.10.0.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
     "C:\\Users\\LORY\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Creatore_archivio_pcto
 {
-    public class Bus:IDisposable
+    public class Bus : IDisposable
     {
         private string _codice;
         public string codice
@@ -30,10 +27,10 @@ namespace Creatore_archivio_pcto
                 _percorso = value;
             }
         }
-        bool stato=default;
+        bool stato = default;
         public Bus(string codice, Percorso percorso)
         {
-          
+
             this._codice = codice;
             this.percorso = percorso;
         }
@@ -49,7 +46,7 @@ namespace Creatore_archivio_pcto
         {
             if (!disposed)
             {
-            
+
                 disposed = true;
             }
         }
@@ -61,10 +58,10 @@ namespace Creatore_archivio_pcto
         public override string ToString()
         {
             return $"{this.codice} - {this.percorso.ToString()}";
-        } 
-        
+        }
+
     }
-    public class Percorso:IDisposable
+    public class Percorso : IDisposable
     {
         private static List<string> elenomi = new List<string>();
         public List<int> elefermateandata = new List<int>();
@@ -79,7 +76,7 @@ namespace Creatore_archivio_pcto
             }
         }
 
-        public Percorso(string nome,List<int> eleandata,List<int> eleritorno)
+        public Percorso(string nome, List<int> eleandata, List<int> eleritorno)
         {
             if (String.IsNullOrEmpty(nome) || elenomi.Contains(nome))
                 throw new Exception("Nome nullo o già usato");
@@ -98,9 +95,9 @@ namespace Creatore_archivio_pcto
 
         protected virtual void Dispose(bool dispose)
         {
-            if(!disposed)
+            if (!disposed)
             {
-                elenomi.RemoveAll(p=>p == this.nome);
+                elenomi.RemoveAll(p => p == this.nome);
                 disposed = true;
             }
         }
@@ -112,7 +109,7 @@ namespace Creatore_archivio_pcto
         public override string ToString()
         {
             string andata = "";
-            foreach(int item in this.elefermateandata)
+            foreach (int item in this.elefermateandata)
             {
                 andata = andata + item.ToString();
             }

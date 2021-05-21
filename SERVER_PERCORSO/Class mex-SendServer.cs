@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Creatore_archivio_pcto;
 using System.Collections.Generic;
-using System.Text;
-using Messages;
-using Creatore_archivio_pcto;
 using System.Linq;
 
 namespace Messages
@@ -15,7 +12,7 @@ namespace Messages
     class mexdestinazione : mex
     {
         public int Destinazione { get; set; }
-        public mexdestinazione(int destinazione,mex messaggio)
+        public mexdestinazione(int destinazione, mex messaggio)
         {
             base.Percorsi = messaggio.Percorsi.ToList();
             base.codfermata = messaggio.codfermata;

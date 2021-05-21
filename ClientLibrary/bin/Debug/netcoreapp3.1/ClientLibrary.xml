@@ -4,6 +4,13 @@
         <name>ClientLibrary</name>
     </assembly>
     <members>
+        <member name="M:ClientLibrary.mexdestinazione.#ctor(System.Int32,ClientLibrary.mex)">
+            <summary>
+            
+            </summary>
+            <param name="destinazione">Destinazione desiderata</param>
+            <param name="messaggio">Messsaggio ricevuto dal server</param>
+        </member>
         <member name="P:ClientLibrary.Client_Glifo_1.json">
             <summary>
             Json contenente classe "mex"
