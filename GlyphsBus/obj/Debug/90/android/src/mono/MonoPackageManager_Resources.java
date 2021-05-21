@@ -3,6 +3,8 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "GlyphsBus.dll" comes first in this list. */
 		"GlyphsBus.dll",
+		"ClientLibrary.dll",
+		"Newtonsoft.Json.dll",
 		"SuperSocket.ClientEngine.dll",
 		"WebSocket4Net.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
