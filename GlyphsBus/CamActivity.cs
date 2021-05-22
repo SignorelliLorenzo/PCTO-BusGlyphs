@@ -37,7 +37,7 @@ namespace GlyphsBus
 
         //RelativeLayout layoutCam;
         //INDIRIZZO
-        static string indirizzo = ":8080";
+        static string indirizzo = "ws://ghihouse2.ddns.net:8080";
         //----------
         //Globals
         Android.Hardware.Camera _camera;

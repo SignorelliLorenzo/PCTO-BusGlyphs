@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {}
+    "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj": {
+    "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
+        "projectUniqueName": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
         "projectName": "Server Testing",
-        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\Server Testing.csproj",
-        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\Server Testing\\obj\\",
+        "projectPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\Server Testing.csproj",
+        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\Server Testing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
-                "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
+              "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+                "projectPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj"
               }
             }
           }
@@ -93,25 +93,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
+    "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "projectUniqueName": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
         "projectName": "SERVER_IDGLYPHS_1",
-        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
-        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\SERVER_IDGLYPHS\\obj\\",
+        "projectPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -170,7 +170,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
