@@ -74,7 +74,7 @@ namespace SERVER_IDGLYPHS
                         bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
                         if(!Funzioni.FindG(bmp))
                         {
-                            bmp.Save("glifo_dio_porco.bmp");
+                            
                             connection.Send("Glifo non trovato");
                         }
                         else

@@ -125,11 +125,15 @@ namespace GlyphsBus
         }
 
         //-------------------------------------------CLIENT-----------------------------------------------//
+
+        
+
         private void OnTimedEvent1(object sender, ElapsedEventArgs e)
         {
             if (!Client1.response)
             {
                 imagebyte = SaveBitmap(Frame);
+                
                 Client1.immage = imagebyte;
             }
             else 
