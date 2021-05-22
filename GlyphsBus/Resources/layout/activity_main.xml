@@ -1,32 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:id="@+id/TestTV"
+        android:text="🇮🇹Benvenuti su Glyphs Bus! Non perdere tempo è buttati subito alla ricerca del tuo pullman!\n\n🇬🇧Welcome in Glyphs Bus! Don't Waste time and try to catch and find your pullman in a few clicks!"/>
+
+    <View
+        android:id="@+id/Menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#48000000"
+        android:visibility="gone"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="16dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_plus"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_camera"
+        tools:ignore="MissingDimension" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_maps"
+        tools:ignore="MissingDimension" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_bus"
+        tools:ignore="MissingDimension" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_home"
+        tools:ignore="MissingDimension" />
+
+    <ImageView
+        android:layout_width="600px"
+        android:layout_height="600px"
+        android:layout_gravity="center|top"
+        android:layout_margin="40dp"
+        android:id="@+id/IViewMainHome"/>
 
 </android.support.design.widget.CoordinatorLayout>

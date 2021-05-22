@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/layoutcam"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextureView
+        android:layout_width="1000px"
+        android:layout_height="1000px"
+        android:layout_marginTop="700px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="40px"
+        android:layout_marginLeft="40px"
+        android:id="@+id/textureView2" />
+
+    <View
+        android:id="@+id/MenuCam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_plus"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_camera"
+        tools:ignore="MissingDimension" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_maps"
+        tools:ignore="MissingDimension" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_bus"
+        tools:ignore="MissingDimension" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone"
+        android:rotation="90"
+        android:layout_margin="23dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_home"
+        tools:ignore="MissingDimension" />
+
+</android.support.design.widget.CoordinatorLayout>
+
+

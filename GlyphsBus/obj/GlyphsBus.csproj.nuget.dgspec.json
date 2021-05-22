@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj": {}
+    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj": {
+    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj",
+        "projectUniqueName": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
         "projectName": "GlyphsBus",
-        "projectPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\GlyphsBus\\GlyphsBus.csproj",
-        "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LORY\\source\\repos\\PCTO-BusGlyphs2\\GlyphsBus\\obj\\",
+        "projectPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "packagesPath": "C:\\Users\\elena\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\elena\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -38,13 +38,13 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            },
             "WebSocket4Net": {
               "target": "Package",
               "version": "[0.15.2, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[5.0.1, )"
             },
             "Xamarin.Android.Support.Core.Utils": {
               "target": "Package",
