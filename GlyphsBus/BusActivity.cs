@@ -30,7 +30,8 @@ namespace GlyphsBus
         FloatingActionButton MCamera;
         FloatingActionButton MPlus;
         View MenuContent;
-
+        public static ArrayAdapter<string> adapter;
+        int whichone = 2;
         //Variabile per bus
         TextView HelpTextView; // Textview.Text=
         Spinner spinner;
@@ -45,6 +46,8 @@ namespace GlyphsBus
         Client_Immagine_4 Client4;
         //----------------------------
         private System.Timers.Timer _timer2;
+        public static string[] items = new string[] { };
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -70,19 +73,19 @@ namespace GlyphsBus
             HelpTextView = FindViewById<TextView>(Resource.Id.HelpTextView);
 
             //Code Spinner
-            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, new string[1]);
+            adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, items);
             //
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 
             spinner.ItemSelected += (s, e) =>
             {
-                if(!CamActivity.Nomifermate.ContainsValue(spinner.SelectedItem.ToString()))
+                if (!CamActivity.Nomifermate.ContainsValue(spinner.SelectedItem.ToString()))
                 {
                     return;
                 }
-                IndexChanged(CamActivity.Nomifermate.FirstOrDefault(x=>x.Value == spinner.SelectedItem.ToString()).Key);
-                
+                IndexChanged(CamActivity.Nomifermate.FirstOrDefault(x => x.Value == spinner.SelectedItem.ToString()).Key);
+
             };
 
 
@@ -122,7 +125,7 @@ namespace GlyphsBus
             MenuContent.Click += (o, e) => { CloseFabMenu(); };
 
         }
-        int whichone = 2;
+     
 
         public object Client1 { get; private set; }
 
@@ -132,16 +135,22 @@ namespace GlyphsBus
             {
                 Client3 = new Client_Bus_3(indirizzo3, Client2.json);
                 whichone++;
+                Client2.Dispose();
             }
             else if (Client3.response || whichone == 3)
             {
                 Client4 = new Client_Immagine_4(indirizzo4, Client3.CodiceBus);
                 whichone++;
+                Client3.Dispose();
             }
             else if (Client4.newImage || whichone == 4)
             {
+
                 var bitmap=BitmapFactory.DecodeByteArray(Client4.immagine, 0, Client4.immagine.Length);
-                MapActivity.IViewHelp.SetImageBitmap(bitmap);        
+                MapActivity.IViewHelp.SetImageBitmap(bitmap);
+                Intent nextActivity = new Intent(this, typeof(MapActivity));
+                StartActivity(nextActivity);
+                Client4.Dispose();
             }
 
         }

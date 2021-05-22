@@ -100,7 +100,6 @@ namespace SERVER_IMMAGINEMAPPA
                 connection.OnOpen = () =>
                 {
                     Console.WriteLine("CLIENT CONNESSO");
-                    connection.Send($"CONNESSO");
                 };
 
                 connection.OnClose = () =>

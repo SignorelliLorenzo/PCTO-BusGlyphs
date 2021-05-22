@@ -42,7 +42,7 @@ namespace GlyphsBus
         //Globals
         Android.Hardware.Camera _camera;
         TextureView _textureView;
-        private System.Timers.Timer _timer1;
+        private static System.Timers.Timer _timer1;
         
         byte[] imagebyte = default;
         Bitmap Frame = default;
@@ -62,7 +62,7 @@ namespace GlyphsBus
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.CamActivity);
         }
-
+        bool timerpassed=false;
         protected override void OnStart()
         {
             base.OnStart();
@@ -71,11 +71,16 @@ namespace GlyphsBus
             //Code Camera
             _textureView = FindViewById<TextureView>(Resource.Id.textureView2);
             _textureView.SurfaceTextureListener = this;
-            _timer1 = new System.Timers.Timer();
-            _timer1.Elapsed += OnTimedEvent1;
-            _timer1.Interval = 4000;
-            _timer1.Enabled = true;
+            if (!timerpassed)
+            {
+                _timer1 = new System.Timers.Timer();
+                _timer1.Elapsed += OnTimedEvent1;
+                _timer1.Interval = 4000;
+                _timer1.AutoReset = true;
+                _timer1.Enabled = true;
+                timerpassed = true;
 
+            }
             // Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             //layoutCam.AddView(_textureView);
 
@@ -124,44 +129,54 @@ namespace GlyphsBus
 
         }
 
-        //-------------------------------------------CLIENT-----------------------------------------------//
+        //-------------------------------------------CLIENT-----------------------------------------------//ù
+        bool passed=false;
         private void OnTimedEvent1(object sender, ElapsedEventArgs e)
         {
-            if (!Client1.response)
+            if (!passed)
             {
-                imagebyte = SaveBitmap(Frame);
-                Client1.immage = imagebyte;
-            }
-            else 
-            {
-               
-
-                mex risposta = JsonConvert.DeserializeObject<mex>(Client1.json);
-                Dictionary<int, string> FermateDisponibili = new Dictionary<int, string>();
-                foreach (var item in risposta.Percorsi)
+                if (!Client1.response)
                 {
-                    foreach (var fermata in item.elefermateandata)
-                    {
-                        FermateDisponibili[fermata] = Nomifermate[fermata];
-                    }
-                    foreach (var fermata in item.elefermateritorno)
-                    {
-                        FermateDisponibili[fermata] = Nomifermate[fermata];
-                    }
+                    imagebyte = SaveBitmap(Frame);
+                    Client1.immage = imagebyte;
                 }
-                Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-                var Comboitems = FermateDisponibili.Values.ToList().ToArray();
-                ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, Comboitems);
-                //
-                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                spinner.Adapter = adapter;
+                else
+                {
 
-                _timer1.Stop();
+
+
+                    mex risposta = JsonConvert.DeserializeObject<mex>(Client1.json);
+                    Dictionary<int, string> FermateDisponibili = new Dictionary<int, string>();
+                    foreach (var item in risposta.Percorsi)
+                    {
+                        foreach (var fermata in item.elefermateandata)
+                        {
+                            FermateDisponibili[fermata] = Nomifermate[fermata];
+                        }
+                        foreach (var fermata in item.elefermateritorno)
+                        {
+                            FermateDisponibili[fermata] = Nomifermate[fermata];
+                        }
+                    }
+                    Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+                    BusActivity.items = FermateDisponibili.Values.ToList().ToArray();
+                    //ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, Comboitems);
+                    ////
+                    //adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                    //spinner.Adapter = adapter;
+                    Intent nextActivity = new Intent(this, typeof(BusActivity));
+                    StartActivity(nextActivity);
+                    passed = true;
+                    Client1.Dispose();
+                    _timer1.Close();
+                    Console.WriteLine("-EVENTOFINITO-");
+                }
+
             }
         }
-        
-        
-        
+
+
+
         //-------------------------------------------------------------------------------------------------//
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -188,13 +203,16 @@ namespace GlyphsBus
             //    Console.WriteLine(ex.Message);
             //}
             _camera = Android.Hardware.Camera.Open();
-            //var previewSize = _camera.GetParameters().PreviewSize;
-            //_textureView.LayoutParameters =
-            //    new FrameLayout.LayoutParams(previewSize.Width,
-            //        previewSize.Height, GravityFlags.Center);
+            var previewSize = _camera.GetParameters().PreviewSize;
+            
 
             try
             {
+                _textureView.LayoutParameters =
+                    new FrameLayout.LayoutParams(previewSize.Width,
+                        previewSize.Height,GravityFlags.Center);
+                //_textureView.LayoutParameters = new CoordinatorLayout.LayoutParams(previewSize.Width, previewSize.Height);
+
                 _camera.SetPreviewTexture(surface);
                 _camera.StartPreview();
             }
@@ -208,6 +226,7 @@ namespace GlyphsBus
             _textureView.Alpha = 1.0f;
 
         }
+     
 
         public bool OnSurfaceTextureDestroyed(Android.Graphics.SurfaceTexture surface)
         {
@@ -219,6 +238,7 @@ namespace GlyphsBus
 
         public void OnSurfaceTextureSizeChanged(Android.Graphics.SurfaceTexture surface, int width, int height)
         {
+
         }
 
 

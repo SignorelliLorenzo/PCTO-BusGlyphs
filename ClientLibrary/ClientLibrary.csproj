@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\ClientLibrary.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <DocumentationFile>C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\ClientLibrary.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\ClientLibrary.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

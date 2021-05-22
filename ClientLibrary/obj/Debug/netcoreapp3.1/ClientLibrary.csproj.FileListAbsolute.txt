@@ -27,3 +27,12 @@ C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\Debug\netcoreapp3.1
 C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.dll
 C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.pdb
 C:\Users\LORY\Source\Repos\PCTO-BusGlyphs2\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.xml
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.csprojAssemblyReference.cache
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.AssemblyInfoInputs.cache
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.AssemblyInfo.cs
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.dll
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.pdb
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.deps.json
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.dll
+C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.pdb

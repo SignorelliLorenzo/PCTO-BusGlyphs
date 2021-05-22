@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {}
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\GlyphsBus\\GlyphsBus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj": {
+    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\GlyphsBus\\GlyphsBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+        "projectUniqueName": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\GlyphsBus\\GlyphsBus.csproj",
         "projectName": "GlyphsBus",
-        "projectPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
-        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andrea\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
+        "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\GlyphsBus\\GlyphsBus.csproj",
+        "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\GlyphsBus\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gabry\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
