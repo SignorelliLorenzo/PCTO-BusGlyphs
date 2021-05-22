@@ -11,7 +11,7 @@ namespace SERVER_PERCORSO
 {
     public class PERCORSO
     {
-        static string indirizzo = "ws://127.0.0.1:8181";
+        static string indirizzo = "ws://192.168.1.126:8181";
         static void Main(string[] args)
         {
             Console.WriteLine("--------------------Server Percorso--------------------");

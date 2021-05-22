@@ -37,7 +37,7 @@ namespace GlyphsBus
 
         //RelativeLayout layoutCam;
         //INDIRIZZO
-        static string indirizzo = "";
+        static string indirizzo = ":8080";
         //----------
         //Globals
         Android.Hardware.Camera _camera;

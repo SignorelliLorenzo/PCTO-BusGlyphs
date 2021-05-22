@@ -35,9 +35,9 @@ namespace GlyphsBus
         TextView HelpTextView; // Textview.Text=
         Spinner spinner;
         //INDIRIZZI
-        static string indirizzo2 = "";
-        static string indirizzo3 = "";
-        static string indirizzo4 = "";
+        static string indirizzo2 = ":8181";
+        static string indirizzo3 = ":8282";
+        static string indirizzo4 = ":8383";
         //---------------------------
         //CLIENT
         Client_Percorso_2 Client2;
