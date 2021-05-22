@@ -11,18 +11,28 @@
             <param name="destinazione">Destinazione desiderata</param>
             <param name="messaggio">Messsaggio ricevuto dal server</param>
         </member>
+        <member name="P:ClientLibrary.Client_Glifo_1.response">
+            <summary>
+            Notify when the resonse has arrived
+            </summary>
+        </member>
         <member name="P:ClientLibrary.Client_Glifo_1.json">
             <summary>
             Json contenente classe "mex"
             </summary>
         </member>
-        <member name="M:ClientLibrary.Client_Glifo_1.#ctor(System.String,System.Byte[],System.Int32)">
+        <member name="M:ClientLibrary.Client_Glifo_1.#ctor(System.String,System.Int32)">
             <summary>
             Inizializza la connessione e inizia la ricezione dati
             </summary>
             <param name="indirizzo">Indirizzo ip del server web</param>
             <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param>
             <param name="immagine">Immagine del glifo</param>
+        </member>
+        <member name="P:ClientLibrary.Client_Percorso_2.response">
+            <summary>
+            Notify when the resonse has arrived
+            </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "P:ClientLibrary.Client_Percorso_2.json" -->
         <member name="M:ClientLibrary.Client_Percorso_2.#ctor(System.String,ClientLibrary.mexdestinazione,System.Int32)">
@@ -32,6 +42,11 @@
             <param name="indirizzo">Indirizzo ip del server web</param>
             <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param>
             <param name="messaggio">Messaggio contenente la destinazione</param>
+        </member>
+        <member name="P:ClientLibrary.Client_Bus_3.response">
+            <summary>
+            Notify when the resonse has arrived
+            </summary>
         </member>
         <member name="P:ClientLibrary.Client_Bus_3.CodiceBus">
             <summary>
@@ -44,7 +59,12 @@
             </summary>
             <param name="indirizzo">Indirizzo ip del server web</param>
             <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param> 
-            <param name="messaggio">Messaggio contenente il codice del pullman desiderato</param>
+            <param name="messaggio">Messaggio contenente i bus disponibili</param>
+        </member>
+        <member name="P:ClientLibrary.Client_Immagine_4.response">
+            <summary>
+            Notify when the resonse has arrived
+            </summary>
         </member>
         <member name="P:ClientLibrary.Client_Immagine_4.immagine">
             <summary>

@@ -6,14 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="24sp"
-        android:id="@+id/ListBus"
-        android:text="test"/>
-
     <View
         android:id="@+id/MenuBus"
         android:layout_width="match_parent"
@@ -77,5 +69,19 @@
         app:fabSize="mini"
         app:srcCompat="@drawable/ic_home"
         tools:ignore="MissingDimension" />
+
+    <TextView
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/HelpTextView" />
+
+    <Spinner
+        android:padding="5dp"
+        android:id="@+id/spinner1"
+        android:backgroundTint="#344955"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </android.support.design.widget.CoordinatorLayout>

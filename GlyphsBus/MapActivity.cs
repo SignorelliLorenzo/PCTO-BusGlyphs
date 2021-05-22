@@ -14,7 +14,7 @@ using System.Text;
 
 namespace GlyphsBus
 {
-
+    //IMMAGINE MAPPA IMMAGE VIEW
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Map")]
     public class MapActivity : AppCompatActivity
     {
@@ -28,7 +28,7 @@ namespace GlyphsBus
         View MenuContent;
 
         //Variabile per mappa
-        ImageView IViewHelp;
+        public static ImageView IViewHelp; //IviewHelp.SetImmage()
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

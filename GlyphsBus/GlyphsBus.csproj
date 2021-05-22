@@ -57,6 +57,9 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClientLibrary">
+      <HintPath>bin\Debug\ClientLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -65,14 +68,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AforgeWork\Class1.cs" />
     <Compile Include="BusActivity.cs" />
     <Compile Include="CamActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MapActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WEB_SOCKET_CLIENT\CLIENT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -111,6 +112,9 @@
     <AndroidResource Include="Resources\drawable\image.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
     <PackageReference Include="WebSocket4Net">
       <Version>0.15.2</Version>
     </PackageReference>

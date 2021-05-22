@@ -11,6 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
+using ClientLibrary;
+using Newtonsoft.Json;
+using Android.Graphics;
 
 namespace GlyphsBus
 {
@@ -28,13 +32,30 @@ namespace GlyphsBus
         View MenuContent;
 
         //Variabile per bus
-        TextView HelpTextView;
-
+        TextView HelpTextView; // Textview.Text=
+        Spinner spinner;
+        //INDIRIZZI
+        static string indirizzo2 = "";
+        static string indirizzo3 = "";
+        static string indirizzo4 = "";
+        //---------------------------
+        //CLIENT
+        Client_Percorso_2 Client2;
+        Client_Bus_3 Client3;
+        Client_Immagine_4 Client4;
+        //----------------------------
+        private System.Timers.Timer _timer2;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.BusActivity);
+            ///Test
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
 
             //FindByID Menu
             MBus = FindViewById<FloatingActionButton>(Resource.Id.fab_bus);
@@ -43,7 +64,26 @@ namespace GlyphsBus
             MCamera = FindViewById<FloatingActionButton>(Resource.Id.fab_camera);
             MPlus = FindViewById<FloatingActionButton>(Resource.Id.fab_main);
             MenuContent = FindViewById<View>(Resource.Id.MenuBus);
-            HelpTextView = FindViewById<TextView>(Resource.Id.ListBus);
+
+            //FindByID
+            spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+            HelpTextView = FindViewById<TextView>(Resource.Id.HelpTextView);
+
+            //Code Spinner
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, new string[1]);
+            //
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = adapter;
+
+            spinner.ItemSelected += (s, e) =>
+            {
+                if(!CamActivity.Nomifermate.ContainsValue(spinner.SelectedItem.ToString()))
+                {
+                    return;
+                }
+                IndexChanged(CamActivity.Nomifermate.FirstOrDefault(x=>x.Value == spinner.SelectedItem.ToString()).Key);
+                
+            };
 
 
             //Menu
@@ -80,9 +120,40 @@ namespace GlyphsBus
             };
 
             MenuContent.Click += (o, e) => { CloseFabMenu(); };
-            ///Test
-        }
 
+        }
+        int whichone = 2;
+
+        public object Client1 { get; private set; }
+
+        private void OnTimedEvent2(object sender, ElapsedEventArgs e)
+        {
+            if (Client2.response || whichone == 2)
+            {
+                Client3 = new Client_Bus_3(indirizzo3, Client2.json);
+                whichone++;
+            }
+            else if (Client3.response || whichone == 3)
+            {
+                Client4 = new Client_Immagine_4(indirizzo4, Client3.CodiceBus);
+                whichone++;
+            }
+            else if (Client4.newImage || whichone == 4)
+            {
+                var bitmap=BitmapFactory.DecodeByteArray(Client4.immagine, 0, Client4.immagine.Length);
+                MapActivity.IViewHelp.SetImageBitmap(bitmap);        
+            }
+
+        }
+        private void IndexChanged(int destinazione)
+        {
+            _timer2 = new System.Timers.Timer();
+            _timer2.Elapsed += OnTimedEvent2;
+            _timer2.Interval = 1000;
+            _timer2.Enabled = true;
+            mexdestinazione messaggio = new mexdestinazione(destinazione, JsonConvert.DeserializeObject<mex>(CamActivity.Client1.json));
+            Client2 = new Client_Percorso_2(indirizzo2, messaggio);
+        }
         private void CloseFabMenu()
         {
             menuopen = false;

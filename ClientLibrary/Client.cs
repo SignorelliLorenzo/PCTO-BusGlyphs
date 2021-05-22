@@ -14,7 +14,16 @@ namespace ClientLibrary
         /// </summary>
         public bool response { get {return _response; } }
         private int _timeout;
-
+        private byte[] _immage;
+        public byte[] immage { get {return _immage; }
+            set
+            {
+                _immage = value;
+                Client.Send(_immage,0,_immage.Length);
+            }
+        
+        
+        }
         private bool stato;
 
         private string _json;
@@ -32,11 +41,16 @@ namespace ClientLibrary
         //Funzioni
         private void MessaggioRicevuto(object a, MessageReceivedEventArgs b)
         {
-            _json = b.Message;
+            if(b.Message != "Glifo non trovato")
+            {
+                _json = b.Message;
+                _response = true;
+            }
+            
 
         }
 
-        private void Initialize(string indirizzo, byte[] immagine)
+        private void Initialize(string indirizzo)
         {
             _response = false;
             this.Client = new WebSocket(indirizzo);
@@ -62,7 +76,7 @@ namespace ClientLibrary
                 throw new Exception("Connessione fallita");
 
             //Bool.Tostring() restituisce con la maiuscola, True, False
-            this.Client.Send(immagine, 0, immagine.Length);
+            
 
         }
         /// <summary>
@@ -71,13 +85,13 @@ namespace ClientLibrary
         /// <param name="indirizzo">Indirizzo ip del server web</param>
         /// <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param>
         /// <param name="immagine">Immagine del glifo</param>
-        public Client_Glifo_1(string indirizzo, byte[] immagine, int timeout = 1000)
+        public Client_Glifo_1(string indirizzo, int timeout = 1000)
         {
             this.stato = true;
             if (timeout <= 0)
                 throw new Exception("Valore timeout non valido");
             _timeout = timeout;
-            Initialize(indirizzo, immagine);
+            Initialize(indirizzo);
         }
         public void Dispose()
         {
@@ -135,7 +149,7 @@ namespace ClientLibrary
         private void MessaggioRicevuto(object a, MessageReceivedEventArgs b)
         {
             _json = b.Message;
-
+            _response = true;
 
         }
 
@@ -238,7 +252,7 @@ namespace ClientLibrary
         private void MessaggioRicevuto(object a, MessageReceivedEventArgs b)
         {
             _CodiceBus = b.Message;
-
+            _response = true;
         }
 
         private void Initialize(string indirizzo, string messaggio)
@@ -275,7 +289,7 @@ namespace ClientLibrary
         /// </summary>
         /// <param name="indirizzo">Indirizzo ip del server web</param>
         /// <param name="timeout">Tempo di attesa dell connessione, in alternativa eccezione</param> 
-        /// <param name="messaggio">Messaggio contenente il codice del pullman desiderato</param>
+        /// <param name="messaggio">Messaggio contenente i bus disponibili</param>
         public Client_Bus_3(string indirizzo, string messaggio, int timeout = 10000)
         {
             this.stato = true;

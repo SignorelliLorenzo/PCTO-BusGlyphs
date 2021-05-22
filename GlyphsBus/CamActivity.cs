@@ -16,7 +16,10 @@ using Android.Support.V4.Content;
 using Android.Content.PM;
 using System.Threading;
 using System.Timers;
-
+using ClientLibrary;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 namespace GlyphsBus
 {
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Cam")]
@@ -33,14 +36,26 @@ namespace GlyphsBus
         View MenuContentCam;
 
         //RelativeLayout layoutCam;
-
+        //INDIRIZZO
+        static string indirizzo = "";
+        //----------
         //Globals
         Android.Hardware.Camera _camera;
         TextureView _textureView;
-        private System.Timers.Timer _timer;
+        private System.Timers.Timer _timer1;
+        
         byte[] imagebyte = default;
         Bitmap Frame = default;
+        public static Client_Glifo_1 Client1 = new Client_Glifo_1(indirizzo);
 
+        public static Dictionary<int, string> Nomifermate = new Dictionary<int, string> {
+            { 3, "Milano"},
+            {2,"Telgate"},
+            {6,"Bonate"},
+            { 7,"Como"},
+            { 5,"Roma"},
+            {0,"Bergamo"}
+        };
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -56,10 +71,10 @@ namespace GlyphsBus
             //Code Camera
             _textureView = FindViewById<TextureView>(Resource.Id.textureView2);
             _textureView.SurfaceTextureListener = this;
-            _timer = new System.Timers.Timer();
-            _timer.Elapsed += OnTimedEvent;
-            _timer.Interval = 4000;
-            _timer.Enabled = true;
+            _timer1 = new System.Timers.Timer();
+            _timer1.Elapsed += OnTimedEvent1;
+            _timer1.Interval = 4000;
+            _timer1.Enabled = true;
 
             // Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             //layoutCam.AddView(_textureView);
@@ -109,10 +124,45 @@ namespace GlyphsBus
 
         }
 
-        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        //-------------------------------------------CLIENT-----------------------------------------------//
+        private void OnTimedEvent1(object sender, ElapsedEventArgs e)
         {
-            imagebyte = SaveBitmap(Frame);
+            if (!Client1.response)
+            {
+                imagebyte = SaveBitmap(Frame);
+                Client1.immage = imagebyte;
+            }
+            else 
+            {
+               
+
+                mex risposta = JsonConvert.DeserializeObject<mex>(Client1.json);
+                Dictionary<int, string> FermateDisponibili = new Dictionary<int, string>();
+                foreach (var item in risposta.Percorsi)
+                {
+                    foreach (var fermata in item.elefermateandata)
+                    {
+                        FermateDisponibili[fermata] = Nomifermate[fermata];
+                    }
+                    foreach (var fermata in item.elefermateritorno)
+                    {
+                        FermateDisponibili[fermata] = Nomifermate[fermata];
+                    }
+                }
+                Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+                var Comboitems = FermateDisponibili.Values.ToList().ToArray();
+                ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, Comboitems);
+                //
+                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                spinner.Adapter = adapter;
+
+                _timer1.Stop();
+            }
         }
+        
+        
+        
+        //-------------------------------------------------------------------------------------------------//
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
