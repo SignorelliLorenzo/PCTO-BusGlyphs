@@ -14,6 +14,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision">
+      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision.GlyphRecognition">
+      <HintPath>bin\Debug\netcoreapp3.1\AForge.Vision.GlyphRecognition.dll</HintPath>
+    </Reference>
     <Reference Include="AForgeFunctions">
       <HintPath>bin\Debug\netcoreapp3.1\AForgeFunctions.dll</HintPath>
     </Reference>
