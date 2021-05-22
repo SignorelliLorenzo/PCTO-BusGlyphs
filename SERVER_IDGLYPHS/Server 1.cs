@@ -60,6 +60,7 @@ namespace SERVER_IDGLYPHS
                 connection.OnOpen = () =>
                 {
                     Console.WriteLine("CLIENT CONNESSO");
+                    
                 };
                 connection.OnClose = () =>
                 {
@@ -73,6 +74,7 @@ namespace SERVER_IDGLYPHS
                         bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
                         if(!Funzioni.FindG(bmp))
                         {
+                            
                             connection.Send("Glifo non trovato");
                         }
                         else
@@ -82,7 +84,7 @@ namespace SERVER_IDGLYPHS
                     }
                     catch (Exception ex)
                     {
-                        connection.Send("!%-ERRORE: " + ex.Message);
+                        //connection.Send("!%-ERRORE: " + ex.Message);
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
 

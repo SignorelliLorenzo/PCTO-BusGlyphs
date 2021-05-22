@@ -1,0 +1,82 @@
+[
+  {
+    "codice": "A1",
+    "percorso": {
+      "elefermateandata": [
+        3,
+        2,
+        6
+      ],
+      "elefermateritorno": [
+        6,
+        2,
+        3
+      ],
+      "nome": "Milano-Bergamo"
+    }
+  },
+  {
+    "codice": "A2",
+    "percorso": {
+      "elefermateandata": [
+        0,
+        5,
+        7
+      ],
+      "elefermateritorno": [
+        7,
+        5,
+        0
+      ],
+      "nome": "Milano-Brescia"
+    }
+  },
+  {
+    "codice": "B1",
+    "percorso": {
+      "elefermateandata": [
+        3,
+        5,
+        6
+      ],
+      "elefermateritorno": [
+        6,
+        5,
+        3
+      ],
+      "nome": "Milano-Bergamo"
+    }
+  },
+  {
+    "codice": "C1",
+    "percorso": {
+      "elefermateandata": [
+        3,
+        0,
+        5
+      ],
+      "elefermateritorno": [
+        5,
+        0,
+        3
+      ],
+      "nome": "Telgate-Bergamo"
+    }
+  },
+  {
+    "codice": "D1",
+    "percorso": {
+      "elefermateandata": [
+        3,
+        0,
+        5
+      ],
+      "elefermateritorno": [
+        5,
+        0,
+        3
+      ],
+      "nome": "Telgate-Bergamo"
+    }
+  }
+]

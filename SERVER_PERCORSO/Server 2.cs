@@ -30,6 +30,7 @@ namespace SERVER_PERCORSO
                 connection.OnOpen = () =>
                 {
                     Console.WriteLine("CLIENT CONNESSO");
+                    
                 };
                 connection.OnClose = () =>
                 {

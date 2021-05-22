@@ -44,6 +44,7 @@ namespace SERVER_BUS
                 connection.OnOpen = () =>
                 {
                     Console.WriteLine("CLIENT CONNESSO");
+                    
                 };
                 connection.OnClose = () =>
                 {

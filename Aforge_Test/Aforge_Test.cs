@@ -40,7 +40,7 @@ namespace Test_Base
             //Arrange
             int result = 0;
             string test = $@"05.jpg";
-
+            //string test = $@"glifo_test_1.bmp";
             //Act
             result = Funzioni.FindG(test);
 
@@ -55,8 +55,8 @@ namespace Test_Base
         {
             //Arrange
             bool check = false;
+            //Bitmap Imagetest = new Bitmap(Directory.GetCurrentDirectory() + $@"\glifo_test_1.bmp", true);
             Bitmap Imagetest = new Bitmap(Directory.GetCurrentDirectory() + $@"\05.jpg", true);
-
             //Act
             check = Funzioni.FindG(Imagetest);
 
