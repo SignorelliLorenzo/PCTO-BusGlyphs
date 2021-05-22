@@ -11,11 +11,16 @@ using Android;
 using Plugin.Media;
 using Android.Graphics;
 using Android.Content;
+using System.IO;
+using Android.Support.V4.Content;
+using Android.Content.PM;
+using System.Threading;
+using System.Timers;
 
 namespace GlyphsBus
 {
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Cam")]
-    public class CamActivity : AppCompatActivity
+    public class CamActivity : Activity, TextureView.ISurfaceTextureListener
     {
 
         //Variabili per Menu
@@ -27,32 +32,39 @@ namespace GlyphsBus
         FloatingActionButton MPlus;
         View MenuContentCam;
 
-        //Variabili per Camera
-        Button CaptureButton;
-        ImageView IViewHelp;
+        //RelativeLayout layoutCam;
 
-        readonly string[] permissionGroup =
-        {
-            Manifest.Permission.ReadExternalStorage,
-            Manifest.Permission.WriteExternalStorage,
-            Manifest.Permission.Camera
-        };
+        //Globals
+        Android.Hardware.Camera _camera;
+        TextureView _textureView;
+        private System.Timers.Timer _timer;
+        byte[] imagebyte = default;
+        Bitmap Frame = default;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.CamActivity);
+        }
 
-            //FindByID Camera
-            CaptureButton = FindViewById<Button>(Resource.Id.BtnCapture);
-            IViewHelp = FindViewById<ImageView>(Resource.Id.IViewCam);
+        protected override void OnStart()
+        {
+            base.OnStart();
+            //layoutCam = FindViewById<RelativeLayout>(Resource.Id.layoutcam);
 
-            //Camera
-            CaptureButton.Click += BtnCapture_Click;
-            RequestPermissions(permissionGroup, 0);
+            //Code Camera
+            _textureView = FindViewById<TextureView>(Resource.Id.textureView2);
+            _textureView.SurfaceTextureListener = this;
+            _timer = new System.Timers.Timer();
+            _timer.Elapsed += OnTimedEvent;
+            _timer.Interval = 4000;
+            _timer.Enabled = true;
 
-            //FindByIdD Menu
+            // Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            //layoutCam.AddView(_textureView);
+
+            //FindByID Menu
             MBus = FindViewById<FloatingActionButton>(Resource.Id.fab_bus);
             MHome = FindViewById<FloatingActionButton>(Resource.Id.fab_home);
             MMaps = FindViewById<FloatingActionButton>(Resource.Id.fab_maps);
@@ -69,8 +81,7 @@ namespace GlyphsBus
                     CloseFabMenu();
             };
 
-            MCamera.Click += (o, e) =>
-            {
+            MCamera.Click += (o, e) => {
                 CloseFabMenu(); //FATTO
             };
 
@@ -89,8 +100,8 @@ namespace GlyphsBus
 
             MBus.Click += (o, e) =>
             {
-                Intent nextActivity = new Intent(this, typeof(BusActivity));
-                StartActivity(nextActivity);
+                Intent nextactivity = new Intent(this, typeof(BusActivity));
+                StartActivity(nextactivity);
                 CloseFabMenu(); //FATTO
             };
 
@@ -98,6 +109,93 @@ namespace GlyphsBus
 
         }
 
+        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            imagebyte = SaveBitmap(Frame);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public void OnSurfaceTextureAvailable(Android.Graphics.SurfaceTexture surface, int w, int h)
+        {
+            //----//LOCAL SAVE ON PHONE//----//
+            //_camera = Camera.Open();
+            //var previewSize = _camera.GetParameters().PreviewSize;
+            //_textureView.LayoutParameters = new FrameLayout.LayoutParams(w, h);
+            //try
+            //{
+            //    _camera.SetPreviewTexture(surface);
+            //    _camera.StartPreview();
+
+            //}
+            //catch (Java.IO.IOException ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            _camera = Android.Hardware.Camera.Open();
+            //var previewSize = _camera.GetParameters().PreviewSize;
+            //_textureView.LayoutParameters =
+            //    new FrameLayout.LayoutParams(previewSize.Width,
+            //        previewSize.Height, GravityFlags.Center);
+
+            try
+            {
+                _camera.SetPreviewTexture(surface);
+                _camera.StartPreview();
+            }
+            catch (Java.IO.IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            // this is the sort of thing TextureView enables
+            _textureView.Rotation = 90.0f;
+            _textureView.Alpha = 1.0f;
+
+        }
+
+        public bool OnSurfaceTextureDestroyed(Android.Graphics.SurfaceTexture surface)
+        {
+            _camera.StopPreview();
+            _camera.Release();
+
+            return true;
+        }
+
+        public void OnSurfaceTextureSizeChanged(Android.Graphics.SurfaceTexture surface, int width, int height)
+        {
+        }
+
+
+        public void OnSurfaceTextureUpdated(Android.Graphics.SurfaceTexture surface)
+        {
+            Frame = _textureView.Bitmap;
+        }
+        public byte[] SaveBitmap(Bitmap bitmap)
+        {
+            //var sdCardPath = "/storage/emulated/0/Android/data/com.companyname.appxam/files/";
+
+
+            //var filePath = System.IO.Path.Combine(sdCardPath, "yourImageName.png");
+            //Console.WriteLine(filePath);
+            //var stream = new FileStream(filePath, FileMode.Create);
+            //bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);
+            //stream.Close();
+            byte[] temp;
+
+            using (var bytestream = new MemoryStream())
+            {
+                bitmap.Compress(Bitmap.CompressFormat.Png, 0, bytestream);
+                temp = bytestream.ToArray();
+            }
+            return temp;
+
+        }
         private void CloseFabMenu()
         {
             menuopen = false;
@@ -120,6 +218,7 @@ namespace GlyphsBus
             MCamera.Visibility = Android.Views.ViewStates.Visible;
             MenuContentCam.Visibility = Android.Views.ViewStates.Visible;
 
+
             MPlus.Animate().Rotation(135f);
             MenuContentCam.Animate().Alpha(1f);
 
@@ -130,6 +229,7 @@ namespace GlyphsBus
 
 
         }
+
         private class FabListener : Java.Lang.Object, Animator.IAnimatorListener
         {
 
@@ -160,42 +260,5 @@ namespace GlyphsBus
             }
         }
 
-        private void BtnCapture_Click(object sender, System.EventArgs e)
-        {
-            TakePhoto();
-        }
-
-        public async void TakePhoto()
-        {
-
-            await CrossMedia.Current.Initialize();
-
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
-                CompressionQuality = 40,
-                Name = "myimage.jpg",
-                Directory = "testCamera"
-
-            });
-
-            if (file == null)
-            {
-                return;
-            }
-
-            //Convert file to byte array and set the resulting bitmap to imageview
-            byte[] imageArray = System.IO.File.ReadAllBytes(file.Path);
-            Bitmap bitmap = BitmapFactory.DecodeByteArray(imageArray, 0, imageArray.Length);
-            IViewHelp.SetImageBitmap(bitmap);
-
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
     }
 }

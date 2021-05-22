@@ -573,3 +573,5 @@ C:\Users\elena\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_Convert
 C:\Users\elena\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\elena\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\elena\source\repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\elena\Source\Repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\res\drawable\logo.jpg
+C:\Users\elena\Source\Repos\PCTO-BusGlyphs\GlyphsBus\obj\Debug\90\res\drawable\icon.png

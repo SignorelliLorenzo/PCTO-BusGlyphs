@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {}
+    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {
+    "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+        "projectUniqueName": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
         "projectName": "Test_Base",
-        "projectPath": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
+        "projectPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\Test_Base.csproj",
         "packagesPath": "C:\\Users\\elena\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elena\\source\\repos\\PCTO-BusGlyphs\\Test_Base\\obj\\",
+        "outputPath": "C:\\Users\\elena\\Source\\Repos\\PCTO-BusGlyphs\\Test_Base\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

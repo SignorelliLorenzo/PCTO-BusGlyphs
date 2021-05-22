@@ -14,7 +14,7 @@ using Android.Animation;
 
 namespace GlyphsBus
 {
-    [Activity(Theme = "@style/AppTheme", MainLauncher = true, Label = "GlyphsBus")]
+    [Activity(Theme = "@style/AppTheme", Icon ="@drawable/icon", MainLauncher = true, Label = "GlyphsBus")]
     public class MainActivity : AppCompatActivity
     {
         //Variabili per Menu
@@ -26,11 +26,17 @@ namespace GlyphsBus
         FloatingActionButton MPlus;
         View MenuContent;
 
+        ImageView IViewMainHome;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+
+            //FindByID Home
+            IViewMainHome = FindViewById<ImageView>(Resource.Id.IViewMainHome);
+            IViewMainHome.SetImageResource(Resource.Drawable.logo);
 
             //FindByID Menu
             MBus = FindViewById<FloatingActionButton>(Resource.Id.fab_bus);
@@ -39,6 +45,12 @@ namespace GlyphsBus
             MCamera = FindViewById<FloatingActionButton>(Resource.Id.fab_camera);
             MPlus = FindViewById<FloatingActionButton>(Resource.Id.fab_main);
             MenuContent = FindViewById<View>(Resource.Id.Menu);
+
+            MCamera.Click += (o, e) => {
+                Intent nextActivity = new Intent(this, typeof(CamActivity));
+                StartActivity(nextActivity);
+                CloseFabMenu();
+            };
 
             //Menu
             MPlus.Click += (o, e) =>
@@ -141,4 +153,5 @@ namespace GlyphsBus
         }
 
     }
+
 }

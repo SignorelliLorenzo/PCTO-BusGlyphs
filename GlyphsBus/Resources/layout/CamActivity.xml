@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
+    android:id="@+id/layoutcam"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center|top"
-        android:layout_margin="40dp"
-        android:id="@+id/IViewCam"
-        android:src="@drawable/image"
-        />
+    <TextureView
+        android:layout_width="1000px"
+        android:layout_height="1000px"
+        android:layout_marginTop="700px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="40px"
+        android:layout_marginLeft="40px"
+        android:id="@+id/textureView2" />
 
-       <View
+    <View
         android:id="@+id/MenuCam"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#48000000"
         android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/BtnCapture"
-        android:layout_gravity="center|top"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_margin="300dp"
-        android:text="Capture Image"
-        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_main"
@@ -89,4 +80,5 @@
         tools:ignore="MissingDimension" />
 
 </android.support.design.widget.CoordinatorLayout>
+
 
