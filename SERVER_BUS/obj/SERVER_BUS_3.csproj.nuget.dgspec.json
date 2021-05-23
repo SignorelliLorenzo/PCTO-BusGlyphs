@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\SERVER_BUS\\SERVER_BUS_3.csproj": {}
+    "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_BUS\\SERVER_BUS_3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\SERVER_BUS\\SERVER_BUS_3.csproj": {
+    "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_BUS\\SERVER_BUS_3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\SERVER_BUS\\SERVER_BUS_3.csproj",
+        "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_BUS\\SERVER_BUS_3.csproj",
         "projectName": "SERVER_BUS_3",
-        "projectPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\SERVER_BUS\\SERVER_BUS_3.csproj",
-        "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabry\\source\\repos\\PCTO-BusGlyphs-master\\SERVER_BUS\\obj\\",
+        "projectPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_BUS\\SERVER_BUS_3.csproj",
+        "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_BUS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Gabry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -68,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

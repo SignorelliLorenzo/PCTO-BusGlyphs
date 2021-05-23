@@ -34,6 +34,7 @@ namespace GlyphsBus
         FloatingActionButton MCamera;
         FloatingActionButton MPlus;
         View MenuContentCam;
+        public static string json_Client1;
 
         //RelativeLayout layoutCam;
         //INDIRIZZO
@@ -49,9 +50,9 @@ namespace GlyphsBus
         public static Client_Glifo_1 Client1 = new Client_Glifo_1(indirizzo);
 
         public static Dictionary<int, string> Nomifermate = new Dictionary<int, string> {
-            { 3, "Milano"},
-            {2,"Telgate"},
+            {2,"Telgate"},           
             {6,"Bonate"},
+            { 3, "Milano"},
             { 7,"Como"},
             { 5,"Roma"},
             {0,"Bergamo"}
@@ -75,7 +76,7 @@ namespace GlyphsBus
             {
                 _timer1 = new System.Timers.Timer();
                 _timer1.Elapsed += OnTimedEvent1;
-                _timer1.Interval = 4000;
+                _timer1.Interval = 2000;
                 _timer1.AutoReset = true;
                 _timer1.Enabled = true;
                 timerpassed = true;
@@ -158,7 +159,8 @@ namespace GlyphsBus
                             FermateDisponibili[fermata] = Nomifermate[fermata];
                         }
                     }
-                    Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+                    FermateDisponibili.Remove(risposta.codfermata);
+                    
                     BusActivity.items = FermateDisponibili.Values.ToList().ToArray();
                     //ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, Comboitems);
                     ////
@@ -167,6 +169,7 @@ namespace GlyphsBus
                     Intent nextActivity = new Intent(this, typeof(BusActivity));
                     StartActivity(nextActivity);
                     passed = true;
+                    json_Client1 = Client1.json;
                     Client1.Dispose();
                     _timer1.Close();
                     Console.WriteLine("-EVENTOFINITO-");

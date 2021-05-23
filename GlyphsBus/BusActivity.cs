@@ -44,6 +44,7 @@ namespace GlyphsBus
         Client_Percorso_2 Client2;
         Client_Bus_3 Client3;
         Client_Immagine_4 Client4;
+        bool first_time = false;
         //----------------------------
         private System.Timers.Timer _timer2;
         public static string[] items = new string[] { };
@@ -80,12 +81,16 @@ namespace GlyphsBus
 
             spinner.ItemSelected += (s, e) =>
             {
-                if (!CamActivity.Nomifermate.ContainsValue(spinner.SelectedItem.ToString()))
+                if(first_time)
                 {
-                    return;
+                    
+                    if (!CamActivity.Nomifermate.ContainsValue(spinner.SelectedItem.ToString()))
+                    {
+                        return;
+                    }
+                    IndexChanged(CamActivity.Nomifermate.FirstOrDefault(x => x.Value == spinner.SelectedItem.ToString()).Key);
                 }
-                IndexChanged(CamActivity.Nomifermate.FirstOrDefault(x => x.Value == spinner.SelectedItem.ToString()).Key);
-
+                first_time = true;
             };
 
 
@@ -131,26 +136,27 @@ namespace GlyphsBus
 
         private void OnTimedEvent2(object sender, ElapsedEventArgs e)
         {
-            if (Client2.response || whichone == 2)
+            if (Client2.response && whichone == 2)
             {
                 Client3 = new Client_Bus_3(indirizzo3, Client2.json);
                 whichone++;
                 Client2.Dispose();
             }
-            else if (Client3.response || whichone == 3)
+            else if (Client3.response && whichone == 3)
             {
                 Client4 = new Client_Immagine_4(indirizzo4, Client3.CodiceBus);
                 whichone++;
                 Client3.Dispose();
-            }
-            else if (Client4.newImage || whichone == 4)
-            {
-
-                var bitmap=BitmapFactory.DecodeByteArray(Client4.immagine, 0, Client4.immagine.Length);
-                MapActivity.IViewHelp.SetImageBitmap(bitmap);
                 Intent nextActivity = new Intent(this, typeof(MapActivity));
                 StartActivity(nextActivity);
-                Client4.Dispose();
+            }
+            else if (Client4.newImage && whichone == 4)
+            {
+                
+                var bitmap=BitmapFactory.DecodeByteArray(Client4.immagine, 0, Client4.immagine.Length);
+                Console.WriteLine(Client4.immagine.Length);
+                MapActivity.IViewHelp.SetImageBitmap(bitmap);
+
             }
 
         }
@@ -160,7 +166,7 @@ namespace GlyphsBus
             _timer2.Elapsed += OnTimedEvent2;
             _timer2.Interval = 1000;
             _timer2.Enabled = true;
-            mexdestinazione messaggio = new mexdestinazione(destinazione, JsonConvert.DeserializeObject<mex>(CamActivity.Client1.json));
+            mexdestinazione messaggio = new mexdestinazione(destinazione, JsonConvert.DeserializeObject<mex>(CamActivity.json_Client1));
             Client2 = new Client_Percorso_2(indirizzo2, messaggio);
         }
         private void CloseFabMenu()

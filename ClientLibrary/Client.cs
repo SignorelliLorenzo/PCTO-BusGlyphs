@@ -340,7 +340,7 @@ namespace ClientLibrary
         {
             get
             {
-                this._newImage = false;
+                
                 return _newImage;
             }
 

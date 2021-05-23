@@ -23,6 +23,7 @@ namespace SERVER_IMMAGINEMAPPA
                 {
                     throw new Exception("Coordinata x non valida");
                 }
+                _x = value;
             }
         }
         private decimal _y;
@@ -38,12 +39,13 @@ namespace SERVER_IMMAGINEMAPPA
                 {
                     throw new Exception("Coordinata y non valida");
                 }
+                _y = value;
             }
         }
         public CoordinateMappa(Coordinate coordinate)
         {
-            this.x = (decimal)coordinate.x;
-            this.y = (decimal)coordinate.y;
+            this.x = Convert.ToDecimal(coordinate.x);
+            this.y = Convert.ToDecimal(coordinate.y);
         }
     }
     public class Coordinate
@@ -93,6 +95,9 @@ namespace SERVER_IMMAGINEMAPPA
             object a = new object();
             var websocketServer = new WebSocketServer(indirizzo);
             Dictionary<string, Coordinate> coordinatepullman = new Dictionary<string, Coordinate>();
+            coordinatepullman["A1"] = new Coordinate(45.6964538, 9.6686629);
+            coordinatepullman["B1"] = new Coordinate(45.6964538, 9.6686629);
+
             Console.WriteLine("--------------------Server Immagine-Mappa--------------------");
             websocketServer.Start(connection =>
             {

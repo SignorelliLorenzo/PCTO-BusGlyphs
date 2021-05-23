@@ -23,7 +23,11 @@ namespace SERVER_BUS
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
-            
+            coordinatepullman["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 3, true);
+            coordinatepullman["B2"] = new BusState("B2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, false);
+            coordinatepullman["C2"] = new BusState("C2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 6, false);
+            coordinatepullman["D3"] = new BusState("D3", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, true);
+            coordinatepullman["B1"] = new BusState("B1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, true);
 
 
             //{

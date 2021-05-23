@@ -84,7 +84,21 @@ namespace SERVER_PERCORSO
             {
                 throw new Exception("Non sono stati trovati percorsi conformi");
             }
-            return Bus.Where(x => Percorsigiusti.Contains(x.percorso)).ToList();
+            List<Bus> BusGiusti = new List<Bus>();
+            foreach (Bus bus in Bus)
+            {
+                foreach(Percorso percorso in Percorsigiusti)
+                {
+                    if(percorso.nome == bus.percorso.nome)
+                    {
+                        BusGiusti.Add(bus);
+                    }
+                }
+            }
+
+
+
+            return BusGiusti.ToList();
         }
         public static bool CaricaBus(ref List<Bus> bus, string path)
         {

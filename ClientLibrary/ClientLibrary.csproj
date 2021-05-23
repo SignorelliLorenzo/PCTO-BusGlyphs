@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <DocumentationFile>C:\Users\Gabry\Source\Repos\PCTO-BusGlyphs-master\ClientLibrary\ClientLibrary.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\andrea\Source\Repos\PCTO-BusGlyphs\ClientLibrary\ClientLibrary.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
