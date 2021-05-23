@@ -1,2 +1,2 @@
 # PCTO-BusGlyphs
-Documentazione: [[QUI](https://drive.google.com/file/d/1B2yFxvsixNQMvql3WeZLzlm9vE8tFerU/view?usp=sharing)]
+Documentazione: [[QUI](https://drive.google.com/drive/folders/1vFPSAddp5xjxyt_myanJryFbkcnvm8V2?usp=sharing)]
