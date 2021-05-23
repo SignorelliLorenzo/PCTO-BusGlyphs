@@ -1,5 +1,6 @@
 ﻿using AForgeFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Drawing;
 using System.IO;
 
@@ -111,6 +112,24 @@ namespace Test_Base
 
         }
 
+        [TestMethod]
+        public void IsGlyphNameNotFound()
+        {
+            //Arrange
+            string result = default;
+            Bitmap Imagetest = new Bitmap(Directory.GetCurrentDirectory() + $@"\black.jpg", true);
+
+            //Act
+            try
+            {
+                result = Funzioni.FindGlyphName(Imagetest);
+            }
+            catch (Exception ex)
+            {
+                //Assert
+                Assert.AreEqual("Glyph's Name not found", ex.Message);
+            }
+        }
 
     }
 }

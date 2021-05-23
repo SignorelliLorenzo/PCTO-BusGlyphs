@@ -23,7 +23,7 @@ using System.Linq;
 namespace GlyphsBus
 {
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Cam")]
-    public class CamActivity : Activity, TextureView.ISurfaceTextureListener
+    public class CamActivity : Activity, TextureView.ISurfaceTextureListener, Android.Hardware.Camera.IAutoFocusCallback
     {
 
         //Variabili per Menu
@@ -62,8 +62,33 @@ namespace GlyphsBus
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.CamActivity);
+            _textureView.Touch += _textureView_Touch;
+
         }
         bool timerpassed=false;
+        private bool focussed = false;
+        private void _textureView_Touch(object sender, View.TouchEventArgs e)
+        {
+            if (!focussed)
+            { _camera.AutoFocus(this); focussed = true; }
+        }
+        public void OnAutoFocus(bool success, Android.Hardware.Camera camera)
+        {
+            var parameters = camera.GetParameters();
+            if (parameters.FocusMode != Android.Hardware.Camera.Parameters.FocusModeContinuousPicture)
+            {
+                parameters.FocusMode = Android.Hardware.Camera.Parameters.FocusModeContinuousPicture;
+
+                if (parameters.MaxNumFocusAreas > 0)
+                {
+                    parameters.FocusAreas = null;
+                }
+                camera.SetParameters(parameters);
+                camera.StartPreview();
+
+            }
+        }
+
         protected override void OnStart()
         {
             base.OnStart();

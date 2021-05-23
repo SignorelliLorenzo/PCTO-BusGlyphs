@@ -9,7 +9,7 @@ namespace AForgeFunctions
 {
     public class Funzioni
     {
-        public static GlyphDatabase AddGlyphData()
+        private static GlyphDatabase AddGlyphData()
         {
             GlyphDatabase glyphDatabase = new GlyphDatabase(5);
 
