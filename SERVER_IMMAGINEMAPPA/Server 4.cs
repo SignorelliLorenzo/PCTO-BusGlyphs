@@ -60,6 +60,8 @@ namespace SERVER_IMMAGINEMAPPA
     }
     public class ImmagineMappa
     {
+       
+
         static string indirizzo = "ws://192.168.1.126:8383";
         public static byte[] CreaImmagine(Coordinate coordinate)
         {
@@ -72,7 +74,8 @@ namespace SERVER_IMMAGINEMAPPA
 
                 string latitudine = coordinatemappa.x.ToString();
                 string longitudine = coordinatemappa.y.ToString();
-                string zoom = "12";
+                
+                string zoom = "15";
                 string larghezza = "600";
                 string altezza = "350";
                 string chiave = "AIzaSyDnc6Fone6eXBZ4y8w7IC-hSvjMPQuRfwY";

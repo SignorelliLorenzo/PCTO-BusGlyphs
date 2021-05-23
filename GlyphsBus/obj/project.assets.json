@@ -2514,24 +2514,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gabry\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\andrea\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+      "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
       "projectName": "GlyphsBus",
-      "projectPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
-      "packagesPath": "C:\\Users\\Gabry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabry\\Source\\Repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
+      "projectPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\GlyphsBus.csproj",
+      "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\GlyphsBus\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gabry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

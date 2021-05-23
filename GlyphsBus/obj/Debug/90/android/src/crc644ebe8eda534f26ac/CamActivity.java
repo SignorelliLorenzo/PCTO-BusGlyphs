@@ -5,7 +5,8 @@ public class CamActivity
 	extends android.app.Activity
 	implements
 		mono.android.IGCUserPeer,
-		android.view.TextureView.SurfaceTextureListener
+		android.view.TextureView.SurfaceTextureListener,
+		android.hardware.Camera.AutoFocusCallback
 {
 /** @hide */
 	public static final String __md_methods;
@@ -18,6 +19,7 @@ public class CamActivity
 			"n_onSurfaceTextureDestroyed:(Landroid/graphics/SurfaceTexture;)Z:GetOnSurfaceTextureDestroyed_Landroid_graphics_SurfaceTexture_Handler:Android.Views.TextureView/ISurfaceTextureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onSurfaceTextureSizeChanged:(Landroid/graphics/SurfaceTexture;II)V:GetOnSurfaceTextureSizeChanged_Landroid_graphics_SurfaceTexture_IIHandler:Android.Views.TextureView/ISurfaceTextureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onSurfaceTextureUpdated:(Landroid/graphics/SurfaceTexture;)V:GetOnSurfaceTextureUpdated_Landroid_graphics_SurfaceTexture_Handler:Android.Views.TextureView/ISurfaceTextureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
+			"n_onAutoFocus:(ZLandroid/hardware/Camera;)V:GetOnAutoFocus_ZLandroid_hardware_Camera_Handler:Android.Hardware.Camera/IAutoFocusCallbackInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
 		mono.android.Runtime.register ("GlyphsBus.CamActivity, GlyphsBus", CamActivity.class, __md_methods);
 	}
@@ -85,6 +87,14 @@ public class CamActivity
 	}
 
 	private native void n_onSurfaceTextureUpdated (android.graphics.SurfaceTexture p0);
+
+
+	public void onAutoFocus (boolean p0, android.hardware.Camera p1)
+	{
+		n_onAutoFocus (p0, p1);
+	}
+
+	private native void n_onAutoFocus (boolean p0, android.hardware.Camera p1);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

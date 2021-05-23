@@ -20,10 +20,13 @@ using ClientLibrary;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using static Android.Hardware.Camera;
+using static Android.Views.ViewGroup;
+
 namespace GlyphsBus
 {
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Cam")]
-    public class CamActivity : Activity, TextureView.ISurfaceTextureListener, Android.Hardware.Camera.IAutoFocusCallback
+    public class CamActivity : Activity, TextureView.ISurfaceTextureListener, IAutoFocusCallback
     {
 
         //Variabili per Menu
@@ -56,13 +59,13 @@ namespace GlyphsBus
             { 7,"Como"},
             { 5,"Roma"},
             {0,"Bergamo"}
-        };
+        }; 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.CamActivity);
-            _textureView.Touch += _textureView_Touch;
+            
 
         }
         bool timerpassed=false;
@@ -232,7 +235,7 @@ namespace GlyphsBus
             //}
             _camera = Android.Hardware.Camera.Open();
             var previewSize = _camera.GetParameters().PreviewSize;
-            
+            _textureView.Touch += _textureView_Touch;
 
             try
             {
