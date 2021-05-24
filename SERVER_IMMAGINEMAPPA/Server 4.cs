@@ -99,7 +99,10 @@ namespace SERVER_IMMAGINEMAPPA
             var websocketServer = new WebSocketServer(indirizzo);
             Dictionary<string, Coordinate> coordinatepullman = new Dictionary<string, Coordinate>();
             coordinatepullman["A1"] = new Coordinate(45.6964538, 9.6686629);
-            coordinatepullman["B1"] = new Coordinate(45.6964538, 9.6686629);
+            coordinatepullman["B1"] = new Coordinate(45.696926, 9.6690978);
+            coordinatepullman["C1"] = new Coordinate(45.6975549, 9.6667936);
+            coordinatepullman["D1"] = new Coordinate(45.7008704, 9.6655066);
+            coordinatepullman["E1"] = new Coordinate(45.7032898, 9.6775359);
 
             Console.WriteLine("--------------------Server Immagine-Mappa--------------------");
             websocketServer.Start(connection =>

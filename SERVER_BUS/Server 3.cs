@@ -23,11 +23,11 @@ namespace SERVER_BUS
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
-            coordinatepullman["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 3, true);
-            coordinatepullman["B2"] = new BusState("B2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, false);
-            coordinatepullman["C2"] = new BusState("C2", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 6, false);
-            coordinatepullman["D3"] = new BusState("D3", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, true);
-            coordinatepullman["B1"] = new BusState("B1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }), new Coordinate(2, 3), 2, true);
+            coordinatepullman["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6, 0 }, new List<int> { 0, 6, 2, 3 }), new Coordinate(45.6964538, 9.6686629), 3, true);
+            coordinatepullman["B1"] = new BusState("B1", new Percorso("Milano-Brescia", new List<int> { 3, 7, 5, 2 }, new List<int> { 2, 5, 7, 3 }), new Coordinate(45.696926, 9.6690978), 2, false);
+            coordinatepullman["C1"] = new BusState("C1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.6975549, 9.6667936), 6, false);
+            coordinatepullman["D1"] = new BusState("D1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.7008704, 9.6655066), 7, true);
+            coordinatepullman["E1"] = new BusState("E1", new Percorso("Telgate-Bergamo", new List<int> { 2, 5, 6, 0 }, new List<int> { 0, 6, 5, 2 }), new Coordinate(45.7032898, 9.6775359), 0, true);
 
 
             //{
