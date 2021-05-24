@@ -1,8 +1,7 @@
 # PCTO-BusGlyphs
 Documentazione: [[QUI](https://drive.google.com/drive/folders/1vFPSAddp5xjxyt_myanJryFbkcnvm8V2?usp=sharing)]
 
-Video:
-https://user-images.githubusercontent.com/59918179/119360730-3637fb00-bcab-11eb-9669-49974b7463dd.mp4
+![Video](https://user-images.githubusercontent.com/59918179/119362259-cc205580-bcac-11eb-98a8-11b362ae06f5.mp4)
 
 Presentazione: ()
 ![image](https://user-images.githubusercontent.com/59918179/119361260-c37b4f80-bcab-11eb-8c6a-351d98005171.png)
