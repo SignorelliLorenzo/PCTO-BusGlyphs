@@ -41,6 +41,7 @@ namespace GlyphsBus
         FloatingActionButton MPlus;
         View MenuContentCam;
         public static string json_Client1;
+        public static bool glifoidentificato = false; 
 
         //RelativeLayout layoutCam;
         //INDIRIZZO
@@ -184,6 +185,21 @@ namespace GlyphsBus
 
             MMaps.Click += (o, e) =>
             {
+                if (!glifoidentificato)
+                {
+                    var alertDialog = new Android.App.AlertDialog.Builder(this)
+                    .SetTitle("Failure")
+                    .SetMessage("Identify Glyph before opening this page.")
+                    .SetPositiveButton("OK", (senderAlert, args) =>
+                    {
+                        Intent nextActivity = new Intent(this, typeof(CamActivity));
+                        StartActivity(nextActivity);
+
+                    })
+                    .Create();
+                    alertDialog.Show();
+                    return;
+                }
                 Intent nextActivity = new Intent(this, typeof(MapActivity));
                 StartActivity(nextActivity);
                 CloseFabMenu(); //FATTO
@@ -197,6 +213,21 @@ namespace GlyphsBus
 
             MBus.Click += (o, e) =>
             {
+                if (!glifoidentificato)
+                {
+                    var alertDialog = new Android.App.AlertDialog.Builder(this)
+                    .SetTitle("Failure")
+                    .SetMessage("Identify Glyph before opening this page.")
+                    .SetPositiveButton("OK", (senderAlert, args) =>
+                    {
+                        Intent nextActivity = new Intent(this, typeof(CamActivity));
+                        StartActivity(nextActivity);
+
+                    })
+                    .Create();
+                    alertDialog.Show();
+                    return;
+                }
                 Intent nextactivity = new Intent(this, typeof(BusActivity));
                 StartActivity(nextactivity);
                 CloseFabMenu(); //FATTO
@@ -220,7 +251,7 @@ namespace GlyphsBus
                 else
                 {
 
-
+                    
                     mex risposta = new mex();
                     try
                     {
@@ -242,6 +273,7 @@ namespace GlyphsBus
                         alertDialog.Show();
                         return;
                     }
+                    glifoidentificato = true;
                     Dictionary<int, string> FermateDisponibili = new Dictionary<int, string>();
                     foreach (var item in risposta.Percorsi)
                     {

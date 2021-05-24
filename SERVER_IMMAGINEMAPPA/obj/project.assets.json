@@ -73,25 +73,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LORY\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\andrea\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
+      "projectUniqueName": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
       "projectName": "SERVER_IMMAGINEMAPPA_4",
-      "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
-      "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\obj\\",
+      "projectPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj",
+      "packagesPath": "C:\\Users\\andrea\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andrea\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -142,7 +142,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
