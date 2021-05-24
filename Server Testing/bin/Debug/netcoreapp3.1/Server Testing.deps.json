@@ -1347,6 +1347,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "AForge.Vision.GlyphRecognition/2.0.1.0": {
+        "runtime": {
+          "AForge.Vision.GlyphRecognition.dll": {
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
       }
     }
   },
@@ -2139,6 +2147,11 @@
       "sha512": ""
     },
     "AForgeFunctions/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AForge.Vision.GlyphRecognition/2.0.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

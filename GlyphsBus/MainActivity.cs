@@ -1,16 +1,30 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Support.V7.App;
-using Android.Views;
+using Android.Runtime;
 using Android.Widget;
+using Android.Animation;
+using Android.Support.Design.Widget;
+using Android.Views;
+using System;
 using Android;
 using Plugin.Media;
 using Android.Graphics;
 using Android.Content;
-using Android.Animation;
+using System.IO;
+using Android.Support.V4.Content;
+using Android.Content.PM;
+using System.Threading;
+using System.Timers;
+using ClientLibrary;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using static Android.Hardware.Camera;
+using static Android.Views.ViewGroup;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using static Xamarin.Essentials.Permissions;
 
 namespace GlyphsBus
 {
@@ -37,7 +51,6 @@ namespace GlyphsBus
             //FindByID Home
             IViewMainHome = FindViewById<ImageView>(Resource.Id.IViewMainHome);
             IViewMainHome.SetImageResource(Resource.Drawable.logo);
-
             //FindByID Menu
             MBus = FindViewById<FloatingActionButton>(Resource.Id.fab_bus);
             MHome = FindViewById<FloatingActionButton>(Resource.Id.fab_home);
@@ -63,6 +76,7 @@ namespace GlyphsBus
 
             MCamera.Click += (o, e) =>
             {
+
                 Intent nextActivity = new Intent(this, typeof(CamActivity));
                 StartActivity(nextActivity);
                 CloseFabMenu(); //FATTO
@@ -70,9 +84,18 @@ namespace GlyphsBus
 
             MMaps.Click += (o, e) =>
             {
-                Intent nextActivity = new Intent(this, typeof(MapActivity));
-                StartActivity(nextActivity);
+                var alertDialog = new Android.App.AlertDialog.Builder(this)
+                      .SetTitle("Failure")
+                      .SetMessage("Identify Glyph before opening this page.")
+                      .SetPositiveButton("OK", (senderAlert, args) =>
+                      {
+                       
+
+                      })
+                      .Create();
+                alertDialog.Show();
                 CloseFabMenu(); //FATTO
+                return;
             };
 
             MHome.Click += (o, e) =>
@@ -82,14 +105,28 @@ namespace GlyphsBus
 
             MBus.Click += (o, e) =>
             {
-                Intent nextactivity = new Intent(this, typeof(BusActivity));
-                StartActivity(nextactivity);
+                var alertDialog = new Android.App.AlertDialog.Builder(this)
+                       .SetTitle("Failure")
+                       .SetMessage("Identify Glyph before opening this page.")
+                       .SetPositiveButton("OK", (senderAlert, args) =>
+                       {
+                          
+
+                       })
+                       .Create();
+                alertDialog.Show();
                 CloseFabMenu(); //FATTO
+                return;
             };
 
             MenuContent.Click += (o, e) => { CloseFabMenu(); };
         }
+        protected override void OnStart()
+        {
+            base.OnStart();
 
+
+        }
         private void CloseFabMenu()
         {
             menuopen = false;
@@ -122,6 +159,7 @@ namespace GlyphsBus
 
 
         }
+      
         private class FabListener : Java.Lang.Object, Animator.IAnimatorListener
         {
 

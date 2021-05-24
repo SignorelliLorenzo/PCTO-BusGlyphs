@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using static Xamarin.Essentials.Permissions;
 
 namespace GlyphsBus
 {
@@ -81,7 +84,7 @@ namespace GlyphsBus
 
             MenuContent.Click += (o, e) => { CloseFabMenu(); };
         }
-
+      
         private void CloseFabMenu()
         {
             menuopen = false;

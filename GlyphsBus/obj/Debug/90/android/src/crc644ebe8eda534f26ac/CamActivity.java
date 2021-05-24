@@ -2,7 +2,7 @@ package crc644ebe8eda534f26ac;
 
 
 public class CamActivity
-	extends android.app.Activity
+	extends android.support.v7.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer,
 		android.view.TextureView.SurfaceTextureListener,

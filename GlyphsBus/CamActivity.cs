@@ -22,11 +22,14 @@ using System.Collections.Generic;
 using System.Linq;
 using static Android.Hardware.Camera;
 using static Android.Views.ViewGroup;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using static Xamarin.Essentials.Permissions;
 
 namespace GlyphsBus
 {
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Cam")]
-    public class CamActivity : Activity, TextureView.ISurfaceTextureListener, IAutoFocusCallback
+    public class CamActivity : AppCompatActivity, TextureView.ISurfaceTextureListener, IAutoFocusCallback
     {
 
         //Variabili per Menu
@@ -50,7 +53,7 @@ namespace GlyphsBus
         
         byte[] imagebyte = default;
         Bitmap Frame = default;
-        public static Client_Glifo_1 Client1 = new Client_Glifo_1(indirizzo);
+        public static Client_Glifo_1 Client1;
 
         public static Dictionary<int, string> Nomifermate = new Dictionary<int, string> {
             {2,"Telgate"},           
@@ -59,15 +62,17 @@ namespace GlyphsBus
             { 7,"Como"},
             { 5,"Roma"},
             {0,"Bergamo"}
-        }; 
-        protected override void OnCreate(Bundle savedInstanceState)
+        };
+        protected override  void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.CamActivity);
             
 
+
         }
+      
         bool timerpassed=false;
         private bool focussed = false;
         private void _textureView_Touch(object sender, View.TouchEventArgs e)
@@ -91,13 +96,56 @@ namespace GlyphsBus
 
             }
         }
+        public async Task GetCamPerm()
+        {
 
-        protected override void OnStart()
+
+            var status = await CheckAndRequestPermissionAsync(new Permissions.Camera());
+            if (status != PermissionStatus.Granted)
+            {
+                // Notify user permission was denied
+                return;
+            }
+        }
+
+        public async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)
+            where T : BasePermission
+        {
+
+            var status = await permission.CheckStatusAsync();
+            if (status != PermissionStatus.Granted)
+            {
+                status = await permission.RequestAsync();
+            }
+
+            return status;
+        }
+        protected override async void OnStart()
         {
             base.OnStart();
             //layoutCam = FindViewById<RelativeLayout>(Resource.Id.layoutcam);
 
+            try
+            {
+                Client1 = new Client_Glifo_1(indirizzo);
+            }
+            catch (Exception ex)
+            {
+                var alertDialog = new Android.App.AlertDialog.Builder(this)
+                     .SetTitle("Failure")
+                     .SetMessage("Request failed. No connection.")
+                     .SetPositiveButton("OK", (senderAlert, args) =>
+                     {
+                         Intent nextActivity = new Intent(this, typeof(MainActivity));
+                         StartActivity(nextActivity);
+
+                     })
+                     .Create();
+                alertDialog.Show();
+                return;
+            }
             //Code Camera
+
             _textureView = FindViewById<TextureView>(Resource.Id.textureView2);
             _textureView.SurfaceTextureListener = this;
             if (!timerpassed)
@@ -157,7 +205,7 @@ namespace GlyphsBus
             MenuContentCam.Click += (o, e) => { CloseFabMenu(); };
 
         }
-
+      
         //-------------------------------------------CLIENT-----------------------------------------------//ù
         bool passed=false;
         private void OnTimedEvent1(object sender, ElapsedEventArgs e)
@@ -173,8 +221,27 @@ namespace GlyphsBus
                 {
 
 
+                    mex risposta = new mex();
+                    try
+                    {
+                        risposta = JsonConvert.DeserializeObject<mex>(Client1.json);
 
-                    mex risposta = JsonConvert.DeserializeObject<mex>(Client1.json);
+                    }
+                    catch
+                    {
+                        var alertDialog = new Android.App.AlertDialog.Builder(this)
+                    .SetTitle("Failure")
+                    .SetMessage("Request failed. No connection.")
+                    .SetPositiveButton("OK", (senderAlert, args) =>
+                    {
+                        Intent nextActivity = new Intent(this, typeof(MainActivity));
+                        StartActivity(nextActivity);
+
+                    })
+                    .Create();
+                        alertDialog.Show();
+                        return;
+                    }
                     Dictionary<int, string> FermateDisponibili = new Dictionary<int, string>();
                     foreach (var item in risposta.Percorsi)
                     {
@@ -206,7 +273,7 @@ namespace GlyphsBus
             }
         }
 
-
+        
 
         //-------------------------------------------------------------------------------------------------//
 
@@ -216,8 +283,7 @@ namespace GlyphsBus
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
-        public void OnSurfaceTextureAvailable(Android.Graphics.SurfaceTexture surface, int w, int h)
+        public async void OnSurfaceTextureAvailable(Android.Graphics.SurfaceTexture surface, int w, int h)
         {
             //----//LOCAL SAVE ON PHONE//----//
             //_camera = Camera.Open();
@@ -233,28 +299,62 @@ namespace GlyphsBus
             //{
             //    Console.WriteLine(ex.Message);
             //}
-            _camera = Android.Hardware.Camera.Open();
-            var previewSize = _camera.GetParameters().PreviewSize;
-            _textureView.Touch += _textureView_Touch;
+            
+                try
+                {
+                await GetCamPerm();
 
-            try
-            {
-                _textureView.LayoutParameters =
-                    new FrameLayout.LayoutParams(previewSize.Width,
-                        previewSize.Height,GravityFlags.Center);
-                //_textureView.LayoutParameters = new CoordinatorLayout.LayoutParams(previewSize.Width, previewSize.Height);
+                _camera = Android.Hardware.Camera.Open();
+                
+                }
+                catch (Exception ex)
+                {
+                    var alertDialog = new Android.App.AlertDialog.Builder(this)
+                         .SetTitle("Failure")
+                         .SetMessage("Camera failed to connect. Permissions probably missing")
+                         .SetPositiveButton("OK", (senderAlert, args) =>
+                         {
+                             Intent nextActivity = new Intent(this, typeof(MainActivity));
+                             StartActivity(nextActivity);
 
-                _camera.SetPreviewTexture(surface);
-                _camera.StartPreview();
-            }
-            catch (Java.IO.IOException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+                         })
+                         .Create();
+                    alertDialog.Show();
+                    return;
+                }
+                var previewSize = _camera.GetParameters().PreviewSize;
+                _textureView.Touch += _textureView_Touch;
 
-            // this is the sort of thing TextureView enables
-            _textureView.Rotation = 90.0f;
-            _textureView.Alpha = 1.0f;
+                try
+                {
+                    _textureView.LayoutParameters =
+                        new FrameLayout.LayoutParams(previewSize.Width,
+                            previewSize.Height, GravityFlags.Center);
+                    //_textureView.LayoutParameters = new CoordinatorLayout.LayoutParams(previewSize.Width, previewSize.Height);
+
+                    _camera.SetPreviewTexture(surface);
+                    _camera.StartPreview();
+                }
+                catch (Java.IO.IOException ex)
+                {
+                    var alertDialog = new Android.App.AlertDialog.Builder(this)
+                                         .SetTitle("Failure")
+                                         .SetMessage("Loading camera failed.")
+                                         .SetPositiveButton("OK", (senderAlert, args) =>
+                                         {
+                                             Intent nextActivity = new Intent(this, typeof(MainActivity));
+                                             StartActivity(nextActivity);
+
+                                         })
+                                         .Create();
+                    alertDialog.Show();
+                    return;
+                }
+
+                // this is the sort of thing TextureView enables
+                _textureView.Rotation = 90.0f;
+                _textureView.Alpha = 1.0f;
+            
 
         }
      

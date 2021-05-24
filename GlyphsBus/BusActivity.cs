@@ -81,7 +81,23 @@ namespace GlyphsBus
 
             spinner.ItemSelected += (s, e) =>
             {
-                if(first_time)
+                whichone = 2;
+                try
+                {
+                    Client2.Dispose();
+                }
+                catch { }
+                try
+                {
+                    Client3.Dispose();
+                }
+                catch { }
+                try
+                {
+                    Client4.Dispose();
+                }
+                catch { }
+                if (first_time)
                 {
                     
                     if (!CamActivity.Nomifermate.ContainsValue(spinner.SelectedItem.ToString()))
@@ -138,15 +154,51 @@ namespace GlyphsBus
         {
             if (Client2.response && whichone == 2)
             {
-                Client3 = new Client_Bus_3(indirizzo3, Client2.json);
-                whichone++;
-                Client2.Dispose();
+                try
+                {
+                    Client3 = new Client_Bus_3(indirizzo3, Client2.json);
+                    whichone++;
+                    Client2.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    var alertDialog = new Android.App.AlertDialog.Builder(this)
+                         .SetTitle("Failure")
+                         .SetMessage("Request failed. No connection.")
+                         .SetPositiveButton("OK", (senderAlert, args) =>
+                         {
+                             Intent nextActivity = new Intent(this, typeof(MainActivity));
+                             StartActivity(nextActivity);
+
+                         })
+                         .Create();
+                    alertDialog.Show();
+                    return;
+                }
             }
             else if (Client3.response && whichone == 3)
             {
-                Client4 = new Client_Immagine_4(indirizzo4, Client3.CodiceBus);
-                whichone++;
-                Client3.Dispose();
+                try
+                {
+                    Client4 = new Client_Immagine_4(indirizzo4, Client3.CodiceBus);
+                    whichone++;
+                    Client3.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    var alertDialog = new Android.App.AlertDialog.Builder(this)
+                         .SetTitle("Failure")
+                         .SetMessage("Request failed. No connection.")
+                         .SetPositiveButton("OK", (senderAlert, args) =>
+                         {
+                             Intent nextActivity = new Intent(this, typeof(MainActivity));
+                             StartActivity(nextActivity);
+
+                         })
+                         .Create();
+                    alertDialog.Show();
+                    return;
+                }
                 Intent nextActivity = new Intent(this, typeof(MapActivity));
                 StartActivity(nextActivity);
             }
@@ -162,12 +214,31 @@ namespace GlyphsBus
         }
         private void IndexChanged(int destinazione)
         {
+            try
+            {
+                mexdestinazione messaggio = new mexdestinazione(destinazione, JsonConvert.DeserializeObject<mex>(CamActivity.json_Client1));
+                Client2 = new Client_Percorso_2(indirizzo2, messaggio);
+            }
+            catch (Exception ex)
+            {
+                var alertDialog = new Android.App.AlertDialog.Builder(this)
+                     .SetTitle("Failure")
+                     .SetMessage("Request failed. No connection.")
+                     .SetPositiveButton("OK", (senderAlert, args) =>
+                     {
+                         Intent nextActivity = new Intent(this, typeof(MainActivity));
+                         StartActivity(nextActivity);
+
+                     })
+                     .Create();
+                alertDialog.Show();
+                return;
+            }
             _timer2 = new System.Timers.Timer();
             _timer2.Elapsed += OnTimedEvent2;
             _timer2.Interval = 1000;
             _timer2.Enabled = true;
-            mexdestinazione messaggio = new mexdestinazione(destinazione, JsonConvert.DeserializeObject<mex>(CamActivity.json_Client1));
-            Client2 = new Client_Percorso_2(indirizzo2, messaggio);
+           
         }
         private void CloseFabMenu()
         {
