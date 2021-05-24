@@ -121,8 +121,10 @@ namespace SERVER_IMMAGINEMAPPA
                     {
                         if (message.StartsWith("gps%"))
                         {
+
                             var risposta = message.Split("%");
                             coordinatepullman[risposta[1]] = JsonConvert.DeserializeObject<Coordinate>(risposta[2]);
+                            connection.Send("true");
                             return;
                         }
                     }
@@ -134,18 +136,19 @@ namespace SERVER_IMMAGINEMAPPA
                     while (connection.IsAvailable)
                     {
 
-                        Coordinate coordinate = coordinatepullman[message];
-                        var immagine = CreaImmagine(coordinate);
-                        if (immagine == default)
-                        {
-                            connection.Send("Errore nella richiesta della mappa");
-                        }
-                        else
-                        {
-                            connection.Send(immagine);
-                        }
+                            Coordinate coordinate = coordinatepullman[message];
+                            var immagine = CreaImmagine(coordinate);
+                            if (immagine == default)
+                            {
+                                connection.Send("Errore nella richiesta della mappa");
+                            }
+                            else
+                            {
+                                connection.Send(immagine);
+                            }
 
-                        Thread.Sleep(3000);
+                            Thread.Sleep(3000);
+
                     }
 
                 };

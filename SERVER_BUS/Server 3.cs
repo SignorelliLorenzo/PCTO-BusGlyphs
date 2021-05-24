@@ -59,12 +59,17 @@ namespace SERVER_BUS
 
                     try
                     {
+
                         if (!OnGpsMessage(coordinatepullman, message, Bus))
                         {
                             var codicebus = OnStandardMessage(message, coordinatepullman);
                             //var bus = coordinatepullman.Where(p => p.Value.BusName == risposta).First().Value;
                             //var json = JsonConvert.SerializeObject(bus);
                             connection.Send(codicebus);
+                        }
+                        else
+                        {
+                            connection.Send("true");
                         }
                     }
                     catch (Exception ex)
