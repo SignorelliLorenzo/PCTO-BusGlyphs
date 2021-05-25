@@ -52,27 +52,33 @@ namespace GlyphsBus
             //Menu
             MPlus.Click += (o, e) =>
             {
-                if (!menuopen)
-                    ShowFabMenu();
-                else
-                    CloseFabMenu();
+                Intent nextActivity = new Intent(this, typeof(MainActivity));
+                StartActivity(nextActivity);
+                CloseFabMenu(); //FATTO
+                BusActivity._timer2.Dispose();
+                BusActivity.Client4.Dispose();
             };
 
             MCamera.Click += (o, e) => {
                 Intent nextActivity = new Intent(this, typeof(CamActivity));
                 StartActivity(nextActivity);
                 CloseFabMenu(); //FATTO
+                BusActivity._timer2.Dispose();
+                BusActivity.Client4.Dispose();
             };
 
             MMaps.Click += (o, e) =>
             {
                 CloseFabMenu(); //FATTO
+
             };
 
             MHome.Click += (o, e) => {
                 Intent nextActivity = new Intent(this, typeof(MainActivity));
                 StartActivity(nextActivity);
                 CloseFabMenu(); //FATTO
+                BusActivity._timer2.Dispose();
+                BusActivity.Client4.Dispose();
             };
 
             MBus.Click += (o, e) =>
@@ -80,6 +86,8 @@ namespace GlyphsBus
                 Intent nextactivity = new Intent(this, typeof(BusActivity));
                 StartActivity(nextactivity);
                 CloseFabMenu(); //FATTO
+                BusActivity._timer2.Dispose();
+                BusActivity.Client4.Dispose();
             };
 
             MenuContent.Click += (o, e) => { CloseFabMenu(); };

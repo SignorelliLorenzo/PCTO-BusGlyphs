@@ -340,7 +340,7 @@ namespace ClientLibrary
         {
             get
             {
-                
+
                 return _newImage;
             }
 
@@ -368,6 +368,7 @@ namespace ClientLibrary
         //Funzioni
         private void MessaggioRicevuto(object a, DataReceivedEventArgs b)
         {
+          
             _immagine = b.Data;
             _newImage = true;
 
@@ -378,6 +379,7 @@ namespace ClientLibrary
             this.Client = new WebSocket(indirizzo);
             this._newImage = false;
             this.Client.DataReceived += MessaggioRicevuto;
+            Client.MessageReceived += Client_MessageReceived;
             // this.Client.MessageReceived += MessaggioRicevuto;
 
             this.Client.Closed += (a, b) =>
@@ -403,6 +405,19 @@ namespace ClientLibrary
             this.Client.Send(messaggio);
 
         }
+        public delegate void notify();
+
+        public event notify nopullman;
+            
+        private void Client_MessageReceived(object sender, MessageReceivedEventArgs e)
+        {
+            if (e.Message == "Errore nella richiesta della mappa")
+            {
+                //throw new Exception("Nessun pullman trovato per la destinazione selezionata");
+                nopullman?.Invoke();
+            }
+        }
+
         /// <summary>
         /// Inizializza la connessione e inizia la ricezione dati
         /// </summary>

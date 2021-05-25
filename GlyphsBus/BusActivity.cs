@@ -22,6 +22,8 @@ namespace GlyphsBus
     [Activity(Theme = "@style/AppTheme", MainLauncher = false, Label = "Menu Bus")]
     public class BusActivity : AppCompatActivity
     {
+        Android.App.AlertDialog alertDialog1;
+        public static bool fail = false;
         //Variabili per Menu
         private static bool menuopen;
         FloatingActionButton MBus;
@@ -43,10 +45,10 @@ namespace GlyphsBus
         //CLIENT
         Client_Percorso_2 Client2;
         Client_Bus_3 Client3;
-        Client_Immagine_4 Client4;
+        static public Client_Immagine_4 Client4;
         bool first_time = false;
         //----------------------------
-        private System.Timers.Timer _timer2;
+        static public  System.Timers.Timer _timer2;
         public static string[] items = new string[] { };
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -68,6 +70,8 @@ namespace GlyphsBus
             MCamera = FindViewById<FloatingActionButton>(Resource.Id.fab_camera);
             MPlus = FindViewById<FloatingActionButton>(Resource.Id.fab_main);
             MenuContent = FindViewById<View>(Resource.Id.MenuBus);
+            
+           
 
             //FindByID
             spinner = FindViewById<Spinner>(Resource.Id.spinner1);
@@ -180,23 +184,29 @@ namespace GlyphsBus
             {
                 try
                 {
+                    if (Client3.CodiceBus == "Nessun pullman disponibile in tempi brevi")
+                    {
+
+                        var bella = FindViewById<ImageView>(Resource.Id.IViewMap);
+                        bella.SetImageResource(Resource.Drawable.NO);
+                        Intent nextActivitya = new Intent(this, typeof(MapActivity));
+                        StartActivity(nextActivitya);
+                       
+
+                        return;
+                    }
                     Client4 = new Client_Immagine_4(indirizzo4, Client3.CodiceBus);
+                    Client4.nopullman += Client4_nopullman;
                     whichone++;
                     Client3.Dispose();
                 }
                 catch (Exception ex)
                 {
-                    var alertDialog = new Android.App.AlertDialog.Builder(this)
-                         .SetTitle("Failure")
-                         .SetMessage("Request failed. No connection.")
-                         .SetPositiveButton("OK", (senderAlert, args) =>
-                         {
-                             Intent nextActivity = new Intent(this, typeof(MainActivity));
-                             StartActivity(nextActivity);
-
-                         })
-                         .Create();
-                    alertDialog.Show();
+                    fail = true;
+                    Intent nextActivitya = new Intent(this, typeof(MainActivity));
+                    StartActivity(nextActivitya);
+                    Client3.Dispose();
+                    _timer2.Dispose();
                     return;
                 }
                 Intent nextActivity = new Intent(this, typeof(MapActivity));
@@ -206,12 +216,32 @@ namespace GlyphsBus
             {
                 
                 var bitmap=BitmapFactory.DecodeByteArray(Client4.immagine, 0, Client4.immagine.Length);
-                Console.WriteLine(Client4.immagine.Length);
                 MapActivity.IViewHelp.SetImageBitmap(bitmap);
+
 
             }
 
         }
+
+        private void Client4_nopullman()
+        {
+            var alertDialog = new Android.App.AlertDialog.Builder(this)
+                         .SetTitle("Failure")
+                         .SetMessage("Request failed. No connection.")
+                         .SetPositiveButton("OK", (senderAlert, args) =>
+                         {
+                             Intent nextActivity = new Intent(this, typeof(MainActivity));
+                             StartActivity(nextActivity);
+
+                         })
+                         .Create();
+            alertDialog.Show();
+            return;
+
+
+            //throw new NotImplementedException();
+        }
+
         private void IndexChanged(int destinazione)
         {
             try

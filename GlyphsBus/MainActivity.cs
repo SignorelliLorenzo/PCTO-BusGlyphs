@@ -47,7 +47,20 @@ namespace GlyphsBus
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
-
+            if(BusActivity.fail)
+            {
+                var alertDialog = new Android.App.AlertDialog.Builder(this)
+                         .SetTitle("Failure")
+                         .SetMessage("No bus found for the selected stop")
+                         .SetIcon(Resource.Drawable.Icon)
+                         .SetPositiveButton("OK", (senderAlert, args) =>
+                         {
+                             
+                         })
+                         .Create();
+                alertDialog.Show();
+                BusActivity.fail = false;
+            }
             //FindByID Home
             IViewMainHome = FindViewById<ImageView>(Resource.Id.IViewMainHome);
             IViewMainHome.SetImageResource(Resource.Drawable.logo);

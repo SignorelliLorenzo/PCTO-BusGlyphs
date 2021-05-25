@@ -28,7 +28,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         app:fabSize="normal"
-        app:srcCompat="@drawable/ic_plus"/>
+        app:srcCompat="@drawable/ic_home"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_camera"
