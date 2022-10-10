@@ -1,5 +1,5 @@
 # PCTO-BusGlyphs
-Documentazione: [[QUI](https://drive.google.com/drive/folders/1vFPSAddp5xjxyt_myanJryFbkcnvm8V2?usp=sharing)]
+Documentazione: [[QUI](https://drive.google.com/drive/folders/1vFPSAddp5xjxyt_myanJryFbkcnvm8V2?usp=sharing)] sottolineamo che questa è una demo per funzionare correttamente ha bisogno degli appositi dati
 
 https://user-images.githubusercontent.com/62284449/119363843-8f555e00-bcae-11eb-8bda-6b79866ea795.mp4
 
