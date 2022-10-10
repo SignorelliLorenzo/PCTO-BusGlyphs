@@ -16,5 +16,5 @@ Presentazione:
 ![image](https://user-images.githubusercontent.com/59918179/119361627-28cf4080-bcac-11eb-86f3-b9372b6ffff0.png)
 ![image](https://user-images.githubusercontent.com/59918179/119369305-4e604800-bcb4-11eb-9a4b-275f7fa1c228.png)
 ![image](https://user-images.githubusercontent.com/59918179/119361668-35ec2f80-bcac-11eb-9e3b-1dca750e2cd3.png)
-![image](https://user-images.githubusercontent.com/62284449/194909737-24dc3560-282a-4b88-a33a-33c27f99d239.png)
+![image](https://user-images.githubusercontent.com/62284449/194909737-24dc3560-282a-4b88-a33a-33c27f99d239.png = 795x448)
 
