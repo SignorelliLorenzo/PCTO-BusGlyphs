@@ -5668,25 +5668,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\garlini.17185\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\canej\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\garlini.17185\\source\\repos\\PCTO-BusGlyphs\\Server4Testing\\Server4Testing.csproj",
+      "projectUniqueName": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\Server4Testing\\Server4Testing.csproj",
       "projectName": "Server4Testing",
-      "projectPath": "C:\\Users\\garlini.17185\\source\\repos\\PCTO-BusGlyphs\\Server4Testing\\Server4Testing.csproj",
-      "packagesPath": "C:\\Users\\garlini.17185\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\garlini.17185\\source\\repos\\PCTO-BusGlyphs\\Server4Testing\\obj\\",
+      "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\Server4Testing\\Server4Testing.csproj",
+      "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\Server4Testing\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\garlini.17185\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5699,8 +5694,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\garlini.17185\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj": {
-              "projectPath": "C:\\Users\\garlini.17185\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj"
+            "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj": {
+              "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IMMAGINEMAPPA\\SERVER_IMMAGINEMAPPA_4.csproj"
             }
           }
         }
@@ -5751,7 +5746,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "bd40e721-d4a5-425f-afc4-35aefb36e5b9": {
+      "ProjectGuid": "bd40e721-d4a5-425f-afc4-35aefb36e5b9",
+      "DisplayName": "ClientLibrary",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "File esterni",
+      "ColorIndex": -1
+    },
+    "53f7519d-0809-432e-9f3b-24108207d4f8": {
+      "ProjectGuid": "53f7519d-0809-432e-9f3b-24108207d4f8",
+      "DisplayName": "SERVER_IDGLYPHS_1",
+      "ColorIndex": 1
+    },
+    "f87400aa-7e4d-4381-b245-74ff1de363c0": {
+      "ProjectGuid": "f87400aa-7e4d-4381-b245-74ff1de363c0",
+      "DisplayName": "SERVER_IMMAGINEMAPPA_4",
+      "ColorIndex": 2
+    },
+    "eefc0b5c-f53f-4de5-a037-bc752bf460a9": {
+      "ProjectGuid": "eefc0b5c-f53f-4de5-a037-bc752bf460a9",
+      "DisplayName": "SERVER_PERCORSO_2",
+      "ColorIndex": 3
+    },
+    "87ff3386-833f-48d1-bb11-3b6d997f97f8": {
+      "ProjectGuid": "87ff3386-833f-48d1-bb11-3b6d997f97f8",
+      "DisplayName": "AForgeFunctions",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

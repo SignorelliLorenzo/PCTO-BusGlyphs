@@ -54,3 +54,13 @@ C:\Users\garlini.17185\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netco
 C:\Users\garlini.17185\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.csproj.CoreCompileInputs.cache
 C:\Users\garlini.17185\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.dll
 C:\Users\garlini.17185\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.pdb
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.deps.json
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.dll
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\bin\Debug\netcoreapp3.1\ClientLibrary.pdb
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.csproj.AssemblyReference.cache
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.AssemblyInfoInputs.cache
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.AssemblyInfo.cs
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.csproj.CoreCompileInputs.cache
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.dll
+C:\Users\canej\source\repos\PCTO-BusGlyphs\ClientLibrary\obj\Debug\netcoreapp3.1\ClientLibrary.pdb
