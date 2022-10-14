@@ -30,13 +30,14 @@ namespace Bus_Percorsi
                 _percorso = value;
             }
         }
-        bool stato = default;
-        public Bus(string Id, Percorso percorso)
+        public bool Andata { get; set; }
+        public Bus(string Id, Percorso percorso,bool andata)
         {
             if (Ids.Contains(Id) || String.IsNullOrEmpty(Id))
             {
                 throw new Exception("Id must be unique and not null");
             }
+            this.Andata = andata;
             this._id = Id;
             this.percorso = percorso;
         }

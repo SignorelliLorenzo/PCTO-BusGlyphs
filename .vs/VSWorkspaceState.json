@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ClientLibrary"
   ],
-  "SelectedNode": "\\GlyphsBus.sln",
+  "SelectedNode": "\\ClientLibrary\\Client.cs",
   "PreviewInSolutionExplorer": false
 }

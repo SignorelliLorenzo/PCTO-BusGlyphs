@@ -30,7 +30,12 @@
       "ProjectGuid": "87ff3386-833f-48d1-bb11-3b6d997f97f8",
       "DisplayName": "AForgeFunctions",
       "ColorIndex": 4
+    },
+    "a1d0aa2a-29bc-420b-a9ad-a39f6c598168": {
+      "ProjectGuid": "a1d0aa2a-29bc-420b-a9ad-a39f6c598168",
+      "DisplayName": "SERVER_BUS_3",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 6
 }

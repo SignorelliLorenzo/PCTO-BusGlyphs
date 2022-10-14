@@ -30,6 +30,7 @@ namespace Mex
         {
             public Fermata Partenza;
             public Fermata Arrivo;
+
         }
         public class Response : Base
         {

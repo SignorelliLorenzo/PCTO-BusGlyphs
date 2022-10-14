@@ -1,6 +1,6 @@
 ﻿using Bus_Percorsi;
 using Fleck;
-using Messages;
+using Mex;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,16 +12,25 @@ namespace SERVER_PERCORSO
     public class PERCORSO
     {
         static string indirizzo = "ws://192.168.1.126:8181";
+        static List<Bus> Bus = new List<Bus>();
+        static List<Percorso> Percorsi = new List<Percorso>();
         static void Main(string[] args)
         {
             Console.WriteLine("--------------------Server Percorso--------------------");
-            List<Bus> Bus = new List<Bus>();
+            
             if (!CaricaBus(ref Bus, "BusList.json"))
             {
                 Console.WriteLine("ERRORE: Non sono riuscito a caricare i bus");
                 Console.ReadKey();
                 return;
             }
+            if (!CaricaPercorsi(ref Percorsi, "Percorsi.json"))
+            {
+                Console.WriteLine("ERRORE: Percorsi non caricati");
+                Console.ReadKey();
+                return;
+            }
+
             var websocketServer = new WebSocketServer(indirizzo);
             
             websocketServer.Start(connection =>
@@ -41,15 +50,13 @@ namespace SERVER_PERCORSO
 
                     try
                     {
-                        mexdestinazione message = JsonConvert.DeserializeObject<mexdestinazione>(msg);
-                        //connection.Send(JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione)));
-                        var json = JsonConvert.SerializeObject(getmessage(message.Percorsi, Bus, message.Destinazione));
-                        json = $"{message.codfermata}%{json}";
+                        var message = JsonConvert.DeserializeObject<ServerBuses.Request>(msg);
+                        var json = JsonConvert.SerializeObject(getmessage(message.Arrivo, message.Partenza));
                         connection.Send(json);
                     }
                     catch (Exception ex)
                     {
-                        connection.Send("!%-ERRORE: " + ex.Message);
+                        connection.Send(JsonConvert.SerializeObject(new Mex.ServerBuses.Response { Error = new List<string> { ex.Message }, Status = false })); ;
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
 
@@ -72,33 +79,22 @@ namespace SERVER_PERCORSO
             }
 
         }
-        public static List<Bus> getmessage(List<Percorso> Percorsi, List<Bus> Bus, int Destinazione)
+        public static ServerBuses.Response getmessage(Fermata Arr,Fermata Part)
         {
-            if (Percorsi.Count == 0 || Bus.Count == 0)
-            {
-                throw new Exception("Dati non disponibili");
-            }
-            List<Percorso> Percorsigiusti = new List<Percorso>();
-            Percorsigiusti = Percorsi.Where(x => x.elefermateandata.Contains(Destinazione) || x.elefermateritorno.Contains(Destinazione)).ToList();
-            if (Percorsigiusti.Count == 0)
+            
+            
+            var PercorsiAndataPossibili = Percorsi.Where(x=>x.elefermateandata.Contains(Part) && x.elefermateandata.GetRange(x.elefermateandata.IndexOf(Part),x.elefermateandata.Count()-1- x.elefermateandata.IndexOf(Part)).Contains(Arr));
+            var PercorsiRitornoPossibili= Percorsi.Where(x => x.elefermateritorno.Contains(Part) && x.elefermateritorno.GetRange(x.elefermateritorno.IndexOf(Part), x.elefermateritorno.Count() - 1 - x.elefermateritorno.IndexOf(Part)).Contains(Arr));
+            if (PercorsiAndataPossibili.Count() == 0 && PercorsiRitornoPossibili.Count()==0)
             {
                 throw new Exception("Non sono stati trovati percorsi conformi");
             }
             List<Bus> BusGiusti = new List<Bus>();
-            foreach (Bus bus in Bus)
-            {
-                foreach(Percorso percorso in Percorsigiusti)
-                {
-                    if(percorso.nome == bus.percorso.nome)
-                    {
-                        BusGiusti.Add(bus);
-                    }
-                }
-            }
+            BusGiusti = Bus.Where(x => (x.Andata && PercorsiAndataPossibili.Contains(x.percorso)) || (!x.Andata && PercorsiRitornoPossibili.Contains(x.percorso))).ToList();
 
 
 
-            return BusGiusti.ToList();
+            return new ServerBuses.Response { buses=BusGiusti,Status=true};
         }
         public static bool CaricaBus(ref List<Bus> bus, string path)
         {
@@ -116,6 +112,25 @@ namespace SERVER_PERCORSO
             catch
             {
 
+                return false;
+            }
+            return true;
+        }
+        public static bool CaricaPercorsi(ref List<Percorso> percorsi, string path)
+        {
+            if (!File.Exists(path))
+            {
+                return false;
+            }
+            StreamReader file = new StreamReader(path);
+            string jsonString = file.ReadToEnd();
+            file.Close();
+            try
+            {
+                percorsi = JsonConvert.DeserializeObject<List<Percorso>>(jsonString);
+            }
+            catch
+            {
                 return false;
             }
             return true;
