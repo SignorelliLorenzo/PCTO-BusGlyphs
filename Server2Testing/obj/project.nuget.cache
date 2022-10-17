@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Y953Tpii+vIU2+MtahC9FQwq46280tTBXWkl2TRhvBze4SXFB2C1P+lAgFZzoVl/E9Nj2Zm7erZRPTop1IDMRg==",
+  "dgSpecHash": "p6zno4G8hBOqy6cdXHkxXDq5fXrOR+HZTQakEdUHQ3RfgNcoq3vpauMxnVyqw8rUlzu0lnbXU95HgU9GB1G3CQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\Server2Testing\\Server2Testing.csproj",
   "expectedPackageFiles": [
@@ -93,10 +93,7 @@
     "C:\\Users\\canej\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\canej\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
   "logs": []
 }

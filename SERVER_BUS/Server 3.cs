@@ -1,11 +1,10 @@
-﻿using Creatore_archivio_pcto;
-using Fleck;
+﻿using Fleck;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using Bus_Percorsi;
 namespace SERVER_BUS
 {
     public class ServerBus
@@ -23,23 +22,11 @@ namespace SERVER_BUS
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
-            coordinatepullman["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6, 0 }, new List<int> { 0, 6, 2, 3 }), new Coordinate(45.6964538, 9.6686629), 3, true);
-            coordinatepullman["B1"] = new BusState("B1", new Percorso("Milano-Brescia", new List<int> { 3, 7, 5, 2 }, new List<int> { 2, 5, 7, 3 }), new Coordinate(45.696926, 9.6690978), 2, false);
-            coordinatepullman["C1"] = new BusState("C1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.6975549, 9.6667936), 6, false);
-            coordinatepullman["D1"] = new BusState("D1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.7008704, 9.6655066), 7, true);
-            coordinatepullman["E1"] = new BusState("E1", new Percorso("Telgate-Bergamo", new List<int> { 2, 5, 6, 0 }, new List<int> { 0, 6, 5, 2 }), new Coordinate(45.7032898, 9.6775359), 0, true);
-
-
-            //{
-            //    new Bus("A1",new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 })),
-            //    new Bus("A2",new Percorso("Milano-Brescia", new List<int> { 0, 5, 7 }, new List<int> { 7, 5, 0 })),
-            //    new Bus("B1",new Percorso("Milano-Bergamo", new List<int> { 3, 5, 6 }, new List<int> { 6, 5, 3 })),
-            //    new Bus("C1",new Percorso("Telgate-Bergamo", new List<int> { 3, 0, 5 }, new List<int> { 5, 0, 3 })),
-            //    new Bus("D1",new Percorso("Telgate-Bergamo", new List<int> { 3, 0, 5 }, new List<int> { 5, 0, 3 })),
-            //};
-            //StreamWriter miofile = new StreamWriter("BusList.json");
-            //miofile.Write(JsonConvert.SerializeObject(Bus,Formatting.Indented));
-            //miofile.Close();
+            //coordinatepullman["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6, 0 }, new List<int> { 0, 6, 2, 3 }), new Coordinate(45.6964538, 9.6686629), 3, true);
+            //coordinatepullman["B1"] = new BusState("B1", new Percorso("Milano-Brescia", new List<int> { 3, 7, 5, 2 }, new List<int> { 2, 5, 7, 3 }), new Coordinate(45.696926, 9.6690978), 2, false);
+            //coordinatepullman["C1"] = new BusState("C1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.6975549, 9.6667936), 6, false);
+            //coordinatepullman["D1"] = new BusState("D1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.7008704, 9.6655066), 7, true);
+            //coordinatepullman["E1"] = new BusState("E1", new Percorso("Telgate-Bergamo", new List<int> { 2, 5, 6, 0 }, new List<int> { 0, 6, 5, 2 }), new Coordinate(45.7032898, 9.6775359), 0, true);
 
 
             websocketServer.Start(connection =>
@@ -112,7 +99,7 @@ namespace SERVER_BUS
                 {
                     try
                     {
-                        var k = new BusState(Infos[1], BusList.Where(x => x.codice == Infos[1]).FirstOrDefault().percorso, JsonConvert.DeserializeObject<Coordinate>(Infos[2]));
+                        var k = new BusState(BusList.Where(x => x.Id == Infos[1]).FirstOrDefault().Id, BusList.Where(x => x.Id == Infos[1]).FirstOrDefault().percorso, JsonConvert.DeserializeObject<Coordinate>(Infos[2]));
                         CoordianteDyctionary[k.BusName] = k;
                     }
                     catch
@@ -128,11 +115,11 @@ namespace SERVER_BUS
         public static string OnStandardMessage(string message, IDictionary<string, BusState> pullmancoordinate)
         {
             var infos = message.Split("%");
-            int fermataattuale = default;
+            Fermata fermataattuale = null;
             List<Bus> elebus = default;
             try
             {
-                fermataattuale = int.Parse(infos[0]);
+                fermataattuale =BusState.ArchivioCoordinate_Fermate.Find(x=>x.Id==infos[0]);
                 elebus = JsonConvert.DeserializeObject<List<Bus>>(infos[1]);
             }
             catch
@@ -141,68 +128,111 @@ namespace SERVER_BUS
             }
             int x = 0;
 
-            bool startconta = false;
-            int distanza = 0;
-            string codicefinale = default;
+            //bool startconta = false;
+            //int distanza = 0;
+            //string codicefinale = default;
+            int distanza = -1;
+            int res=0;
+            Bus result = null;
             foreach (Bus bus in elebus)
             {
-                var attuale = pullmancoordinate.Where(b => b.Key == bus.codice).First().Value;
-                x = 0;
-                startconta = false;
-                if (attuale.andata)
+                res=BusDistance(fermataattuale, pullmancoordinate[bus.Id]);
+                if(res!=-1&&res<distanza)
                 {
-                    foreach (var item in attuale.BusPath.elefermateandata)
-                    {
-                        if (item == attuale.LastStop)
-                        {
-                            startconta = true;
-                        }
-                        if (startconta)
-                        {
-                            x++;
-                            if (item == fermataattuale)
-                            {
-                                if (x < distanza || distanza == 0)
-                                {
-                                    distanza = x;
-                                    codicefinale = attuale.BusName;
-                                }
-                                break;
-                            }
-                        }
-                    }
+                    distanza = res;
+                    result = bus;
                 }
-                else if (!attuale.andata)
-                {
-                    foreach (var item in attuale.BusPath.elefermateritorno)
-                    {
-                        if (item == attuale.LastStop)
-                        {
-                            startconta = true;
-                        }
-                        if (startconta)
-                        {
-                            x++;
-                            if (item == fermataattuale)
-                            {
-                                if (x < distanza || distanza == 0)
-                                {
-                                    distanza = x;
-                                    codicefinale = attuale.BusName;
-                                }
-                                break;
-                            }
-                        }
-                    }
-                }
+
+                #region OLD
+                //var attuale = pullmancoordinate.Where(b => b.Key == bus.Id).First().Value;
+                //x = 0;
+                //startconta = false;
+                //if (attuale.andata)
+                //{
+                //    foreach (var item in attuale.BusPath.elefermateandata)
+                //    {
+                //        if (item == attuale.LastStop)
+                //        {
+                //            startconta = true;
+                //        }
+                //        if (startconta)
+                //        {
+                //            x++;
+                //            if (item == fermataattuale)
+                //            {
+                //                if (x < distanza || distanza == 0)
+                //                {
+                //                    distanza = x;
+                //                    codicefinale = attuale.BusName;
+                //                }
+                //                break;
+                //            }
+                //        }
+                //    }
+                //}
+                //else if (!attuale.andata)
+                //{
+                //    foreach (var item in attuale.BusPath.elefermateritorno)
+                //    {
+                //        if (item == attuale.LastStop)
+                //        {
+                //            startconta = true;
+                //        }
+                //        if (startconta)
+                //        {
+                //            x++;
+                //            if (item == fermataattuale)
+                //            {
+                //                if (x < distanza || distanza == 0)
+                //                {
+                //                    distanza = x;
+                //                    codicefinale = attuale.BusName;
+                //                }
+                //                break;
+                //            }
+                //        }
+                //    }
+                //}
+                #endregion
             }
 
-            if (distanza == 0)
+            if (result == null)
             {
                 return "Nessun pullman disponibile in tempi brevi";
             }
 
-            return codicefinale;
+            return result.Id;
+        }
+        public static int BusDistance(Fermata fermata, BusState State)
+        {
+            Fermata[] elefermate;
+            int x = 0;
+            if(State.andata)
+            {
+                elefermate = State.BusPath.elefermateandata.GetRange(State.BusPath.elefermateandata.IndexOf(State.NextStop), State.BusPath.elefermateandata.Count()- State.BusPath.elefermateandata.IndexOf(State.NextStop)).ToArray();
+                while(x<elefermate.Count())
+                {
+                    if(elefermate[x]==fermata)
+                    {
+                        return x;
+                    }
+                    x++;
+                }
+            }
+            else
+            {
+                elefermate = State.BusPath.elefermateritorno.GetRange(State.BusPath.elefermateritorno.IndexOf(State.NextStop), State.BusPath.elefermateandata.Count() - State.BusPath.elefermateandata.IndexOf(State.NextStop)).ToArray();
+                while (x < elefermate.Count())
+                {
+                    if (elefermate[x] == fermata)
+                    {
+                        return x;
+                    }
+                    x++;
+                }
+            }
+            return -1;
+            
         }
         public static bool CaricaBus(ref List<Bus> bus, string path)
         {

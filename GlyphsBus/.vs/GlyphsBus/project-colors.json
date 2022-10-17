@@ -35,7 +35,22 @@
       "ProjectGuid": "a1d0aa2a-29bc-420b-a9ad-a39f6c598168",
       "DisplayName": "SERVER_BUS_3",
       "ColorIndex": 5
+    },
+    "28ea4312-251e-49e2-9a6c-d0ee612f96d2": {
+      "ProjectGuid": "28ea4312-251e-49e2-9a6c-d0ee612f96d2",
+      "DisplayName": "Server2Testing",
+      "ColorIndex": 6
+    },
+    "b21af618-d266-4e1a-ad34-88b74ca982a1": {
+      "ProjectGuid": "b21af618-d266-4e1a-ad34-88b74ca982a1",
+      "DisplayName": "Server Testing",
+      "ColorIndex": 7
+    },
+    "4223ad0c-a5ae-4d42-ac3e-6fef17ef931b": {
+      "ProjectGuid": "4223ad0c-a5ae-4d42-ac3e-6fef17ef931b",
+      "DisplayName": "Server3Testing",
+      "ColorIndex": 8
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 9
 }

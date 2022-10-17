@@ -135,12 +135,11 @@ namespace SERVER_IDGLYPHS
             NRmessage.fermata = Fermate.Where(x => x.Id == codicefermata).First();
             NRmessage.ArriviProb = new List<Fermata>();
 
-            int range = -1;
             foreach (var percorso in percorsi.Where(x=>x.elefermateritorno.Contains(NRmessage.fermata)|| x.elefermateandata.Contains(NRmessage.fermata)))
             {
 
-                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata) && x != NRmessage.fermata));
-                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata) && x != NRmessage.fermata));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata) && percorso.elefermateandata.IndexOf(x)> percorso.elefermateandata.IndexOf(NRmessage.fermata)));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata) && percorso.elefermateritorno.IndexOf(x) > percorso.elefermateritorno.IndexOf(NRmessage.fermata)));
 
 
             }

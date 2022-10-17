@@ -16,6 +16,8 @@ namespace SERVER_PERCORSO
         static List<Percorso> Percorsi = new List<Percorso>();
         static void Main(string[] args)
         {
+   
+           
             Console.WriteLine("--------------------Server Percorso--------------------");
             
             if (!CaricaBus(ref Bus, "BusList.json"))
@@ -83,15 +85,16 @@ namespace SERVER_PERCORSO
         {
             
             
-            var PercorsiAndataPossibili = Percorsi.Where(x=>x.elefermateandata.Contains(Part) && x.elefermateandata.GetRange(x.elefermateandata.IndexOf(Part),x.elefermateandata.Count()-1- x.elefermateandata.IndexOf(Part)).Contains(Arr));
-            var PercorsiRitornoPossibili= Percorsi.Where(x => x.elefermateritorno.Contains(Part) && x.elefermateritorno.GetRange(x.elefermateritorno.IndexOf(Part), x.elefermateritorno.Count() - 1 - x.elefermateritorno.IndexOf(Part)).Contains(Arr));
+            var PercorsiAndataPossibili = Percorsi.Where(x=>x.elefermateandata.Contains(Part) && x.elefermateandata.GetRange(x.elefermateandata.IndexOf(Part),x.elefermateandata.Count()- x.elefermateandata.IndexOf(Part)).Contains(Arr));
+            var PercorsiRitornoPossibili= Percorsi.Where(x => x.elefermateritorno.Contains(Part) && x.elefermateritorno.GetRange(x.elefermateritorno.IndexOf(Part), x.elefermateritorno.Count()  - x.elefermateritorno.IndexOf(Part)).Contains(Arr));
             if (PercorsiAndataPossibili.Count() == 0 && PercorsiRitornoPossibili.Count()==0)
             {
                 throw new Exception("Non sono stati trovati percorsi conformi");
             }
             List<Bus> BusGiusti = new List<Bus>();
-            BusGiusti = Bus.Where(x => (x.Andata && PercorsiAndataPossibili.Contains(x.percorso)) || (!x.Andata && PercorsiRitornoPossibili.Contains(x.percorso))).ToList();
-
+            BusGiusti = Bus.Where(x => PercorsiAndataPossibili.Contains(x.percorso) || PercorsiRitornoPossibili.Contains(x.percorso)).ToList();
+            //non si tiene conto di andata e ritorno perchè non si sa il pullman dove sia
+            //si da per scontato inoltre che un pullman faccia sempre lo stesso percorso normalmente (in caso si va a cambare il suo percorso)
 
 
             return new ServerBuses.Response { buses=BusGiusti,Status=true};
