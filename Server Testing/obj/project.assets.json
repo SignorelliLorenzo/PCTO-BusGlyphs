@@ -2022,10 +2022,20 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
+      "AForgeFunctions/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/AForgeFunctions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AForgeFunctions.dll": {}
+        }
+      },
       "SERVER_IDGLYPHS_1/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AForgeFunctions": "1.0.0",
           "Fleck": "1.2.0",
           "Moq": "4.16.1",
           "Newtonsoft.Json": "13.0.1",
@@ -6899,6 +6909,11 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "AForgeFunctions/1.0.0": {
+      "type": "project",
+      "path": "../AForgeFunctions/AForgeFunctions.csproj",
+      "msbuildProject": "../AForgeFunctions/AForgeFunctions.csproj"
     },
     "SERVER_IDGLYPHS_1/1.0.0": {
       "type": "project",

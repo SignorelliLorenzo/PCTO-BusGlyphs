@@ -1,13 +1,14 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v3.1",
+    "name": ".NETCoreApp,Version=v6.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    ".NETCoreApp,Version=v6.0": {
       "SERVER_IDGLYPHS_1/1.0.0": {
         "dependencies": {
+          "AForgeFunctions": "1.0.0",
           "Fleck": "1.2.0",
           "Moq": "4.16.1",
           "Newtonsoft.Json": "13.0.1",
@@ -17,9 +18,7 @@
           "AForge.Imaging": "2.2.5.0",
           "AForge.Math": "2.2.5.0",
           "AForge.Video": "2.2.5.0",
-          "AForge.Vision": "2.2.5.0",
-          "AForge.Vision.GlyphRecognition": "2.0.1.0",
-          "AForgeFunctions": "1.0.0.0"
+          "AForge.Vision": "2.2.5.0"
         },
         "runtime": {
           "SERVER_IDGLYPHS_1.dll": {}
@@ -874,6 +873,11 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "AForgeFunctions/1.0.0": {
+        "runtime": {
+          "AForgeFunctions.dll": {}
+        }
+      },
       "AForge.Controls/2.2.5.0": {
         "runtime": {
           "AForge.Controls.dll": {
@@ -919,22 +923,6 @@
           "AForge.Vision.dll": {
             "assemblyVersion": "2.2.5.0",
             "fileVersion": "2.2.5.0"
-          }
-        }
-      },
-      "AForge.Vision.GlyphRecognition/2.0.1.0": {
-        "runtime": {
-          "AForge.Vision.GlyphRecognition.dll": {
-            "assemblyVersion": "2.0.1.0",
-            "fileVersion": "2.0.1.0"
-          }
-        }
-      },
-      "AForgeFunctions/1.0.0.0": {
-        "runtime": {
-          "AForgeFunctions.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
           }
         }
       }
@@ -1555,6 +1543,11 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
+    "AForgeFunctions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "AForge.Controls/2.2.5.0": {
       "type": "reference",
       "serviceable": false,
@@ -1581,16 +1574,6 @@
       "sha512": ""
     },
     "AForge.Vision/2.2.5.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AForge.Vision.GlyphRecognition/2.0.1.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AForgeFunctions/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

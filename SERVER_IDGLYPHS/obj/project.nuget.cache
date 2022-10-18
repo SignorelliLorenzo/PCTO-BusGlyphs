@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XnH5A5GTG261ddlGlgkhK5c7C/rZ7tiLS7/whr3r0RzJSV1w6aD+bRXM7goQBb2/XFGodrDkLkfNqRTqyLmgIA==",
+  "dgSpecHash": "xqo+IaW+XuG9+zdOwcpy0S5zS8H21adOwn9y13n5IJ20PtbYFXkSfnv9Lt30kae10ED7macGQG4oVR1q1ZZ4Qg==",
   "success": true,
   "projectFilePath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
   "expectedPackageFiles": [
@@ -90,11 +90,7 @@
     "C:\\Users\\canej\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\canej\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\canej\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\canej\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

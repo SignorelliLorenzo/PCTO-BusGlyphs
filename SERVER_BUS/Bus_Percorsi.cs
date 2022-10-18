@@ -32,13 +32,13 @@ namespace Bus_Percorsi
             }
         }
         public bool Andata { get; set; }
-        public Bus(string Id, Percorso percorso,bool andata)
+        public Bus(string Id, Percorso percorso,string nome)
         {
             if (Ids.Contains(Id) || String.IsNullOrEmpty(Id))
             {
                 throw new Exception("Id must be unique and not null");
             }
-            this.Andata = andata;
+            this.Nome = nome;
             this._id = Id;
             this.percorso = percorso;
         }
@@ -132,10 +132,10 @@ namespace Bus_Percorsi
         }
         public class GPS
         {
-            public int x { get; set; }
-            public int y { get; set; }
+            public double x { get; set; }
+            public double y { get; set; }
         }
-        public Fermata(string Id, int x, int y)
+        public Fermata(string Id, double x, double y)
         {
             if (Ids.Contains(Id) || String.IsNullOrEmpty(Id))
             {

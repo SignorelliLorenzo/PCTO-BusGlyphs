@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net6.0": {
       "Castle.Core/4.4.0": {
         "type": "package",
         "dependencies": {
@@ -1435,6 +1435,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
+        }
+      },
+      "AForgeFunctions/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/AForgeFunctions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AForgeFunctions.dll": {}
         }
       }
     }
@@ -5266,10 +5275,16 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "AForgeFunctions/1.0.0": {
+      "type": "project",
+      "path": "../AForgeFunctions/AForgeFunctions.csproj",
+      "msbuildProject": "../AForgeFunctions/AForgeFunctions.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net6.0": [
+      "AForgeFunctions >= 1.0.0",
       "Fleck >= 1.2.0",
       "Moq >= 4.16.1",
       "Newtonsoft.Json >= 13.0.1",
@@ -5282,27 +5297,31 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\canej\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+      "projectUniqueName": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
       "projectName": "SERVER_IDGLYPHS_1",
-      "projectPath": "C:\\Users\\canej\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+      "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
       "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\canej\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
+      "outputPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\AForgeFunctions\\AForgeFunctions.csproj": {
+              "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\AForgeFunctions\\AForgeFunctions.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5312,8 +5331,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Fleck": {
             "target": "Package",
@@ -5342,24 +5361,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.22, 3.1.22]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
