@@ -40,7 +40,7 @@ namespace SERVER_BUS
                 }
                 else
                 {
-                    Inizialize("ArchivioCoordinate.Json");
+                    Inizialize("Fermate.json");
                     firsttime = false;
                 }
             }

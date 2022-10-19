@@ -9,7 +9,7 @@ namespace SERVER_BUS
 {
     public class ServerBus
     {
-        static string indirizzo = "ws://192.168.1.126:8282";
+        static string indirizzo = "ws://127.0.0.1:8282";
         static void Main(string[] args)
         {
             Dictionary<string, BusState> coordinatepullman = new Dictionary<string, BusState>();

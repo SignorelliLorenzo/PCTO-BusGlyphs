@@ -14,14 +14,14 @@ namespace AForgeFunctions
             GlyphDatabase glyphDatabase = new GlyphDatabase(5);
 
             //1
-            glyphDatabase.Add(new Glyph("Creeper", new byte[5, 5] {
+            glyphDatabase.Add(new Glyph("xer", new byte[5, 5] {
             { 0, 0, 0, 0, 0 },
             { 0, 1, 1, 0, 0 },
             { 0, 0, 1, 1, 0 },
             { 0, 0, 1, 0, 0 },
             { 0, 0, 0, 0, 0 } }));
             // 2
-            glyphDatabase.Add(new Glyph("Fly", new byte[5, 5] {
+            glyphDatabase.Add(new Glyph("zar", new byte[5, 5] {
             { 0, 0, 0, 0, 0 },
             { 0, 1, 0, 0, 0 },
             { 0, 0, 1, 0, 0 },

@@ -62,7 +62,7 @@ namespace SERVER_IMMAGINEMAPPA
     {
        
 
-        static string indirizzo = "ws://192.168.1.126:8383";
+        static string indirizzo = "ws://127.0.0.1:8383";
         public static byte[] CreaImmagine(Coordinate coordinate)
         {
             byte[] mappa = default;

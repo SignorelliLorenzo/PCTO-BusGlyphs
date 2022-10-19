@@ -1436,15 +1436,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
-      },
-      "AForgeFunctions/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/AForgeFunctions.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/AForgeFunctions.dll": {}
-        }
       }
     }
   },
@@ -5275,16 +5266,10 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
-    },
-    "AForgeFunctions/1.0.0": {
-      "type": "project",
-      "path": "../AForgeFunctions/AForgeFunctions.csproj",
-      "msbuildProject": "../AForgeFunctions/AForgeFunctions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AForgeFunctions >= 1.0.0",
       "Fleck >= 1.2.0",
       "Moq >= 4.16.1",
       "Newtonsoft.Json >= 13.0.1",
@@ -5292,20 +5277,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\canej\\.nuget\\packages\\": {}
+    "C:\\Users\\LORY\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+      "projectUniqueName": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
       "projectName": "SERVER_IDGLYPHS_1",
-      "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
-      "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
+      "projectPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\SERVER_IDGLYPHS_1.csproj",
+      "packagesPath": "C:\\Users\\LORY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LORY\\Source\\Repos\\PCTO-BusGlyphs\\SERVER_IDGLYPHS\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\LORY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -5317,11 +5312,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\AForgeFunctions\\AForgeFunctions.csproj": {
-              "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\AForgeFunctions\\AForgeFunctions.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

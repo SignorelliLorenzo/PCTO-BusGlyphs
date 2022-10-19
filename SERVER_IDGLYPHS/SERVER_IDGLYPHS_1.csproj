@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AForgeFunctions\AForgeFunctions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="AForge">
       <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.dll</HintPath>
     </Reference>
@@ -37,7 +33,10 @@
       <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Vision.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Vision.GlyphRecognition">
-      <HintPath>bin\Debug\netcoreapp3.1\AForge.Vision.GlyphRecognition.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\AForge.Vision.GlyphRecognition.dll</HintPath>
+    </Reference>
+    <Reference Include="AForgeFunctions">
+      <HintPath>..\AForgeFunctions\bin\Debug\AForgeFunctions.dll</HintPath>
     </Reference>
   </ItemGroup>
 

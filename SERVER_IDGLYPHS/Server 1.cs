@@ -12,7 +12,7 @@ namespace SERVER_IDGLYPHS
 
     public class IDGLYPHS
     {
-        static string indirizzo = "ws://192.168.1.126:8080";
+        static string indirizzo = "ws://127.0.0.1:8080";
         static Dictionary<string, string> CODGlyphs = new Dictionary<string, string>();
         static List<Percorso> Percorsi = new List<Percorso>();
         static List<Fermata> Fermate = new List<Fermata>();
