@@ -1,12 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Bus_Percorsi
 {
-    public class Bus : IDisposable
+    public class SameId : EqualityComparer<HasId>
+    {
+        public override bool Equals(HasId x, HasId y)
+        {
+            return x.Id== y.Id;
+        }
+
+        public override int GetHashCode([DisallowNull] HasId obj)
+        {
+            return obj.Id.GetHashCode();
+        }
+    }
+    public interface HasId
+{
+    public string Id { get;  }
+}
+    public class Bus :  IDisposable, HasId
     {
         private static List<string> Ids = new List<string>();
         private string _id;
@@ -69,12 +86,18 @@ namespace Bus_Percorsi
         }
 
     }
-    public class Percorso : IDisposable
-    {
+    public class Percorso : IDisposable, HasId
+{
         private static List<string> elenomi = new List<string>();
         public List<Fermata> elefermateandata = new List<Fermata>();
         public List<Fermata> elefermateritorno = new List<Fermata>();
-
+        public string Id
+    {
+        get
+        {
+            return _nome;
+        }
+    }
         private string _nome;
         public string nome
         {
@@ -119,8 +142,8 @@ namespace Bus_Percorsi
             return this.nome;
         }
     }
-    public class Fermata : IDisposable
-    {
+    public class Fermata : IDisposable, HasId
+{
         private static List<string> Ids = new List<string>();
         private string _id;
         public string Id

@@ -154,9 +154,17 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "System.Drawing.Common": {
+            "ZKWeb.System.Drawing": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[4.0.1, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.8, )"
+            },
+            "ZXing.Net.Bindings.CoreCompat.System.Drawing": {
+              "target": "Package",
+              "version": "[0.16.7-beta, )"
             }
           },
           "imports": [

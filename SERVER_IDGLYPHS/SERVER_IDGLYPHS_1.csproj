@@ -10,34 +10,9 @@
     <PackageReference Include="Fleck" Version="1.2.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="AForge">
-      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Controls">
-      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Imaging">
-      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Imaging.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Math">
-      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Math.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video">
-      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Video.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Vision">
-      <HintPath>..\AForgeFunctions\bin\x86\Debug\AForge.Vision.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Vision.GlyphRecognition">
-      <HintPath>..\..\..\..\Desktop\AForge.Vision.GlyphRecognition.dll</HintPath>
-    </Reference>
-    <Reference Include="AForgeFunctions">
-      <HintPath>..\AForgeFunctions\bin\Debug\AForgeFunctions.dll</HintPath>
-    </Reference>
+    <PackageReference Include="ZKWeb.System.Drawing" Version="4.0.1" />
+    <PackageReference Include="ZXing.Net" Version="0.16.8" />
+    <PackageReference Include="ZXing.Net.Bindings.CoreCompat.System.Drawing" Version="0.16.7-beta" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,16 @@
-﻿using AForgeFunctions;
+﻿
 using Fleck;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using Bus_Percorsi;
+using ZXing;
+using ZXing.Common;
+using ZXing.CoreCompat.System.Drawing;
+using System.Drawing;
+
 namespace SERVER_IDGLYPHS
 {
 
@@ -16,6 +20,25 @@ namespace SERVER_IDGLYPHS
         static Dictionary<string, string> CODGlyphs = new Dictionary<string, string>();
         static List<Percorso> Percorsi = new List<Percorso>();
         static List<Fermata> Fermate = new List<Fermata>();
+        private static string FindQrCodeInImage(Bitmap bmp)
+        {
+            //decode the bitmap and try to find a qr code
+            var source = new BitmapLuminanceSource(bmp);
+            var bitmap = new BinaryBitmap(new HybridBinarizer(source));
+            var result = new MultiFormatReader().decode(bitmap);
+
+
+            //no qr code found in bitmap
+            if (result == null)
+            {
+
+
+                throw new Exception("Glifo non trovato");
+            }
+
+            //return the found qr code text
+            return result.Text;
+        }
         static void Main(string[] args)
         {
 
@@ -29,6 +52,12 @@ namespace SERVER_IDGLYPHS
             if (!CaricaPercorsi(ref Percorsi, "Percorsi.json"))
             {
                 Console.WriteLine("ERRORE: Percorsi non caricati");
+                Console.ReadKey();
+                return;
+            }
+            if (!CaricaFermate(ref Fermate, "Fermate.json"))
+            {
+                Console.WriteLine("ERRORE: Fermate non caricate");
                 Console.ReadKey();
                 return;
             }
@@ -50,16 +79,11 @@ namespace SERVER_IDGLYPHS
                     try
                     {
                         var request = JsonConvert.DeserializeObject<Mex.ServerIMG.Request>(Json);
-                        Bitmap bmp = default;
+                        System.Drawing.Bitmap bmp = default;
                         bmp = (Bitmap)Image.FromStream(new MemoryStream(Convert.FromBase64String(request.img)));
-                        if (!Funzioni.FindG(bmp))
-                        {
-                            throw new Exception("Glifo non trovato");
-                        }
-                        else
-                        {
-                            connection.Send(getmessage(Funzioni.FindGlyphName(bmp).ToString(), Percorsi, CODGlyphs));
-                        }
+                        var result=FindQrCodeInImage(bmp);
+                        connection.Send(getmessage(result, Percorsi, CODGlyphs));
+                        
                     }
                     catch (Exception ex)
                     {
@@ -122,6 +146,25 @@ namespace SERVER_IDGLYPHS
             }
             return true;
         }
+        public static bool CaricaFermate(ref List<Fermata> Fermate, string path)
+        {
+            if (!File.Exists(path))
+            {
+                return false;
+            }
+            StreamReader file = new StreamReader(path);
+            string jsonString = file.ReadToEnd();
+            file.Close();
+            try
+            {
+                Fermate = JsonConvert.DeserializeObject<List<Fermata>>(jsonString);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
         public static string getmessage(string cod, List<Percorso> percorsi, Dictionary<string, string> codiceglifi)
         {
             string codicefermata = "";
@@ -130,16 +173,15 @@ namespace SERVER_IDGLYPHS
                 throw new Exception("Fermata inesistente");
             }
 
-            string message;
             Mex.ServerIMG.Response NRmessage = new Mex.ServerIMG.Response();
             NRmessage.fermata = Fermate.Where(x => x.Id == codicefermata).First();
             NRmessage.ArriviProb = new List<Fermata>();
 
-            foreach (var percorso in percorsi.Where(x=>x.elefermateritorno.Contains(NRmessage.fermata)|| x.elefermateandata.Contains(NRmessage.fermata)))
+            foreach (var percorso in percorsi.Where(x=>x.elefermateritorno.Contains(NRmessage.fermata, new SameId()) || x.elefermateandata.Contains(NRmessage.fermata, new SameId())))
             {
 
-                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata) && percorso.elefermateandata.IndexOf(x)> percorso.elefermateandata.IndexOf(NRmessage.fermata)));
-                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata) && percorso.elefermateritorno.IndexOf(x) > percorso.elefermateritorno.IndexOf(NRmessage.fermata)));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => NRmessage.ArriviProb.Contains(NRmessage.fermata, new SameId()) && percorso.elefermateandata.IndexOf(x)> percorso.elefermateandata.FindIndex(x=>x.Id==NRmessage.fermata.Id)));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata, new SameId()) && percorso.elefermateritorno.IndexOf(x) > percorso.elefermateritorno.FindIndex(x => x.Id == NRmessage.fermata.Id)));
 
 
             }

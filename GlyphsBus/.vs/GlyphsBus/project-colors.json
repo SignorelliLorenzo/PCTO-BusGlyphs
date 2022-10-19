@@ -50,7 +50,17 @@
       "ProjectGuid": "4223ad0c-a5ae-4d42-ac3e-6fef17ef931b",
       "DisplayName": "Server3Testing",
       "ColorIndex": 8
+    },
+    "d4794117-eaa8-4ddc-b1ea-6e8443bb6b4b": {
+      "ProjectGuid": "d4794117-eaa8-4ddc-b1ea-6e8443bb6b4b",
+      "DisplayName": "Librerie",
+      "ColorIndex": 9
+    },
+    "7b067417-bf23-4356-aa99-43e6ec990275": {
+      "ProjectGuid": "7b067417-bf23-4356-aa99-43e6ec990275",
+      "DisplayName": "QrCodeReader",
+      "ColorIndex": 10
     }
   },
-  "NextColorIndex": 9
+  "NextColorIndex": 11
 }
