@@ -15,3 +15,4 @@ C:\Users\LORY\Source\Repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\net6.0\SERVER_BUS
 C:\Users\LORY\Source\Repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\net6.0\ref\SERVER_BUS_3.dll
 C:\Users\LORY\Source\Repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\net6.0\SERVER_BUS_3.pdb
 C:\Users\LORY\Source\Repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\net6.0\SERVER_BUS_3.genruntimeconfig.cache
+C:\Users\LORY\source\repos\PCTO-BusGlyphs\SERVER_BUS\obj\Debug\net6.0\SERVER_BUS_3.csproj.AssemblyReference.cache

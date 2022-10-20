@@ -83,21 +83,23 @@ namespace SERVER_PERCORSO
         }
         public static ServerBuses.Response getmessage(Fermata Arr,Fermata Part)
         {
+        
+         
             
-            
-            var PercorsiAndataPossibili = Percorsi.Where(x=>x.elefermateandata.Contains(Part) && x.elefermateandata.GetRange(x.elefermateandata.IndexOf(Part),x.elefermateandata.Count()- x.elefermateandata.IndexOf(Part)).Contains(Arr));
-            var PercorsiRitornoPossibili= Percorsi.Where(x => x.elefermateritorno.Contains(Part) && x.elefermateritorno.GetRange(x.elefermateritorno.IndexOf(Part), x.elefermateritorno.Count()  - x.elefermateritorno.IndexOf(Part)).Contains(Arr));
-            if (PercorsiAndataPossibili.Count() == 0 && PercorsiRitornoPossibili.Count()==0)
+            var PercorsiAndataPossibili = Percorsi.Where(x => (x.elefermateandata.Contains(Part, new SameId()) && x.elefermateandata.Contains(Arr, new SameId())) && x.elefermateandata.FindIndex(x => x.Id == Part.Id) < x.elefermateandata.FindIndex(x => x.Id == Arr.Id)).ToList();
+            var PercorsiRitornoPossibili= Percorsi.Where(x => (x.elefermateritorno.Contains(Part, new SameId()) && x.elefermateritorno.Contains(Arr, new SameId())) && x.elefermateritorno.FindIndex(x => x.Id == Part.Id) < x.elefermateritorno.FindIndex(x => x.Id == Arr.Id)).ToList();
+            if(PercorsiRitornoPossibili.Count()==0 && PercorsiAndataPossibili.Count()==0)
             {
                 throw new Exception("Non sono stati trovati percorsi conformi");
             }
             List<Bus> BusGiusti = new List<Bus>();
-            BusGiusti = Bus.Where(x => PercorsiAndataPossibili.Contains(x.percorso) || PercorsiRitornoPossibili.Contains(x.percorso)).ToList();
+            BusGiusti = Bus.Where(x => PercorsiAndataPossibili.Contains(x.percorso, new SameId()) ).ToList().Select(x=>{ x.Andata = true;return x; }).ToList();
+            BusGiusti.AddRange(Bus.Where(x => PercorsiRitornoPossibili.Contains(x.percorso, new SameId())).ToList().Select(x => { x.Andata = false; return x; }).ToList());
             //non si tiene conto di andata e ritorno perchè non si sa il pullman dove sia
             //si da per scontato inoltre che un pullman faccia sempre lo stesso percorso normalmente (in caso si va a cambare il suo percorso)
 
-
-            return new ServerBuses.Response { buses=BusGiusti,Status=true};
+            
+            return new ServerBuses.Response { buses=BusGiusti,Status=true, Attuale=Part};
         }
         public static bool CaricaBus(ref List<Bus> bus, string path)
         {

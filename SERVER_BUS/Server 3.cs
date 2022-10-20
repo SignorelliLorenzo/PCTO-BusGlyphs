@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Bus_Percorsi;
+using Mex;
 namespace SERVER_BUS
 {
     public class ServerBus
@@ -22,8 +23,10 @@ namespace SERVER_BUS
                 return;
             }
             var websocketServer = new WebSocketServer(indirizzo);
-            //coordinatepullman["A1"] = new BusState("A1", new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6, 0 }, new List<int> { 0, 6, 2, 3 }), new Coordinate(45.6964538, 9.6686629), 3, true);
-            //coordinatepullman["B1"] = new BusState("B1", new Percorso("Milano-Brescia", new List<int> { 3, 7, 5, 2 }, new List<int> { 2, 5, 7, 3 }), new Coordinate(45.696926, 9.6690978), 2, false);
+            var bus = Bus.Find(x => x.Id == "1000");
+            coordinatepullman["1000"] = new BusState(bus.Id, bus.percorso, new Coordinate(45.6964538, 9.6686629), bus.percorso.elefermateandata[0], true);
+            bus = Bus.Find(x => x.Id == "1001");
+            coordinatepullman["1001"] = new BusState(bus.Id, bus.percorso, new Coordinate(45.69334538, 9.6677629), bus.percorso.elefermateandata[5], true);
             //coordinatepullman["C1"] = new BusState("C1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.6975549, 9.6667936), 6, false);
             //coordinatepullman["D1"] = new BusState("D1", new Percorso("Como-Bergamo", new List<int> { 7, 6, 5, 3 }, new List<int> { 3, 5, 6, 7 }), new Coordinate(45.7008704, 9.6655066), 7, true);
             //coordinatepullman["E1"] = new BusState("E1", new Percorso("Telgate-Bergamo", new List<int> { 2, 5, 6, 0 }, new List<int> { 0, 6, 5, 2 }), new Coordinate(45.7032898, 9.6775359), 0, true);
@@ -49,10 +52,10 @@ namespace SERVER_BUS
 
                         if (!OnGpsMessage(coordinatepullman, message, Bus))
                         {
-                            var codicebus = OnStandardMessage(message, coordinatepullman);
+                            var Response = OnStandardMessage(message, coordinatepullman);
                             //var bus = coordinatepullman.Where(p => p.Value.BusName == risposta).First().Value;
                             //var json = JsonConvert.SerializeObject(bus);
-                            connection.Send(codicebus);
+                            connection.Send(JsonConvert.SerializeObject(Response));
                         }
                         else
                         {
@@ -61,7 +64,7 @@ namespace SERVER_BUS
                     }
                     catch (Exception ex)
                     {
-                        connection.Send("!%-ERRORE: " + ex.Message);
+                        connection.Send(JsonConvert.SerializeObject(new ServerNearBus.Response { Status = false, Error = new List<string> { ex.Message } }));
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
 
@@ -112,19 +115,20 @@ namespace SERVER_BUS
             }
             return false;
         }
-        public static string OnStandardMessage(string message, IDictionary<string, BusState> pullmancoordinate)
+        public static ServerNearBus.Response OnStandardMessage(string message, IDictionary<string, BusState> pullmancoordinate)
         {
-            var infos = message.Split("%");
+           
             Fermata fermataattuale = null;
             List<Bus> elebus = default;
             try
             {
-                fermataattuale =BusState.ArchivioCoordinate_Fermate.Find(x=>x.Id==infos[0]);
-                elebus = JsonConvert.DeserializeObject<List<Bus>>(infos[1]);
+                var Request = JsonConvert.DeserializeObject<ServerNearBus.Request>(message);
+                fermataattuale =BusState.ArchivioCoordinate_Fermate.Find(x=>x.Id==Request.Attuale.Id);
+                elebus = Request.buses.Where(x=> pullmancoordinate.Keys.Contains(x.Id)).ToList();
             }
             catch
             {
-                return "Invalid message format";
+                throw new Exception("Invalid message format");
             }
             int x = 0;
 
@@ -134,10 +138,10 @@ namespace SERVER_BUS
             int distanza = -1;
             int res=0;
             Bus result = null;
-            foreach (Bus bus in elebus)
+            foreach (Bus bus in elebus.Where(x=>x.Andata== pullmancoordinate[x.Id].andata))
             {
                 res=BusDistance(fermataattuale, pullmancoordinate[bus.Id]);
-                if(res!=-1&&res<distanza)
+                if((distanza==-1||res<distanza)&&(res != -1))
                 {
                     distanza = res;
                     result = bus;
@@ -198,10 +202,10 @@ namespace SERVER_BUS
 
             if (result == null)
             {
-                return "Nessun pullman disponibile in tempi brevi";
+                throw new Exception( "Nessun pullman disponibile in tempi brevi");
             }
 
-            return result.Id;
+            return new ServerNearBus.Response { bus=result,Status=true};
         }
         public static int BusDistance(Fermata fermata, BusState State)
         {
@@ -209,10 +213,10 @@ namespace SERVER_BUS
             int x = 0;
             if(State.andata)
             {
-                elefermate = State.BusPath.elefermateandata.GetRange(State.BusPath.elefermateandata.IndexOf(State.NextStop), State.BusPath.elefermateandata.Count()- State.BusPath.elefermateandata.IndexOf(State.NextStop)).ToArray();
+                elefermate = State.BusPath.elefermateandata.Where(x=>State.BusPath.elefermateandata.FindIndex(z=>z.Id==State.NextStop.Id)<=State.BusPath.elefermateandata.FindIndex(z => z.Id == x.Id)).ToArray();
                 while(x<elefermate.Count())
                 {
-                    if(elefermate[x]==fermata)
+                    if(elefermate[x].Id==fermata.Id)
                     {
                         return x;
                     }
@@ -221,7 +225,7 @@ namespace SERVER_BUS
             }
             else
             {
-                elefermate = State.BusPath.elefermateritorno.GetRange(State.BusPath.elefermateritorno.IndexOf(State.NextStop), State.BusPath.elefermateandata.Count() - State.BusPath.elefermateandata.IndexOf(State.NextStop)).ToArray();
+                elefermate = State.BusPath.elefermateritorno.Where(x => State.BusPath.elefermateritorno.FindIndex(z => z.Id == State.NextStop.Id) <= State.BusPath.elefermateritorno.FindIndex(z => z.Id == x.Id)).ToArray();
                 while (x < elefermate.Count())
                 {
                     if (elefermate[x] == fermata)

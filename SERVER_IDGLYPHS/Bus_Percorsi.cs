@@ -11,7 +11,7 @@ namespace Bus_Percorsi
     {
         public override bool Equals(HasId x, HasId y)
         {
-            return x.Id== y.Id;
+            return x.Id == y.Id;
         }
 
         public override int GetHashCode([DisallowNull] HasId obj)
@@ -20,10 +20,10 @@ namespace Bus_Percorsi
         }
     }
     public interface HasId
-{
-    public string Id { get;  }
-}
-    public class Bus :  IDisposable, HasId
+    {
+        public string Id { get; }
+    }
+    public class Bus : IDisposable, HasId
     {
         private static List<string> Ids = new List<string>();
         private string _id;
@@ -49,7 +49,7 @@ namespace Bus_Percorsi
             }
         }
         public bool Andata { get; set; }
-        public Bus(string Id, Percorso percorso,string nome)
+        public Bus(string Id, Percorso percorso, string nome)
         {
             if (Ids.Contains(Id) || String.IsNullOrEmpty(Id))
             {
@@ -87,17 +87,17 @@ namespace Bus_Percorsi
 
     }
     public class Percorso : IDisposable, HasId
-{
+    {
         private static List<string> elenomi = new List<string>();
         public List<Fermata> elefermateandata = new List<Fermata>();
         public List<Fermata> elefermateritorno = new List<Fermata>();
         public string Id
-    {
-        get
         {
-            return _nome;
+            get
+            {
+                return _nome;
+            }
         }
-    }
         private string _nome;
         public string nome
         {
@@ -143,7 +143,7 @@ namespace Bus_Percorsi
         }
     }
     public class Fermata : IDisposable, HasId
-{
+    {
         private static List<string> Ids = new List<string>();
         private string _id;
         public string Id

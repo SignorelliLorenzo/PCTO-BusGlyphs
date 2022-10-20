@@ -34,6 +34,7 @@ namespace Mex
         }
         public class Response : Base
         {
+            public Fermata Attuale;
             public List<Bus> buses;
         }
     }
@@ -41,6 +42,7 @@ namespace Mex
     {
         public class Request
         {
+            public Fermata Attuale;
             public List<Bus> buses;
         }
         public class Response : Base

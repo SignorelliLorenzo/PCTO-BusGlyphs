@@ -74,6 +74,25 @@ namespace SERVER_IDGLYPHS
                 {
                     Console.WriteLine("CLIENT DISCONNESSO");
                 };
+                connection.OnBinary = bytes => //si fa presente che si può anche inviare in bytes
+                {
+                    try
+                    {
+                        
+                        System.Drawing.Bitmap bmp = default;
+                        bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
+                        var result = FindQrCodeInImage(bmp);
+                        connection.Send(getmessage(result, Percorsi, CODGlyphs));
+
+                    }
+                    catch (Exception ex)
+                    {
+                        connection.Send(JsonConvert.SerializeObject(new Mex.ServerIMG.Response { Error = new List<string> { ex.Message }, Status = false })); ;
+                        Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
+                    }
+
+
+                };
                 connection.OnMessage = Json => //si fa presente che si può anche inviare in bytes
                 {
                     try
@@ -180,8 +199,8 @@ namespace SERVER_IDGLYPHS
             foreach (var percorso in percorsi.Where(x=>x.elefermateritorno.Contains(NRmessage.fermata, new SameId()) || x.elefermateandata.Contains(NRmessage.fermata, new SameId())))
             {
 
-                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => NRmessage.ArriviProb.Contains(NRmessage.fermata, new SameId()) && percorso.elefermateandata.IndexOf(x)> percorso.elefermateandata.FindIndex(x=>x.Id==NRmessage.fermata.Id)));
-                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(NRmessage.fermata, new SameId()) && percorso.elefermateritorno.IndexOf(x) > percorso.elefermateritorno.FindIndex(x => x.Id == NRmessage.fermata.Id)));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => !NRmessage.ArriviProb.Contains(x, new SameId()) && percorso.elefermateandata.IndexOf(x)> percorso.elefermateandata.FindIndex(x=>x.Id==NRmessage.fermata.Id)));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(x, new SameId()) && percorso.elefermateritorno.IndexOf(x) > percorso.elefermateritorno.FindIndex(x => x.Id == NRmessage.fermata.Id)));
 
 
             }
