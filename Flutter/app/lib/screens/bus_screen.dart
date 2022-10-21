@@ -1,3 +1,4 @@
+import 'package:app/apis/connection.dart';
 import 'package:app/screens/camera_screen.dart';
 import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/info_screen.dart';
@@ -13,6 +14,8 @@ class BusScreen extends StatefulWidget {
 }
 
 class _BusScreenState extends State<BusScreen> {
+  String? startvar;
+  final _dropdownFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,22 +29,37 @@ class _BusScreenState extends State<BusScreen> {
         ),
         leading: const Icon(Icons.bus_alert_sharp),
       ),
-      body: ClipRect(
-          child: OverflowBox(
-        alignment: Alignment.center,
-        child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Container(
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    border: Border.all(color: Colors.black, width: 5.0)),
-                width: 450,
-                height: 400,
-                child: Container(
-                  color: Colors.red,
-                ))),
-      )),
+      body: Form(
+          key: _dropdownFormKey,
+          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 2),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 2),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey,
+                  ),
+                  validator: (value) =>
+                      value == null ? "Select a country" : null,
+                  dropdownColor: Colors.grey,
+                  value: startvar,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      startvar = newValue!;
+                    });
+                    //send
+                  },
+                  items: null, //getStops
+                ))
+          ])),
       floatingActionButton: FloatingActionButton(
         //Floating action button on Scaffold
         onPressed: () {
@@ -73,6 +91,7 @@ class _BusScreenState extends State<BusScreen> {
               icon: const Icon(
                 Icons.home,
                 size: 30,
+                color: Colors.white,
               ),
               onPressed: () {
                 Navigator.push(

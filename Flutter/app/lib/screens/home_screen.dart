@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:app/screens/bus_screen.dart';
 import 'package:app/screens/camera_screen.dart';
 import 'package:app/screens/info_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'package:image/image.dart' as I;
 import 'map_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,9 +25,9 @@ class HomeScreen extends StatelessWidget {
         leading: const Icon(Icons.bus_alert_sharp),
       ),
       body: Container(
-          alignment: Alignment.topRight,
-          child: Image.asset("assets/images/image.jpg")),
-
+        alignment: Alignment.topRight,
+        //child: Image.asset("assets/images/image.jpg")),
+      ),
       floatingActionButton: FloatingActionButton(
         //Floating action button on Scaffold
         onPressed: () {
@@ -90,8 +93,10 @@ class HomeScreen extends StatelessWidget {
                 size: 30,
               ),
               onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const InfoScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InfoScreen()));
               },
             ),
           ],

@@ -11,6 +11,10 @@ class MapScreen extends StatefulWidget {
   State<MapScreen> createState() => _MapScreenState();
 }
 
+void reloadImg() {
+  //Update img on new img
+}
+
 class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
