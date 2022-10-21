@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using WebSocket4Net;
 
@@ -10,7 +11,7 @@ namespace ClientLibrary
         private WebSocket Client;
         private bool _response;
         /// <summary>
-        /// Notify when the resonse has arrived
+        /// Notify when the response has arrived
         /// </summary>
         public bool response { get {return _response; } }
         private int _timeout;
@@ -122,6 +123,27 @@ namespace ClientLibrary
 
     public class Client_Percorso_2 : IDisposable
     {
+        public class mex
+        {
+            public int codfermata { get; set; }
+            public List<Percorso> Percorsi = new List<Percorso>();
+           
+        }
+        public class mexdestinazione : mex
+        {
+            public int Destinazione { get; set; }
+            public mexdestinazione(int destinazione, mex messaggio)
+            {
+               // base.Percorsi = messaggio.Percorsi.ToList();
+                base.codfermata = messaggio.codfermata;
+                this.Destinazione = destinazione;
+            }
+            public mexdestinazione()
+            { }
+
+
+        }
+
         private WebSocket Client;
         private bool _response;
         /// <summary>

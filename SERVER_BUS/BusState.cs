@@ -1,4 +1,4 @@
-﻿using Creatore_archivio_pcto;
+﻿using Bus_Percorsi;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,11 +19,11 @@ namespace SERVER_BUS
         }
         static private List<string> BusNames = new List<string>();
         private bool firsttime = true;
-        private int _LastStop;
-        public int LastStop { get { return _LastStop; } }
-        private int _NextStop;
-        public int NextStop { get { return _NextStop; } }
-        private static Dictionary<int, Coordinate> ArchivioCoordinate_Fermate = new Dictionary<int, Coordinate>();
+        private Fermata _LastStop;
+        public Fermata LastStop { get { return _LastStop; } }
+        private Fermata _NextStop;
+        public Fermata NextStop { get { return _NextStop; } }
+        public static List<Fermata> ArchivioCoordinate_Fermate = new List<Fermata>();
 
         public Percorso BusPath { get; }
         public string BusName { get; }
@@ -40,7 +40,7 @@ namespace SERVER_BUS
                 }
                 else
                 {
-                    Inizialize("ArchivioCoordinate.Json");
+                    Inizialize("Fermate.json");
                     firsttime = false;
                 }
             }
@@ -68,12 +68,12 @@ namespace SERVER_BUS
             //newfile.WriteLine(JsonConvert.SerializeObject(newdictionary,Formatting.Indented));
             //newfile.Close();
             var miofile = new StreamReader(path);
-            ArchivioCoordinate_Fermate = JsonConvert.DeserializeObject<Dictionary<int, Coordinate>>(miofile.ReadToEnd());
+            ArchivioCoordinate_Fermate = JsonConvert.DeserializeObject<List<Fermata>>(miofile.ReadToEnd());
             miofile.Close();
         }
         private void CoordinateChanged()
         {
-            var serchcoordinate = ArchivioCoordinate_Fermate[_NextStop];
+            var serchcoordinate = ArchivioCoordinate_Fermate.Find(x=>x==_NextStop).Coordinates;
             if (serchcoordinate.x < (_currentposition.x + range) && serchcoordinate.x > (_currentposition.x - range) && serchcoordinate.y < (_currentposition.y + range) && serchcoordinate.y > (_currentposition.y - range))
             {
 
@@ -115,7 +115,7 @@ namespace SERVER_BUS
             }
         }
 
-        public BusState(string busname, Percorso buspath, Coordinate StartPosition, int laststop = -1, bool andata = true)
+        public BusState(string busname, Percorso buspath, Coordinate StartPosition, Fermata laststop = null, bool andata = true)
         {
             if (String.IsNullOrWhiteSpace(busname))
             {
@@ -131,77 +131,38 @@ namespace SERVER_BUS
             BusNames.Add(busname);
             this._andata = andata;
 
-            if (laststop == -1)
+            if (laststop == null)
             {
                 if (this.andata)
                 {
                     this._LastStop = BusPath.elefermateandata.First();
-                    bool appoggio = false;
-                    foreach (int item in BusPath.elefermateandata)
-                    {
-                        if (item == this.LastStop)
-                        {
-                            appoggio = true;
-                        }
-                        else if (appoggio)
-                        {
-                            this._NextStop = item;
-                            break;
-                        }
-                    }
+                    this._NextStop = BusPath.elefermateandata[1];
                 }
                 else
                 {
                     this._LastStop = BusPath.elefermateritorno.First();
-                    bool appoggio = false;
-                    foreach (int item in BusPath.elefermateritorno)
-                    {
-                        if (item == this.LastStop)
-                        {
-                            appoggio = true;
-                        }
-                        else if (appoggio)
-                        {
-                            this._NextStop = item;
-                            break;
-                        }
-                    }
+                    this._NextStop = BusPath.elefermateritorno[1];
                 }
             }
             else
             {
+                
                 this._LastStop = laststop;
                 if (this.andata)
                 {
-                    bool appoggio = false;
-                    foreach (int item in BusPath.elefermateandata)
+                    if (_LastStop == BusPath.elefermateandata.Last())
                     {
-                        if (item == this.LastStop)
-                        {
-                            appoggio = true;
-                        }
-                        else if (appoggio)
-                        {
-                            this._NextStop = item;
-                            break;
-                        }
+                        throw new Exception("Non ha senso tracciare il bus");
                     }
+                    this._NextStop = BusPath.elefermateandata[BusPath.elefermateandata.IndexOf(laststop)+1];
                 }
                 else
                 {
-                    bool appoggio = false;
-                    foreach (int item in BusPath.elefermateritorno)
+                    if (_LastStop == BusPath.elefermateritorno.Last())
                     {
-                        if (item == this.LastStop)
-                        {
-                            appoggio = true;
-                        }
-                        else if (appoggio)
-                        {
-                            this._NextStop = item;
-                            break;
-                        }
+                        throw new Exception("Non ha senso tracciare il bus");
                     }
+                    this._NextStop = BusPath.elefermateritorno[BusPath.elefermateritorno.IndexOf(laststop) + 1];
                 }
 
             }

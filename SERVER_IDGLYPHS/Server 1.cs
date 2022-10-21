@@ -1,45 +1,47 @@
-﻿using AForgeFunctions;
-using Creatore_archivio_pcto;
+﻿
 using Fleck;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
+using Bus_Percorsi;
+using ZXing;
+using ZXing.Common;
+using ZXing.CoreCompat.System.Drawing;
+using System.Drawing;
 
 namespace SERVER_IDGLYPHS
 {
-    public class mex
-    {
-        public int codfermata { get; set; }
-        public List<Percorso> Percorsi = new List<Percorso>();
-    }
+
     public class IDGLYPHS
     {
-        static string indirizzo = "ws://192.168.1.126:8080";
-        static Dictionary<string, int> CODGlyphs = new Dictionary<string, int>();
+        static string indirizzo = "ws://127.0.0.1:8080";
+        static Dictionary<string, string> CODGlyphs = new Dictionary<string, string>();
         static List<Percorso> Percorsi = new List<Percorso>();
+        static List<Fermata> Fermate = new List<Fermata>();
+        private static string FindQrCodeInImage(Bitmap bmp)
+        {
+            //decode the bitmap and try to find a qr code
+            var source = new BitmapLuminanceSource(bmp);
+            var bitmap = new BinaryBitmap(new HybridBinarizer(source));
+            var result = new MultiFormatReader().decode(bitmap);
+
+
+            //no qr code found in bitmap
+            if (result == null)
+            {
+
+
+                throw new Exception("Glifo non trovato");
+            }
+
+            //return the found qr code text
+            return result.Text;
+        }
         static void Main(string[] args)
         {
-            //var file = new StreamWriter("Percorsi.json");
-            //Percorsi.Add(new Percorso("Milano-Bergamo", new List<int> { 3, 2, 6 }, new List<int> { 6, 2, 3 }));
-            //Percorsi.Add(new Percorso("Milano-Brescia", new List<int> { 0, 5, 7 }, new List<int> { 7, 5, 0 }));
-            //Percorsi.Add(new Percorso("Telgate-Bergamo", new List<int> { 3, 4, 5 }, new List<int> { 5, 4, 3 }));
-            //Percorsi.Add(new Percorso("Bergamo-Brescia", new List<int> { 0, 7, 2 }, new List<int> { 2, 7, 0 }));
-            //Percorsi.Add(new Percorso("Como-Bergamo", new List<int> { 4, 0, 6 }, new List<int> { 6, 0, 4 }));
-            //Percorsi.Add(new Percorso("Como-Brescia", new List<int> { 3, 0, 6 }, new List<int> { 6, 7, 3 }));
-            //CODGlyphs.Add("das", 3);
-            //CODGlyphs.Add("vdf", 2);
-            //CODGlyphs.Add("qwe", 6);
-            //CODGlyphs.Add("fas", 4);
-            //CODGlyphs.Add("ers", 7);
-            //CODGlyphs.Add("vfd", 5);
-            //CODGlyphs.Add("pkl", 0);
-            //string jason = JsonConvert.SerializeObject(Percorsi, Formatting.Indented);
-            //file.WriteLine(jason);
-            //file.Close();
-            //return;
+
             if (!CaricaCOD_Glyphs(ref CODGlyphs, "CodGlifi.json"))
             {
                 Console.WriteLine("ERRORE: Codice glifi non caricato");
@@ -53,6 +55,12 @@ namespace SERVER_IDGLYPHS
                 Console.ReadKey();
                 return;
             }
+            if (!CaricaFermate(ref Fermate, "Fermate.json"))
+            {
+                Console.WriteLine("ERRORE: Fermate non caricate");
+                Console.ReadKey();
+                return;
+            }
             var websocketServer = new WebSocketServer(indirizzo);
             Console.WriteLine("--------------------Server ID-Glifo--------------------");
             websocketServer.Start(connection =>
@@ -60,31 +68,45 @@ namespace SERVER_IDGLYPHS
                 connection.OnOpen = () =>
                 {
                     Console.WriteLine("CLIENT CONNESSO");
-                    
+
                 };
                 connection.OnClose = () =>
                 {
                     Console.WriteLine("CLIENT DISCONNESSO");
                 };
-                connection.OnBinary = bytes =>
+                connection.OnBinary = bytes => //si fa presente che si può anche inviare in bytes
                 {
                     try
                     {
-                        Bitmap bmp = default;
+                        
+                        System.Drawing.Bitmap bmp = default;
                         bmp = (Bitmap)Image.FromStream(new MemoryStream(bytes));
-                        if(!Funzioni.FindG(bmp))
-                        {
-                            
-                            connection.Send("Glifo non trovato");
-                        }
-                        else
-                        {
-                            connection.Send(getmessage(Funzioni.FindGlyphName(bmp).ToString(), Percorsi, CODGlyphs));
-                        }
+                        var result = FindQrCodeInImage(bmp);
+                        connection.Send(getmessage(result, Percorsi, CODGlyphs));
+
                     }
                     catch (Exception ex)
                     {
-                        //connection.Send("!%-ERRORE: " + ex.Message);
+                        connection.Send(JsonConvert.SerializeObject(new Mex.ServerIMG.Response { Error = new List<string> { ex.Message }, Status = false })); ;
+                        Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
+                    }
+
+
+                };
+                connection.OnMessage = Json => //si fa presente che si può anche inviare in bytes
+                {
+                    try
+                    {
+                        var request = JsonConvert.DeserializeObject<Mex.ServerIMG.Request>(Json);
+                        System.Drawing.Bitmap bmp = default;
+                        bmp = (Bitmap)Image.FromStream(new MemoryStream(Convert.FromBase64String(request.img)));
+                        var result=FindQrCodeInImage(bmp);
+                        connection.Send(getmessage(result, Percorsi, CODGlyphs));
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        connection.Send(JsonConvert.SerializeObject(new Mex.ServerIMG.Response { Error = new List<string> { ex.Message }, Status = false })); ;
                         Console.WriteLine("\n--------Errore--------\n" + ex.Message + "\n--------Errore--------\n");
                     }
 
@@ -104,7 +126,7 @@ namespace SERVER_IDGLYPHS
             }
 
         }
-        public static bool CaricaCOD_Glyphs(ref Dictionary<string, int> listainput, string path)
+        public static bool CaricaCOD_Glyphs(ref Dictionary<string, string> listainput, string path)
         {
             if (!File.Exists(path))
             {
@@ -115,7 +137,7 @@ namespace SERVER_IDGLYPHS
             file.Close();
             try
             {
-                listainput = JsonConvert.DeserializeObject<Dictionary<string, int>>(jsonString);
+                listainput = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString);
             }
             catch
             {
@@ -143,24 +165,51 @@ namespace SERVER_IDGLYPHS
             }
             return true;
         }
-        public static string getmessage(string cod, List<Percorso> percorsi, Dictionary<string, int> codiceglifi)
+        public static bool CaricaFermate(ref List<Fermata> Fermate, string path)
         {
-            int codicefermata = -1;
+            if (!File.Exists(path))
+            {
+                return false;
+            }
+            StreamReader file = new StreamReader(path);
+            string jsonString = file.ReadToEnd();
+            file.Close();
+            try
+            {
+                Fermate = JsonConvert.DeserializeObject<List<Fermata>>(jsonString);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+        public static string getmessage(string cod, List<Percorso> percorsi, Dictionary<string, string> codiceglifi)
+        {
+            string codicefermata = "";
             if (!(codiceglifi.TryGetValue(cod, out codicefermata)))
             {
-                return "ERRORE: Fermata inesistente";
+                throw new Exception("Fermata inesistente");
             }
 
-            string message;
-            mex NRmessage = new mex();
-            NRmessage.codfermata = codicefermata;
-            NRmessage.Percorsi = percorsi.Where(x => x.elefermateandata.Contains(codicefermata) || x.elefermateritorno.Contains(codicefermata)).ToList();
-            if (NRmessage.Percorsi.Count == 0)
-                return "ERRORE: Fermata non trovata";
+            Mex.ServerIMG.Response NRmessage = new Mex.ServerIMG.Response();
+            NRmessage.fermata = Fermate.Where(x => x.Id == codicefermata).First();
+            NRmessage.ArriviProb = new List<Fermata>();
 
-            message = JsonConvert.SerializeObject(NRmessage);
+            foreach (var percorso in percorsi.Where(x=>x.elefermateritorno.Contains(NRmessage.fermata, new SameId()) || x.elefermateandata.Contains(NRmessage.fermata, new SameId())))
+            {
 
-            return message;
+                NRmessage.ArriviProb.AddRange(percorso.elefermateandata.Where(x => !NRmessage.ArriviProb.Contains(x, new SameId()) && percorso.elefermateandata.IndexOf(x)> percorso.elefermateandata.FindIndex(x=>x.Id==NRmessage.fermata.Id)));
+                NRmessage.ArriviProb.AddRange(percorso.elefermateritorno.Where(x => !NRmessage.ArriviProb.Contains(x, new SameId()) && percorso.elefermateritorno.IndexOf(x) > percorso.elefermateritorno.FindIndex(x => x.Id == NRmessage.fermata.Id)));
+
+
+            }
+            if (NRmessage.ArriviProb.Count == 0)
+                throw new Exception("Fermata non trovata");
+
+            NRmessage.Status =true ;
+
+            return JsonConvert.SerializeObject(NRmessage);
         }
     }
 }

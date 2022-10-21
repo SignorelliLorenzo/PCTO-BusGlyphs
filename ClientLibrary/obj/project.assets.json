@@ -3752,25 +3752,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\garlini.17185\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\canej\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\garlini.17185\\Source\\Repos\\PCTO-BusGlyphs\\ClientLibrary\\ClientLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\ClientLibrary\\ClientLibrary.csproj",
       "projectName": "ClientLibrary",
-      "projectPath": "C:\\Users\\garlini.17185\\Source\\Repos\\PCTO-BusGlyphs\\ClientLibrary\\ClientLibrary.csproj",
-      "packagesPath": "C:\\Users\\garlini.17185\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\garlini.17185\\Source\\Repos\\PCTO-BusGlyphs\\ClientLibrary\\obj\\",
+      "projectPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\ClientLibrary\\ClientLibrary.csproj",
+      "packagesPath": "C:\\Users\\canej\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\canej\\source\\repos\\PCTO-BusGlyphs\\ClientLibrary\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\garlini.17185\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\canej\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -3822,12 +3817,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
