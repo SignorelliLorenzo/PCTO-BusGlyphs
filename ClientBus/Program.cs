@@ -27,7 +27,7 @@ namespace ClientBus
         }
         static void Main(string[] args)
         {
-            string IdBus = "2000";
+            string IdBus = "1000";
             int _timeout = 2000;
             bool statoClientMappa = false;
             bool statoClientStato = false;

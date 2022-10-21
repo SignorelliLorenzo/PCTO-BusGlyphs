@@ -77,12 +77,12 @@ namespace SERVER_IMMAGINEMAPPA
                 string latitudine = coordinatemappa.x.ToString().Replace(",",".");
                 string longitudine = coordinatemappa.y.ToString().Replace(",", ".");
                 
-                string zoom = "15";
+                string zoom = "16";
                 string larghezza = "600";
                 string altezza = "350";
                 string chiave = "e3a22e33b51049bf804743dcb4a093fc";
                 //string url = @"http://maps.googleapis.com/maps/api/staticmap?center=" + latitudine + "," + longitudine + "&zoom=" + zoom + "&size=" + larghezza + "x" + altezza + "&maptype=roadmap&markers=color:red%7Clabel:%7C" + latitudine + "," + longitudine + "&sensor=false&key=" + chiave;
-                string url = $"https://maps.geoapify.com/v1/staticmap?style=maptiler-3d&width={larghezza}&height={altezza}&center=lonlat:{longitudine},{latitudine}&zoom={zoom}&marker=lonlat:{longitudine},{latitudine};type:material;color:%23bb3f73;size:medium;icon:bus-alt;icontype:awesome&apiKey={chiave}";
+                string url = $"https://maps.geoapify.com/v1/staticmap?style=maptiler-3d&width={larghezza}&height={altezza}&format=png&center=lonlat:{longitudine},{latitudine}&zoom={zoom}&marker=lonlat:{longitudine},{latitudine};type:material;color:%23bb3f73;size:medium;icon:bus-alt;icontype:awesome&apiKey={chiave}";
                 using (WebClient wc = new WebClient())
                 {
                     mappa = wc.DownloadData(url);
@@ -145,8 +145,8 @@ namespace SERVER_IMMAGINEMAPPA
                     {
                         z++;
                         coordinate = coordinatepullman[JsonConvert.DeserializeObject<ServerPosition.Request>(message).bus.Id];
-                        coordinate.x = coordinate.x + z * (0.0000000001);
-                        coordinate.y=coordinate.y+ z * (0.0000000001);
+                        coordinate.x = coordinate.x + z * (0.0001);
+                        coordinate.y=coordinate.y+ z * (0.0001);
                         immagine = CreaImmagine(coordinate);
                             if (immagine == default)
                             {
