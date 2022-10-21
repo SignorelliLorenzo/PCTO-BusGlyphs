@@ -60,7 +60,17 @@
       "ProjectGuid": "7b067417-bf23-4356-aa99-43e6ec990275",
       "DisplayName": "QrCodeReader",
       "ColorIndex": 10
+    },
+    "c3a74705-cd1c-42d3-84e9-3273a72729a1": {
+      "ProjectGuid": "c3a74705-cd1c-42d3-84e9-3273a72729a1",
+      "DisplayName": "Client",
+      "ColorIndex": 11
+    },
+    "6c6069dc-8ee8-4ed6-aecc-39152293fc74": {
+      "ProjectGuid": "6c6069dc-8ee8-4ed6-aecc-39152293fc74",
+      "DisplayName": "ClientBus",
+      "ColorIndex": 12
     }
   },
-  "NextColorIndex": 11
+  "NextColorIndex": 13
 }
